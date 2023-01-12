@@ -6,11 +6,13 @@ import LayoutLogin from "./Layouts/LayoutLogin";
 import Participantes from "./Views/Admin/Participantes";
 import Patrocinadores from "./Views/Admin/Patrocinadores";
 import Publicaciones from "./Views/Admin/Publicaciones";
-import SeccionesHome from "./Views/Admin/SeccionesHome";
-import Finalistas from "./Views/Home/Finalistas";
+import Finalistas from "./Views/Admin/Finalistas";
 import Inscripcion from "./Views/Home/Inscripcion";
 import PatrocinadoresHome from "./Views/Home/Patrocinadores";
 import PrincipalHome from "./Views/Home/PrincipalHome";
+import Solicitudes from "./Views/Admin/Solicitudes";
+import Comunicados from "./Views/Admin/Comunicados";
+import SedePrincipal from "./Views/Admin/SedePrincipal"
 
 export const router = createBrowserRouter([
   {
@@ -55,12 +57,24 @@ export const router = createBrowserRouter([
         element: <Publicaciones />,
       },
       {
-        path: "secciones",
-        element: <SeccionesHome />,
-      },
-      {
         path: "patrocinadores",
         element: <Patrocinadores />,
+      },
+      {
+        path: "sede",
+        element: <SedePrincipal />,
+      },
+      {
+        path: "solicitudes",
+        element: <Solicitudes />,
+      },
+      {
+        path: "comunicados",
+        element: <Comunicados />,
+      },
+      {
+        path: "finalistas",
+        element: <Finalistas />
       },
     ],
   },
