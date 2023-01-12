@@ -24,10 +24,7 @@ export const router = createBrowserRouter([
         path: "finalistas",
         element: <Finalistas />,
       },
-      {
-        path: "inscripcion",
-        element: <Inscripcion />,
-      },
+    
       {
         path: "patrocinadores",
         element: <PatrocinadoresHome />,
@@ -37,6 +34,11 @@ export const router = createBrowserRouter([
         element: <PrincipalHome />,
       },
     ],
+  },
+  {
+    path: "/inscripcion",
+    element: <Inscripcion />,
+    errorElement: <NoMatch />,
   },
   {
     path: "/login",

@@ -16,12 +16,20 @@ import {
   MarkEmailUnread,
   PostAdd,
 } from "@mui/icons-material";
-
+ 
 const NavbarAdmin = () => {
   return (
     <Box sx={{ width: "100%"}}>
       <nav aria-label="main mailbox folders">
         <List>
+        <ListItem disablePadding>
+            <ListItemButton component={Link} to="/admin/sedes">
+              <ListItemIcon>
+                <EmojiPeople />
+              </ListItemIcon>
+              <ListItemText primary="Sedes" />
+            </ListItemButton>
+          </ListItem>
           <ListItem disablePadding>
             <ListItemButton component={Link} to="/admin/participantes">
               <ListItemIcon>
