@@ -1,7 +1,7 @@
-import React from 'react'
-import Box from "@mui/material/Box"
+import React from "react";
+import Box from "@mui/material/Box";
 
-function Patrocinadores() {
+const SedesHome = () => {
   return (
     <Box
       border={1}
@@ -12,9 +12,9 @@ function Patrocinadores() {
         alignItems: "center",
       }}
     >
-      patrocinadores
+      sedes
     </Box>
-  )
-}
+  );
+};
 
-export default Patrocinadores
+export default SedesHome;

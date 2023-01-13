@@ -2,7 +2,7 @@ import React from 'react'
 
 const SedePrincipal = () => {
   return (
-    <div>SedePrincipal</div>
+    <div>sede principal y Sedes</div>
   )
 }
 

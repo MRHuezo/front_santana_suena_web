@@ -8,6 +8,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import {
   Campaign,
+  DomainAdd,
   EmojiEvents,
   EmojiPeople,
   Handshake,
@@ -25,7 +26,7 @@ const NavbarAdmin = () => {
         <ListItem disablePadding>
             <ListItemButton component={Link} to="/admin/sedes">
               <ListItemIcon>
-                <EmojiPeople />
+                <DomainAdd />
               </ListItemIcon>
               <ListItemText primary="Sedes" />
             </ListItemButton>

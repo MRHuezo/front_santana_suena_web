@@ -1,30 +1,49 @@
-import React,{Fragment, useState} from 'react'
-import {TextField, Box, Container, Grid, Typography, Paper, Checkbox, FormControl, InputLabel, Select, MenuItem} from "@mui/material";
+import React, { Fragment, useState } from "react";
+import {
+  TextField,
+  Box,
+  Container,
+  Grid,
+  Typography,
+  Paper,
+  Checkbox,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+} from "@mui/material";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
+import NavbarHome from "../../../Components/Navbar/NavbarHome";
+
 function Inscripcion() {
-  const [sede, setSede] = useState('');
+  const [sede, setSede] = useState("");
   const handleChange = (event) => {
     setSede(event.target.value);
   };
   return (
     <Fragment>
-      <Container 
+      <NavbarHome />
+      <Container
         maxWidth="md"
         sx={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "100vh",
+          height: "90vh",
         }}
-      >  
-        <Paper sx={{ display: "block", p:4, width:"80vh",height: "70vh", }}>
+      >
+        <Paper sx={{ display: "block", p: 4, width: "80vh", height: "70vh" }}>
           <Typography variant="h4" gutterBottom>
             Registrarse
           </Typography>
-          <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+          <Grid
+            container
+            rowSpacing={1}
+            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+          >
             <Grid item xs={6}>
-              <FormControl variant="standard" sx={{  minWidth: "100%" }}>
+              <FormControl variant="standard" sx={{ minWidth: "100%" }}>
                 <InputLabel id="sede-label">Sede</InputLabel>
                 <Select
                   labelId="sede-label"
@@ -49,9 +68,9 @@ function Inscripcion() {
                 label="Nombre"
                 variant="outlined"
                 placeholder="Nombre del participante"
-                onChange={console.log('')}
-                value={'Juan Castañeda'}
-                margin='normal'
+                onChange={console.log("")}
+                value={"Juan Castañeda"}
+                margin="normal"
               />
             </Grid>
             <Grid item xs={6}>
@@ -61,9 +80,9 @@ function Inscripcion() {
                 label="Dirección"
                 variant="outlined"
                 placeholder="Dirección"
-                onChange={console.log('')}
-                value={'Dirección'}
-                margin='normal'
+                onChange={console.log("")}
+                value={"Dirección"}
+                margin="normal"
               />
             </Grid>
             <Grid item xs={6}>
@@ -73,9 +92,9 @@ function Inscripcion() {
                 label="Correo eléctronico"
                 variant="outlined"
                 placeholder="Correo eléctronico"
-                onChange={console.log('')}
-                value={'juan@eléctronico.com'}
-                margin='normal'
+                onChange={console.log("")}
+                value={"juan@eléctronico.com"}
+                margin="normal"
               />
             </Grid>
             <Grid item xs={6}>
@@ -85,9 +104,9 @@ function Inscripcion() {
                 label="Comprobante de pago"
                 variant="outlined"
                 placeholder="Comprobante de pago"
-                onChange={console.log('')}
-                value={''}
-                margin='normal'
+                onChange={console.log("")}
+                value={""}
+                margin="normal"
               />
             </Grid>
             <Grid item xs={6}>
@@ -97,9 +116,9 @@ function Inscripcion() {
                 label="Identificación"
                 variant="outlined"
                 placeholder="Identificación"
-                onChange={console.log('')}
-                value={''}
-                margin='normal'
+                onChange={console.log("")}
+                value={""}
+                margin="normal"
               />
             </Grid>
             <Grid item xs={6}>
@@ -109,9 +128,9 @@ function Inscripcion() {
                 label="Teléfono"
                 variant="outlined"
                 placeholder="Teléfono"
-                onChange={console.log('')}
-                value={''}
-                margin='normal'
+                onChange={console.log("")}
+                value={""}
+                margin="normal"
               />
             </Grid>
             <Grid item xs={6}>
@@ -121,42 +140,38 @@ function Inscripcion() {
                 label="Url video"
                 variant="outlined"
                 placeholder="Url video"
-                onChange={console.log('')}
-                value={''}
-                margin='normal'
+                onChange={console.log("")}
+                value={""}
+                margin="normal"
               />
             </Grid>
           </Grid>
-          <Box display='center' justifyContent="center" sx={{mt:1}}>
+          <Box display="center" justifyContent="center" sx={{ mt: 1 }}>
             <Checkbox
               checked={true}
-              onChange={console.log('true')}
-              inputProps={{ 'aria-label': 'controlled' }}
+              onChange={console.log("true")}
+              inputProps={{ "aria-label": "controlled" }}
             />
-            <Typography sx={{mt:1}} >
+            <Typography sx={{ mt: 1 }}>
               Aceptar términos y condiciones
             </Typography>
           </Box>
-          <Box display="flex" justifyContent="flex-end" sx={{mt:4}}>
+          <Box display="flex" justifyContent="flex-end" sx={{ mt: 4 }}>
             <Button component={Link} to="/">
               Cancelar
             </Button>
-            <Button onClick={() => console.log('chuki')} color="secondary" variant="contained">
+            <Button
+              onClick={() => console.log("chuki")}
+              color="secondary"
+              variant="contained"
+            >
               Guardar
             </Button>
           </Box>
         </Paper>
-       
-        
-         
-         
-     
-       
-      
       </Container>
-      
     </Fragment>
-  )
+  );
 }
 
-export default Inscripcion
+export default Inscripcion;

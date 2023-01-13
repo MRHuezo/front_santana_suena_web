@@ -8,8 +8,6 @@ import Patrocinadores from "./Views/Admin/Patrocinadores";
 import Publicaciones from "./Views/Admin/Publicaciones";
 import Finalistas from "./Views/Admin/Finalistas";
 import Inscripcion from "./Views/Home/Inscripcion";
-import PatrocinadoresHome from "./Views/Home/Patrocinadores";
-import PrincipalHome from "./Views/Home/PrincipalHome";
 import Solicitudes from "./Views/Admin/Solicitudes";
 import Comunicados from "./Views/Admin/Comunicados";
 import SedePrincipal from "./Views/Admin/SedePrincipal"
@@ -19,21 +17,6 @@ export const router = createBrowserRouter([
     path: "/",
     element: <HomeLayout />,
     errorElement: <NoMatch />,
-    children: [
-      {
-        path: "finalistas",
-        element: <Finalistas />,
-      },
-    
-      {
-        path: "patrocinadores",
-        element: <PatrocinadoresHome />,
-      },
-      {
-        path: "principal",
-        element: <PrincipalHome />,
-      },
-    ],
   },
   {
     path: "/inscripcion",
@@ -63,7 +46,7 @@ export const router = createBrowserRouter([
         element: <Patrocinadores />,
       },
       {
-        path: "sede",
+        path: "sedes",
         element: <SedePrincipal />,
       },
       {
