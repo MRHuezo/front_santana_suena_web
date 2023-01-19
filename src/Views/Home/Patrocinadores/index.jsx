@@ -43,7 +43,7 @@ const sponsors = [
 
 const PatrocinadoresHome = () => {
   return (
-    <Container maxWidth="md" sx={{height: "60vh", mt: 5 }}>
+    <Container maxWidth="md" sx={{height: "60vh", pt: 5 }} id="patrocinadores">
       <Box>
         <Box>
         <Parallax

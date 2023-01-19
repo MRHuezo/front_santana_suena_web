@@ -40,7 +40,7 @@ const images = [
 
 export default function PrincipalHome() {
   return (
-    <Box sx={{ height: "80vh" }}>
+    <Box sx={{ height: "80vh" }} id="home">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

@@ -11,6 +11,7 @@ import Inscripcion from "./Views/Home/Inscripcion";
 import Solicitudes from "./Views/Admin/Solicitudes";
 import Comunicados from "./Views/Admin/Comunicados";
 import SedePrincipal from "./Views/Admin/SedePrincipal"
+import Terminos from "./Views/Home/PrincipalHome/Terminos";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,11 @@ export const router = createBrowserRouter([
   {
     path: "/login",
     element: <LayoutLogin />,
+    errorElement: <NoMatch />,
+  },
+  {
+    path: "/terminos",
+    element: <Terminos />,
     errorElement: <NoMatch />,
   },
   {

@@ -31,7 +31,7 @@ const SedesHome = () => {
     },
   ];
   return (
-    <Box sx={{ py: 5 }}>
+    <Box sx={{ py: 5 }} id="sedes">
       <Container maxWidth="lg">
         <Parallax
           animation={{ x: 0, opacity: 1, playScale: [0.1, 0.5] }}

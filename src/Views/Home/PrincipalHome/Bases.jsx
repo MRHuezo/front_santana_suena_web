@@ -21,7 +21,7 @@ import React from "react";
 
 const Bases = () => {
   return (
-    <Container maxWidth="lg" sx={{my: 5}}>
+    <Container maxWidth="lg" sx={{py: 5}} id="como_participar">
       <Parallax
         animation={{ x: 0, opacity: 1, playScale: [0.1, 0.5] }}
         style={{ transform: "translateX(-100px)", opacity: 0 }}
