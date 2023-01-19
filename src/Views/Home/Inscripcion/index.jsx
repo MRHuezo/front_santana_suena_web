@@ -12,6 +12,7 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
+
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { Parallax } from "rc-scroll-anim";
@@ -87,6 +88,7 @@ function InscripcionesHome() {
 
 const Formulario = () => {
   const [sede, setSede] = useState("");
+  const [sexo, setSexo] = useState("");
   const handleChange = (event) => {
     setSede(event.target.value);
   };
@@ -101,12 +103,12 @@ const Formulario = () => {
         height: "90vh",
       }}
     >
-      <Paper sx={{ display: "block", p: 4, width: "80vh", height: "70vh" }}>
-        <Typography variant="h4" gutterBottom>
+      <Paper sx={{ display: "block", p: 4, width: "100%" }}>
+        <Typography variant="h5" gutterBottom>
           Registrarse
         </Typography>
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-          <Grid item xs={6}>
+        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 2 }}>
+          <Grid item xs={12} md={6}>
             <FormControl variant="standard" sx={{ minWidth: "100%" }}>
               <InputLabel id="sede-label">Sede</InputLabel>
               <Select
@@ -125,7 +127,7 @@ const Formulario = () => {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item  xs={12} md={6}>
             <TextField
               fullWidth
               size="small"
@@ -137,7 +139,54 @@ const Formulario = () => {
               margin="normal"
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item  xs={12} md={4}>
+            <TextField
+              fullWidth
+              size="small"
+              label="Lugar de origen"
+              variant="outlined"
+              placeholder="Nombre del participante"
+              onChange={console.log("")}
+              value={"Juan Castañeda"}
+              margin="normal"
+            />
+          </Grid>
+          
+          <Grid item xs={12} md={4}>
+            <TextField
+              id="date"
+              label="Fecha de nacimiento"
+              type="date"
+              fullWidth
+              variant="outlined"
+              placeholder="Fecha de nacimiento"
+              size="small"
+              InputLabelProps={{
+                shrink: true,
+              }}
+              margin="normal"
+            />
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <FormControl variant="standard" sx={{ minWidth: "100%" }}>
+              <InputLabel id="sexo-label">Sexo</InputLabel>
+              <Select
+                labelId="sexo-label"
+                id="sexo"
+                value={sexo}
+                onChange={handleChange}
+                label="Sexo"
+              >
+                <MenuItem value="">
+                  <em> </em>
+                </MenuItem>
+                <MenuItem value={'Masculino'}>Masculino</MenuItem>
+                <MenuItem value={'Femenino'}>Femenino</MenuItem>
+                <MenuItem value={'Otro'}>Otro</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>     
+          <Grid item xs={12} md={4}>
             <TextField
               fullWidth
               size="small"
@@ -149,43 +198,7 @@ const Formulario = () => {
               margin="normal"
             />
           </Grid>
-          <Grid item xs={6}>
-            <TextField
-              fullWidth
-              size="small"
-              label="Correo eléctronico"
-              variant="outlined"
-              placeholder="Correo eléctronico"
-              onChange={console.log("")}
-              value={"juan@eléctronico.com"}
-              margin="normal"
-            />
-          </Grid>
-          <Grid item xs={6}>
-            <TextField
-              fullWidth
-              size="small"
-              label="Comprobante de pago"
-              variant="outlined"
-              placeholder="Comprobante de pago"
-              onChange={console.log("")}
-              value={""}
-              margin="normal"
-            />
-          </Grid>
-          <Grid item xs={6}>
-            <TextField
-              fullWidth
-              size="small"
-              label="Identificación"
-              variant="outlined"
-              placeholder="Identificación"
-              onChange={console.log("")}
-              value={""}
-              margin="normal"
-            />
-          </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={4}>
             <TextField
               fullWidth
               size="small"
@@ -197,7 +210,44 @@ const Formulario = () => {
               margin="normal"
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={4}>
+            <TextField
+              fullWidth
+              size="small"
+              label="Correo eléctronico"
+              variant="outlined"
+              placeholder="Correo eléctronico"
+              onChange={console.log("")}
+              value={"juan@eléctronico.com"}
+              margin="normal"
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <TextField
+              fullWidth
+              size="small"
+              label="Comprobante de pago"
+              variant="outlined"
+              placeholder="Comprobante de pago"
+              onChange={console.log("")}
+              value={""}
+              margin="normal"
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <TextField
+              fullWidth
+              size="small"
+              label="Identificación"
+              variant="outlined"
+              placeholder="Identificación"
+              onChange={console.log("")}
+              value={""}
+              margin="normal"
+            />
+          </Grid>
+          
+          <Grid item xs={12} md={6}>
             <TextField
               fullWidth
               size="small"
@@ -209,6 +259,37 @@ const Formulario = () => {
               margin="normal"
             />
           </Grid>
+          <Grid item xs={12} md={6}>
+            <TextField
+              fullWidth
+              size="small"
+              label="Nombre de la canción"
+              variant="outlined"
+              placeholder="Nombre de la canción"
+              onChange={console.log("")}
+              value={""}
+              margin="normal"
+             
+            />
+          </Grid>
+          <Grid item xs={12} md={6}/>
+          <Grid item xs={12} md={12}>
+            <TextField
+              fullWidth
+            
+              label="Experiencia artística"
+              variant="outlined"
+              placeholder="Experiencia artística"
+              onChange={console.log("")}
+              value={""}
+              margin="normal"
+              multiline
+              maxRows={12}
+             
+            />
+          </Grid>
+
+          
         </Grid>
         <Box display="center" justifyContent="center" sx={{ mt: 1 }}>
           <Checkbox

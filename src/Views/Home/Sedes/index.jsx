@@ -8,23 +8,23 @@ import { AssignmentTurnedIn, Gavel, Place, PushPin } from "@mui/icons-material";
 const SedesHome = () => {
   const locations = [
     {
-      location: "Cede centro, CDMX",
+      location: "Sede centro, CDMX",
       imagen: "https://i.ytimg.com/vi/kJmHX67OUPM/maxresdefault.jpg",
       description: "Francisco Sánchez Loaeza",
     },
     {
-      location: "Cede Norte, Tijuana, BC.",
+      location: "Sede Norte, Tijuana, BC.",
       imagen:
         "https://www.lugaresturisticosenmexico.com/wp-content/uploads/2022/04/Tijuana-Baja-California.jpg",
       description: "Emiliano López Guadarrama",
     },
     {
-      location: "Cede Occidente, Zapopan, Jalisco.",
+      location: "Sede Occidente, Zapopan, Jalisco.",
       imagen: "https://i.ytimg.com/vi/_5SXkhkgNHI/maxresdefault.jpg",
       description: "Cristopher de alba",
     },
     {
-      location: "Cede Gran Final, Autlán Jalisco",
+      location: "Sede Gran Final, Autlán Jalisco",
       imagen:
         "https://iieg.gob.mx/strategos/wp-content/uploads/2021/07/autlan-11.jpg",
       description: "Esdras López Mundo",
@@ -48,12 +48,12 @@ const SedesHome = () => {
             </Typography>
             <br />
             <Typography align="justify" variant="h6">
-              Cada cede nombrará un grupo de 3 jueces con la autoridad y el
+              Cada sede nombrará un grupo de 3 jueces con la autoridad y el
               conocimiento del tema en cuestión para la evaluación de los
               participantes. El guitarrista líder del grupo Soul Sacrifice
               Everardo Vázquez y un representante del museo del Rock Mexicano,
               serán quien representen al comite organizador y completaran al
-              grupo de 5 jueces para todas las cedes.
+              grupo de 5 jueces para todas las sedes.
             </Typography>
           </Box>
         </Parallax>
