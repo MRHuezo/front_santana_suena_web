@@ -9,6 +9,7 @@ import InstitucionOrganizadora from "../Views/Home/Sedes/InstitucionOrganizadora
 import Bases from "../Views/Home/PrincipalHome/Bases";
 import Etapas from "../Views/Home/PrincipalHome/Etapas";
 import Fechas from "../Views/Home/PrincipalHome/Fechas";
+import Premios from "../Views/Home/PrincipalHome/Premios";
 
 function HomeLayout() {
   return (
@@ -20,6 +21,7 @@ function HomeLayout() {
       <Etapas />
       <Fechas />
       <SedesHome />
+      <Premios />
       <InscripcionesHome />
       <PatrocinadoresHome />
       <FinalistasHome />

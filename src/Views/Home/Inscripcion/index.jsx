@@ -28,6 +28,7 @@ function InscripcionesHome() {
           backgroundImage:
             "url(https://www.teahub.io/photos/full/125-1255650_carlos-santana.jpg)",
         }}
+        id="inscripcion"
       >
         <Box
           sx={{

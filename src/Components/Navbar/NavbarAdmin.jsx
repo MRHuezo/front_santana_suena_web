@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Box from "@mui/material/Box"
+import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -8,27 +8,35 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import {
   Campaign,
-  DomainAdd,
+  //DomainAdd,
   EmojiEvents,
   EmojiPeople,
-  Handshake,
+  // Handshake,
   Home,
   Logout,
   MarkEmailUnread,
-  PostAdd,
+  //PostAdd,
 } from "@mui/icons-material";
- 
+
 const NavbarAdmin = () => {
   return (
-    <Box sx={{ width: "100%"}}>
+    <Box sx={{ width: "100%" }}>
       <nav aria-label="main mailbox folders">
         <List>
-        <ListItem disablePadding>
+          {/* <ListItem disablePadding>
             <ListItemButton component={Link} to="/admin/sedes">
               <ListItemIcon>
                 <DomainAdd />
               </ListItemIcon>
               <ListItemText primary="Sedes" />
+            </ListItemButton>
+          </ListItem> */}
+          <ListItem disablePadding>
+            <ListItemButton component={Link} to="/admin/solicitudes">
+              <ListItemIcon>
+                <MarkEmailUnread />
+              </ListItemIcon>
+              <ListItemText primary="Solicitudes" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
@@ -47,30 +55,22 @@ const NavbarAdmin = () => {
               <ListItemText primary="Finalistas" />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding>
+          {/* <ListItem disablePadding>
             <ListItemButton component={Link} to="/admin/publicaciones">
               <ListItemIcon>
                 <PostAdd />
               </ListItemIcon>
               <ListItemText primary="Publicaciones" />
             </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
+          </ListItem> */}
+          {/* <ListItem disablePadding>
             <ListItemButton component={Link} to="/admin/patrocinadores">
               <ListItemIcon>
                 <Handshake />
               </ListItemIcon>
               <ListItemText primary="Patrocinadores" />
             </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton component={Link} to="/admin/solicitudes">
-              <ListItemIcon>
-                <MarkEmailUnread />
-              </ListItemIcon>
-              <ListItemText primary="Solicitudes" />
-            </ListItemButton>
-          </ListItem>
+          </ListItem> */}
           <ListItem disablePadding>
             <ListItemButton component={Link} to="/admin/comunicados">
               <ListItemIcon>

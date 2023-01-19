@@ -6,7 +6,7 @@ import React from "react";
 
 const Fechas = () => {
   return (
-    <Container maxWidth="md" sx={{ my: 6 }}>
+    <Container maxWidth="md" sx={{ py: 6 }} id="fechas">
       <Parallax
         animation={{ x: 0, opacity: 1, playScale: [0.1, 0.5] }}
         style={{ transform: "translateX(100px)", opacity: 0 }}

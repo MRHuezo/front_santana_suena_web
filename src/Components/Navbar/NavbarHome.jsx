@@ -4,23 +4,43 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { useNavigate } from "react-router-dom";
-import { Adb } from "@mui/icons-material";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import IconButton from "@mui/material/IconButton";
+import MenuItem from "@mui/material/MenuItem"
 import PropTypes from "prop-types";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
+import { HashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 
 const pages = [
   {
     title: "Inicio",
-    route: "/",
+    route: "/#home",
   },
   {
-    title: "Admin",
-    route: "/admin/sedes",
+    title: "Báses",
+    route: "/#como_participar",
+  },
+  {
+    title: "Fechas",
+    route: "/#fechas",
+  },
+  {
+    title: "Sedes",
+    route: "/#sedes",
+  },
+  {
+    title: "Premios",
+    route: "/#premios",
   },
   {
     title: "Inscripción",
-    route: "/inscripcion",
+    route: "/#inscripcion",
+  },
+  {
+    title: "Patrocinadores",
+    route: "/#patrocinadores",
   },
 ];
 
@@ -50,18 +70,63 @@ ElevationScroll.propTypes = {
 };
 
 export default function NavbarHome(props) {
-  const navigate = useNavigate();
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
 
-  const handleCloseNavMenu = (route) => {
-    if (route) navigate(route);
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
   };
 
   return (
     <React.Fragment>
       <ElevationScroll {...props}>
         <AppBar sx={{ backgroundColor: "rgb(0,0,0, 0.6)" }}>
-          <Toolbar variant="dense" sx={{ minHeight: 35, height: 35 }}>
-            <Adb sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <Toolbar variant="dense" sx={{ minHeight: 40, height: 40 }}>
+            <Box sx={{ display: { xs: "flex", md: "none" } }}>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: "block", md: "none" },
+                }}
+              >
+                {pages.map((page, index) => (
+                  <MenuItem
+                    key={index}
+                    onClick={handleCloseNavMenu}
+                    component={HashLink}
+                    smooth={true}
+                    to={page.route}
+                  >
+                    <Typography textAlign="center">{page.title}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
             <Typography
               variant="h6"
               noWrap
@@ -69,7 +134,7 @@ export default function NavbarHome(props) {
               href="/"
               sx={{
                 mr: 2,
-                display: { xs: "none", md: "flex" },
+                display: "flex",
                 fontFamily: "monospace",
                 fontWeight: 700,
                 letterSpacing: ".3rem",
@@ -82,13 +147,37 @@ export default function NavbarHome(props) {
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page, index) => (
                 <Button
+                  component={HashLink}
+                  smooth={true}
                   key={index + page.title}
-                  onClick={() => handleCloseNavMenu(page.route)}
-                  sx={{ my: 2, color: "white", display: "block" }}
+                  to={page.route}
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    display: "block",
+                    textTransform: "none",
+                  }}
                 >
-                  {page.title}
+                  <Typography>
+                    <b>{page.title}</b>
+                  </Typography>
                 </Button>
               ))}
+              <Box sx={{ flexGrow: 1 }} />
+              <Button
+                sx={{
+                  my: 2,
+                  color: "white",
+                  display: "block",
+                  textTransform: "none",
+                }}
+                component={Link}
+                to="/terminos"
+              >
+                <Typography>
+                  <b>Términos y condiciones</b>
+                </Typography>
+              </Button>
             </Box>
           </Toolbar>
         </AppBar>
