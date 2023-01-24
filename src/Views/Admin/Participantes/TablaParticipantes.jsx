@@ -1,50 +1,50 @@
-import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import * as React from "react";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import { rows } from "./data";
+import EliminarParticipante from "./EliminarParticipante";
+import { Verified } from "@mui/icons-material";
+import DetallesIndex from "./DetallesParticipante/DetallesIndex";
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
 
 export default function TablaParticipantes() {
   return (
-    <TableContainer component={Paper} style={{maxHeight: "80vh", overflowX: 'scroll'}}>
+    <TableContainer
+      component={Paper}
+      style={{ maxHeight: "80vh", overflowX: "scroll" }}
+    >
       <Table sx={{ minWidth: 650 }} aria-label="simple table" stickyHeader>
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell>status</TableCell>
+            <TableCell>Nombre</TableCell>
+            <TableCell>Email</TableCell>
+            <TableCell>Telefono</TableCell>
+            <TableCell>Ciudad</TableCell>
+            <TableCell>Detalles</TableCell>
+            <TableCell>Eliminar</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
             <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              key={row._id}
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
+              <TableCell align="center" padding="checkbox"><Verified color="primary" /></TableCell>
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell>{row.mail}</TableCell>
+              <TableCell>{row.telefono}</TableCell>
+              <TableCell>{row.lugar_origen}</TableCell>
+              <TableCell align="center" padding="checkbox"><DetallesIndex data={row} /></TableCell>
+              <TableCell align="center" padding="checkbox"><EliminarParticipante data={row} /></TableCell>
             </TableRow>
           ))}
         </TableBody>
