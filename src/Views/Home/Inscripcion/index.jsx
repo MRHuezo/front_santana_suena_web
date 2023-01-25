@@ -88,10 +88,33 @@ function InscripcionesHome() {
 }
 
 const Formulario = () => {
+   
   const [sede, setSede] = useState("");
   const [sexo, setSexo] = useState("");
-  const handleChange = (event) => {
-    setSede(event.target.value);
+  const [error, setError] = useState(false);
+  const [data, setData] = useState({
+    sede:'',
+    lugar_origen:'',
+    nombre:'',
+    fecha_nacimiento:'',
+    sexo:'',
+    direccion:'',
+    telefono:'',
+    email:'',
+    comprobante_de_pago:null,
+    identificacion: null,
+    url_video: '',
+    nombre_cancion:'',
+    experiencia_artistica:'',
+    accept:false
+
+  })
+
+  const handleChange = (e) => {
+    let name = e.target.name;
+    let value = (name === 'accept') ? !data.accept : e.target.value;
+    
+    setData({...data, [name]: value});
   };
 
   return (
@@ -110,12 +133,13 @@ const Formulario = () => {
         </Typography>
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 2 }}>
           <Grid item xs={12} md={6}>
-            <FormControl variant="standard" sx={{ minWidth: "100%" }}>
+            <FormControl variant="standard" sx={{ minWidth: "100%" }} error={error && data.sede === ''}>
               <InputLabel id="sede-label">Sede</InputLabel>
               <Select
                 labelId="sede-label"
                 id="sede"
-                value={sede}
+                name="sede"
+                value={data.sede}
                 onChange={handleChange}
                 label="Sede"
               >
@@ -133,10 +157,13 @@ const Formulario = () => {
               fullWidth
               size="small"
               label="Nombre"
+              name="nombre"
               variant="outlined"
+              error={error && data.nombre === ''}
+              helperText={error ? "Campo Requerido" : ''}
               placeholder="Nombre del participante"
-              onChange={console.log("")}
-              value={"Juan Castañeda"}
+              value={(data.nombre !== '') ? data.nombre : ''}
+              onChange={handleChange}
               margin="normal"
             />
           </Grid>
@@ -144,11 +171,14 @@ const Formulario = () => {
             <TextField
               fullWidth
               size="small"
+              name="lugar_origen"
               label="Lugar de origen"
               variant="outlined"
-              placeholder="Nombre del participante"
-              onChange={console.log("")}
-              value={"Juan Castañeda"}
+              error={error && data.lugar_origen === ''}
+              helperText={error ? "Campo Requerido" : ''}
+              placeholder="Lugar de origen"
+              value={(data.lugar_origen !== '') ? data.lugar_origen : ''}
+              onChange={handleChange}
               margin="normal"
             />
           </Grid>
@@ -157,9 +187,14 @@ const Formulario = () => {
             <TextField
               id="date"
               label="Fecha de nacimiento"
+              name="fecha_nacimiento"
               type="date"
               fullWidth
               variant="outlined"
+              error={error && data.fecha_nacimiento === ''}
+              helperText={error ? "Campo Requerido" : ''}
+              onChange={handleChange}
+              value={(data.fecha_nacimiento !== '') ? data.fecha_nacimiento : ''}
               placeholder="Fecha de nacimiento"
               size="small"
               InputLabelProps={{
@@ -169,12 +204,13 @@ const Formulario = () => {
             />
           </Grid>
           <Grid item xs={12} md={4}>
-            <FormControl variant="standard" sx={{ minWidth: "100%" }}>
+            <FormControl variant="standard" sx={{ minWidth: "100%" }}error={error && data.sexo === ''}>
               <InputLabel id="sexo-label">Sexo</InputLabel>
               <Select
                 labelId="sexo-label"
                 id="sexo"
-                value={sexo}
+                name="sexo"
+                value={data.sexo}
                 onChange={handleChange}
                 label="Sexo"
               >
@@ -191,11 +227,15 @@ const Formulario = () => {
             <TextField
               fullWidth
               size="small"
+              name="direccion"
               label="Dirección"
               variant="outlined"
               placeholder="Dirección"
-              onChange={console.log("")}
-              value={"Dirección"}
+              value={(data.direccion !== '') ? data.direccion : ''}
+              error={error && data.direccion === ''}
+              helperText={error ? "Campo Requerido" : ''}
+              onChange={handleChange}
+              
               margin="normal"
             />
           </Grid>
@@ -205,9 +245,12 @@ const Formulario = () => {
               size="small"
               label="Teléfono"
               variant="outlined"
+              name="telefono"
               placeholder="Teléfono"
-              onChange={console.log("")}
-              value={""}
+              onChange={handleChange}
+              value={(data.telefono !== '') ? data.telefono : ''}
+              error={error && data.telefono === ''}
+              helperText={error ? "Campo Requerido" : ''}
               margin="normal"
             />
           </Grid>
@@ -216,10 +259,13 @@ const Formulario = () => {
               fullWidth
               size="small"
               label="Correo eléctronico"
+              name="email"
               variant="outlined"
               placeholder="Correo eléctronico"
-              onChange={console.log("")}
-              value={"juan@eléctronico.com"}
+              onChange={handleChange}
+              value={(data.email !== '') ? data.email : ''}
+              error={error && data.email === ''}
+              helperText={error ? "Campo Requerido" : ''}
               margin="normal"
             />
           </Grid>
@@ -228,10 +274,13 @@ const Formulario = () => {
               fullWidth
               size="small"
               label="Comprobante de pago"
+              name="comprobante_de_pago"
               variant="outlined"
               placeholder="Comprobante de pago"
-              onChange={console.log("")}
-              value={""}
+              onChange={handleChange}
+              value={(data.comprobante_de_pago !== '') ? data.comprobante_de_pago : ''}
+              error={error && data.comprobante_de_pago === null}
+              helperText={error ? "Campo Requerido" : ''}
               margin="normal"
             />
           </Grid>
@@ -241,9 +290,12 @@ const Formulario = () => {
               size="small"
               label="Identificación"
               variant="outlined"
+              name="identificacion"
               placeholder="Identificación"
-              onChange={console.log("")}
-              value={""}
+              onChange={handleChange}
+              value={(data.identificacion !== '') ? data.identificacion : ''}
+              error={error && data.identificacion === null}
+              helperText={error ? "Campo Requerido" : ''}
               margin="normal"
             />
           </Grid>
@@ -254,9 +306,12 @@ const Formulario = () => {
               size="small"
               label="Url video"
               variant="outlined"
+              name="url_video"
               placeholder="Url video"
-              onChange={console.log("")}
-              value={""}
+              onChange={handleChange}
+              value={(data.url_video !== '') ? data.url_video : ''}
+              error={error && data.url_video === ''}
+              helperText={error ? "Campo Requerido" : ''}
               margin="normal"
             />
           </Grid>
@@ -266,9 +321,12 @@ const Formulario = () => {
               size="small"
               label="Nombre de la canción"
               variant="outlined"
+              name="nombre_cancion"
               placeholder="Nombre de la canción"
-              onChange={console.log("")}
-              value={""}
+              onChange={handleChange}
+              value={(data.nombre_cancion !== '') ? data.nombre_cancion : ''}
+              error={error && data.nombre_cancion === ''}
+              helperText={error ? "Campo Requerido" : ''}
               margin="normal"
              
             />
@@ -277,12 +335,13 @@ const Formulario = () => {
           <Grid item xs={12} md={12}>
             <TextField
               fullWidth
-            
+              name="experiencia_artistica" 
               label="Experiencia artística"
               variant="outlined"
               placeholder="Experiencia artística"
-              onChange={console.log("")}
-              value={""}
+              onChange={handleChange}
+              value={(data.experiencia_artistica !== '') ? data.experiencia_artistica : ''}
+              error={error && data.experiencia_artistica === ''}
               margin="normal"
               multiline
               maxRows={12}
@@ -294,8 +353,9 @@ const Formulario = () => {
         </Grid>
         <Box display="center" justifyContent="center" sx={{ mt: 1 }}>
           <Checkbox
-            checked={true}
-            onChange={console.log("true")}
+            name='accept'
+            checked={data.accept}
+            onChange={handleChange}
             inputProps={{ "aria-label": "controlled" }}
           />
           <Typography sx={{ mt: 1 }}>Aceptar términos y condiciones</Typography>

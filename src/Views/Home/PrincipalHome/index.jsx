@@ -1,5 +1,8 @@
 import React from "react";
 import { Box } from "@mui/system";
+
+
+import imagen1 from "./img/santana_suena_portada.png"
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -14,12 +17,20 @@ import "./styles.css";
 import { Autoplay, Pagination, Navigation } from "swiper";
 
 const images = [
+
+  {
+    img: imagen1,
+    title: "Texto ejemplo",
+    description:
+      "Este es un texto de ejemplo, es una simple idea de como puede quedar",
+    id: 1,
+  },
   {
     img: "https://www.teahub.io/photos/full/125-1255650_carlos-santana.jpg",
     title: "Texto ejemplo",
     description:
       "Este es un texto de ejemplo, es una simple idea de como puede quedar",
-    id: 1,
+    id: 2,
   },
   {
     img:
@@ -27,14 +38,14 @@ const images = [
     title: "Texto ejemplo",
     description:
       "Este es un texto de ejemplo, es una simple idea de como puede quedar",
-    id: 2,
+    id: 3,
   },
   {
     img: "https://wallpapercave.com/dwp2x/U4X4P9d.jpg",
     title: "Texto ejemplo",
     description:
       "Este es un texto de ejemplo, es una simple idea de como puede quedar",
-    id: 3,
+    id: 4,
   },
 ];
 

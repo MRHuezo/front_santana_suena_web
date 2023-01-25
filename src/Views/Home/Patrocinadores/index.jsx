@@ -1,7 +1,9 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Parallax } from "rc-scroll-anim";
-
+import prs from "./img/prs_logo.png";
+import sony from "./img/sony_logo.png";
+import colectivamente from "./img/colectivamente.png";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -17,28 +19,18 @@ import { Typography } from "@mui/material";
 const sponsors = [
   {
     nombre: "Sponsor 1",
-    imagen: "https://reactjs.org/logo-og.png",
+    imagen: prs,
   },
   {
     nombre: "Sponsor 2",
-    imagen:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png",
+    imagen: sony,
   },
   {
     nombre: "Sponsor 3",
-    imagen:
-      "https://cdn.appdesign.dev/wp-content/uploads/2020/08/Agencia-desarrollo-Angular-JS.jpg",
+    imagen: colectivamente,
   },
-  {
-    nombre: "Sponsor 4",
-    imagen:
-      "https://segwitz.com/wp-content/uploads/2021/06/vuejs-development-malaysia.jpeg",
-  },
-  {
-    nombre: "Sponsor 5",
-    imagen:
-      "https://www.redeszone.net/app/uploads-redeszone.net/2013/11/java_main.png?x=480&y=375&quality=40",
-  },
+  
+  
 ];
 
 const PatrocinadoresHome = () => {
@@ -72,8 +64,8 @@ const PatrocinadoresHome = () => {
       >
         {sponsors.map(({ imagen, nombre }, index) => (
           <SwiperSlide key={`${nombre}-${index}`}>
-            <Box sx={{ height: 200, width: 200 }}>
-              <img alt={nombre} src={imagen} height="100%" width="100%" />
+            <Box sx={{ height: 150, width: 700 }}>
+              <img alt={nombre} src={imagen} height="50%" width="100%" />
             </Box>
           </SwiperSlide>
         ))}
