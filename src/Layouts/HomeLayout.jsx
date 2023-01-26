@@ -4,6 +4,7 @@ import PatrocinadoresHome from "../Views/Home/Patrocinadores";
 import PrincipalHome from "../Views/Home/PrincipalHome";
 import SedesHome from "../Views/Home/Sedes";
 import FinalistasHome from "../Views/Home/Finalistas";
+import Footer from "../Views/Home/Footer";
 import InscripcionesHome from "../Views/Home/Inscripcion";
 import InstitucionOrganizadora from "../Views/Home/Sedes/InstitucionOrganizadora";
 import Bases from "../Views/Home/PrincipalHome/Bases";
@@ -25,6 +26,7 @@ function HomeLayout() {
       <InscripcionesHome />
       <PatrocinadoresHome />
       <FinalistasHome />
+      <Footer />
     </div>
   );
 }

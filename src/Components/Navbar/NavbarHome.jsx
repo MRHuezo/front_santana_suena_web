@@ -176,7 +176,7 @@ export default function NavbarHome(props) {
               >
                 <Typography>
                   <b>Términos y condiciones</b>
-                </Typography>
+                </Typography> 
               </Button>
             </Box>
           </Toolbar>
