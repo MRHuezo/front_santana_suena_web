@@ -7,7 +7,6 @@ import colectivamente from "./img/colectivamente.png";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-
 import "./styles.css";
 
 // import required modules
@@ -15,6 +14,7 @@ import { Box, Container } from "@mui/system";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import { Handshake } from "@mui/icons-material";
 import { Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 
 const sponsors = [
   {
@@ -29,13 +29,22 @@ const sponsors = [
     nombre: "Sponsor 3",
     imagen: colectivamente,
   },
-  
-  
 ];
 
+const useStyles = makeStyles((theme) => ({
+  img: {
+    height: 200,
+    width: "100%",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "contain",
+    backgroundPosition: "center"
+  }
+}))
+
 const PatrocinadoresHome = () => {
+  const classes = useStyles();
   return (
-    <Container maxWidth="md" sx={{height: "60vh", pt: 5 }} id="patrocinadores">
+    <Container maxWidth="lg" sx={{height: "60vh", pt: 5 }} id="patrocinadores">
       <Box>
         <Box>
         <Parallax
@@ -64,9 +73,7 @@ const PatrocinadoresHome = () => {
       >
         {sponsors.map(({ imagen, nombre }, index) => (
           <SwiperSlide key={`${nombre}-${index}`}>
-            <Box sx={{ height: 150, width: 700 }}>
-              <img alt={nombre} src={imagen} height="50%" width="100%" />
-            </Box>
+            <Box className={classes.img} sx={{ backgroundImage: `url(${imagen})` }} />
           </SwiperSlide>
         ))}
       </Swiper>
