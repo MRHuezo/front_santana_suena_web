@@ -26,12 +26,9 @@ const LayoutLogin = () => {
 
   const login = async (e) => {
     e.preventDefault();
-    if(!userData.email || !userData.password){
-      snackMessage(
-        "Datos incompletos",
-        "error"
-      );
-      return
+    if (!userData.email || !userData.password) {
+      snackMessage({ message: "Datos incompletos", variant: "error" });
+      return;
     }
     setLoading(true);
     await axiosClient
@@ -41,17 +38,20 @@ const LayoutLogin = () => {
         const token = res.data.token;
         localStorage.setItem("tokenSS", token);
         //success
-        console.log(res)
+        console.log(res);
       })
       .catch((err) => {
         setLoading(false);
         if (err.response) {
-          snackMessage(err.response.data.message, "error");
+          snackMessage({
+            message: err.response.data.message,
+            variant: "error",
+          });
         } else {
-          snackMessage(
-            "No se pudo establecer una conexión con el servidor",
-            "error"
-          );
+          snackMessage({
+            message: "No se pudo establecer una conexión con el servidor",
+            variant: "error",
+          });
         }
       });
   };
@@ -84,55 +84,55 @@ const LayoutLogin = () => {
         <KeyboardBackspace />
       </IconButton>
       <form autoComplete="off" onSubmit={login}>
-      <Paper sx={{ display: "block", p: 4 }}>
-        <TextField
-          label="Email"
-          fullWidth
-          margin="normal"
-          name="email"
-          value={userData.email}
-          onChange={handleGetUserData}
-          required
-        />
-        <TextField
-        required
-          label="Password"
-          name="password"
-          fullWidth
-          margin="normal"
-          value={userData.password}
-          onChange={handleGetUserData}
-          type={show ? "text" : "password"}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton size="small" onClick={() => setShow(!show)}>
-                  {show ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-        />
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Button
-            variant="contained"
+        <Paper sx={{ display: "block", p: 4 }}>
+          <TextField
+            label="Email"
+            fullWidth
             margin="normal"
-            type="submit"
-            startIcon={
-              loading ? <CircularProgress color="inherit" size={20} /> : null
-            }
+            name="email"
+            value={userData.email}
+            onChange={handleGetUserData}
+            required
+          />
+          <TextField
+            required
+            label="Password"
+            name="password"
+            fullWidth
+            margin="normal"
+            value={userData.password}
+            onChange={handleGetUserData}
+            type={show ? "text" : "password"}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton size="small" onClick={() => setShow(!show)}>
+                    {show ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+          />
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
           >
-            continuar
-          </Button>
-        </Box>
-      </Paper>
+            <Button
+              variant="contained"
+              margin="normal"
+              type="submit"
+              startIcon={
+                loading ? <CircularProgress color="inherit" size={20} /> : null
+              }
+            >
+              continuar
+            </Button>
+          </Box>
+        </Paper>
       </form>
     </Container>
   );

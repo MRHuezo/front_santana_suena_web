@@ -6,12 +6,12 @@ export const MainContext = createContext();
 const MainCtxProvider = ({ children, enqueueSnackbar }) => {
 
     
-  const snackMessage = (
+  const snackMessage = ({
     message = "No Message",
     variant = "default",
     preventDuplicate = true,
     anchorOrigin = { horizontal: "right", vertical: "bottom" }
-  ) => {
+  }) => {
     enqueueSnackbar(message, {
       variant,
       preventDuplicate,
