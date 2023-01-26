@@ -62,19 +62,18 @@ function InscripcionesHome() {
               <Box>
                 <Box sx={{ my: 6 }}>
                   <Typography color="white" variant="h2">
-                    <b>Inscríbete ya!</b>
+                    <b>!Inscríbete ahora!</b>
                   </Typography>
                   <br />
                   <Typography color="white" variant="h4">
-                    Demuéstranos tu talento y participa en este concurso,
-                    podrías ser tu unos de los finalistas y presentarse en la
-                    sede de GUADALAJARA
+                    Demuéstranos tu talento y participa en la sede más cercana,
+                   a tu lugar de residencia para que puedas participar en la gran final
+                   en Autlán de Navarro tierra de CARLOS SANTANA.
                   </Typography>
                   <br />
                   <Typography color="white" variant="h6">
                     <b>
-                      No olvides revisar las bases del concurso y para cualquir
-                      informacion comúnicate al 3171145113
+                      No olvides revisar las bases del concurso.
                     </b>
                   </Typography>
                 </Box>

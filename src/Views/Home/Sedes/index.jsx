@@ -21,7 +21,7 @@ const SedesHome = () => {
     {
       location: "Sede Occidente, Zapopan, Jalisco.",
       imagen: "https://i.ytimg.com/vi/_5SXkhkgNHI/maxresdefault.jpg",
-      description: "Cristopher de alba",
+      description: "Cristopher de Alba",
     },
     {
       location: "Sede Gran Final, Autlán Jalisco",
