@@ -1,0 +1,112 @@
+import React, { useState } from "react";
+import Box from "@mui/material/Box";
+import { Parallax } from "rc-scroll-anim";
+import { Grid, Typography } from "@mui/material";
+import { PushPin } from "@mui/icons-material";
+import axiosClient from "../../../Config/axios";
+import { MainContext } from "../../../Context/MainCtx";
+import LoadingPage from "./LoadingPage";
+
+const initial_query_state = {
+  data: undefined,
+  loading: false,
+  error: undefined,
+};
+
+const ListSedes = () => {
+  const { snackMessage } = React.useContext(MainContext);
+  const [query, setQuery] = useState(initial_query_state);
+  const { data, loading, error } = query;
+
+  const getSedes = React.useCallback(async () => {
+    setQuery((query) => ({ ...query, loading: true }));
+    await axiosClient
+      .get("/sede/consultarSedes")
+      .then((res) => {
+        setQuery((query) => ({
+          ...query,
+          data: res.data.sedes,
+          loading: false,
+        }));
+      })
+      .catch((error) => {
+        setQuery((query) => ({ ...query, error, loading: false }));
+        console.log(error);
+        if (error.response) {
+          snackMessage({
+            message: error.response.data.message,
+            variant: "error",
+          });
+        } else {
+          snackMessage({
+            message: "No se pudo establecer una conexión con el servidor",
+            variant: "error",
+          });
+        }
+      });
+  }, [snackMessage]);
+
+  React.useEffect(() => {
+    getSedes();
+  }, [getSedes]);
+
+  if (loading) {
+    return <LoadingPage />;
+  }
+  if (error || !data) {
+    console.log(error);
+    return null;
+  }
+
+  return (
+    <Box>
+      {data.map(({ encargado, place, name, img, _id }) => (
+        <Parallax
+          key={_id}
+          animation={{ x: 0, opacity: 1, playScale: [0.1, 0.5] }}
+          style={{ transform: "translateX(-100px)", opacity: 0 }}
+          className="code-box-shape"
+        >
+          <Grid container spacing={2} sx={{ width: "100%", my: 3 }}>
+            <Grid
+              item
+              xs={12}
+              md={2}
+              sx={{
+                height: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <PushPin color="secondary" sx={{ fontSize: 80 }} />
+            </Grid>
+            <Grid item xs={12} md={7}>
+              <Typography variant="h6">
+                <b>{`${name}, ${place}`}</b>
+              </Typography>
+              <Typography>{`Encargado: ${encargado}`}</Typography>
+            </Grid>
+            <Grid item xs={12} md={3}>
+              <Box
+                item
+                xs={12}
+                md={2}
+                sx={{
+                  height: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <img alt={place} src={img} height="100%" width="100%" />
+              </Box>
+            </Grid>
+          </Grid>
+        </Parallax>
+      ))}
+    </Box>
+  );
+};
+
+export default ListSedes;

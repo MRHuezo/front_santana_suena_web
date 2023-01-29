@@ -72,7 +72,7 @@ const Premios = () => {
             <EmojiEvents sx={{ fontSize: 50, mx: 2 }} color="secondary" />
           </Box>
           <Box my={5}>
-            <Grid container spacing={5}>
+            <Grid container>
               <Grid md={6} xs={12}>
                 <Box my={5}>
                   <Typography align="center" variant="h6">

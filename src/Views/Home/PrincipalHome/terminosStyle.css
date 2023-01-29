@@ -1,0 +1,16 @@
+.indice-aviso {
+    font-weight: bold;
+    font-size: 20;
+    line-height: 2.5;
+}
+.li-aviso > span {
+    margin-left: 24px;
+}
+
+.finalidad-ul {
+    line-height: 2.5;
+}
+.datos-personales-ul {
+    line-height: 2;
+    color: red;
+}
