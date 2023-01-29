@@ -37,46 +37,56 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
-    backgroundPosition: "center"
-  }
-}))
+    backgroundPosition: "center",
+  },
+}));
 
 const PatrocinadoresHome = () => {
   const classes = useStyles();
   return (
-    <Container maxWidth="lg" sx={{height: "60vh", pt: 5 }} id="patrocinadores">
+    <Container maxWidth="lg" sx={{ height: "60vh", pt: 5 }} id="patrocinadores">
       <Box>
         <Box>
-        <Parallax
-        animation={{ x: 0, opacity: 1, playScale: [0.1, 0.5] }}
-        style={{ transform: "translateX(-100px)", opacity: 0 }}
-        className="code-box-shape"
-      >
-        <Box sx={{ my: 5, display: "flex", justifyContent: "center" }}>
-          <Handshake sx={{ fontSize: 50, mx: 2 }} color="secondary" />
-          <Typography variant="h3">Patrocinadores</Typography>
-        </Box>
-      </Parallax>
-      <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
-      >
-        {sponsors.map(({ imagen, nombre }, index) => (
-          <SwiperSlide key={`${nombre}-${index}`}>
-            <Box className={classes.img} sx={{ backgroundImage: `url(${imagen})` }} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+          <Parallax
+            animation={{ x: 0, opacity: 1, playScale: [0.1, 0.5] }}
+            style={{ transform: "translateX(-100px)", opacity: 0 }}
+            className="code-box-shape"
+          >
+            <Box
+              sx={{
+                my: 5,
+                display: "flex",
+                justifyContent: "center",
+                flexDirection: { xs: "column", sm: "row" },
+              }}
+            >
+              <Handshake sx={{ fontSize: 50, mx: 2 }} color="secondary" />
+              <Typography variant="h3">Patrocinadores</Typography>
+            </Box>
+          </Parallax>
+          <Swiper
+            slidesPerView={3}
+            spaceBetween={30}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={true}
+            modules={[Autoplay, Pagination, Navigation]}
+            className="mySwiper"
+          >
+            {sponsors.map(({ imagen, nombre }, index) => (
+              <SwiperSlide key={`${nombre}-${index}`}>
+                <Box
+                  className={classes.img}
+                  sx={{ backgroundImage: `url(${imagen})` }}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </Box>
       </Box>
     </Container>

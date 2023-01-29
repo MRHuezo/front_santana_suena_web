@@ -4,51 +4,65 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import IconButton from "@mui/material/IconButton";
-import MenuItem from "@mui/material/MenuItem"
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
 import PropTypes from "prop-types";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
+import UserMenu from "./UserMenu";
+import Menu from "@mui/icons-material/Menu";
 
 const pages = [
   {
     title: "Inicio",
     route: "/#home",
+    component: HashLink,
   },
   {
     title: "Báses",
     route: "/#como_participar",
+    component: HashLink,
   },
   {
     title: "Fechas",
     route: "/#fechas",
+    component: HashLink,
   },
   {
     title: "Sedes",
     route: "/#sedes",
+    component: HashLink,
   },
   {
     title: "Premios",
     route: "/#premios",
+    component: HashLink,
   },
   {
     title: "Inscripción",
     route: "/#inscripcion",
+    component: HashLink,
   },
   {
     title: "Patrocinadores",
     route: "/#patrocinadores",
+    component: HashLink,
+  },
+  {
+    title: "Aviso de privacidad",
+    route: "/terminos",
+    component: Link,
   },
 ];
 
 function ElevationScroll(props) {
   const { children, window } = props;
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,
@@ -62,95 +76,50 @@ function ElevationScroll(props) {
 
 ElevationScroll.propTypes = {
   children: PropTypes.element.isRequired,
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window: PropTypes.func,
 };
 
 export default function NavbarHome(props) {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [openDraw, setOpenDraw] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+  const toggleDrawer = (open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+    setOpenDraw(open);
   };
 
   return (
     <React.Fragment>
       <ElevationScroll {...props}>
         <AppBar sx={{ backgroundColor: "rgb(0,0,0, 0.6)" }}>
-          <Toolbar variant="dense" sx={{ minHeight: 40, height: 40 }}>
+          <Toolbar
+            variant="dense"
+            sx={{ minHeight: 40, height: 40, display: "flex" }}
+          >
             <Box sx={{ display: { xs: "flex", md: "none" } }}>
               <IconButton
                 size="large"
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
-                onClick={handleOpenNavMenu}
+                onClick={toggleDrawer(true)}
                 color="inherit"
               >
                 <MenuIcon />
               </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-                sx={{
-                  display: { xs: "block", md: "none" },
-                }}
-              >
-                {pages.map((page, index) => (
-                  <MenuItem
-                    key={index}
-                    onClick={handleCloseNavMenu}
-                    component={HashLink}
-                    smooth={true}
-                    to={page.route}
-                  >
-                    <Typography textAlign="center">{page.title}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
+              <ResponsiveMenu toggleDrawer={toggleDrawer} open={openDraw} />
             </Box>
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                mr: 2,
-                display: "flex",
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "inherit",
-                textDecoration: "none",
-              }}
-            >
-              LOGO
-            </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-              {pages.map((page, index) => (
+              {pages.map(({ title, route, component }, index) => (
                 <Button
-                  component={HashLink}
+                  component={component}
                   smooth={true}
-                  key={index + page.title}
-                  to={page.route}
+                  key={index + title}
+                  to={route}
                   sx={{
                     my: 2,
                     color: "white",
@@ -159,29 +128,54 @@ export default function NavbarHome(props) {
                   }}
                 >
                   <Typography>
-                    <b>{page.title}</b>
+                    <b>{title}</b>
                   </Typography>
                 </Button>
               ))}
-              <Box sx={{ flexGrow: 1 }} />
-              <Button
-                sx={{
-                  my: 2,
-                  color: "white",
-                  display: "block",
-                  textTransform: "none",
-                }}
-                component={Link}
-                to="/terminos"
-              >
-                <Typography>
-                  <b>Términos y condiciones</b>
-                </Typography> 
-              </Button>
             </Box>
+            <Box sx={{ flexGrow: 1 }} />
+            <UserMenu />
           </Toolbar>
         </AppBar>
       </ElevationScroll>
     </React.Fragment>
   );
 }
+
+const ResponsiveMenu = ({ toggleDrawer, open }) => {
+  const list = () => (
+    <Box
+      sx={{ width: 250 }}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
+    >
+      <List>
+        <ListItem>
+          <ListItemText />
+          <IconButton variant="body2" color="text.secondary">
+            <Menu />
+          </IconButton>
+        </ListItem>
+        {pages.map(({ route, title, component }, index) => (
+          <ListItem key={index + title} disablePadding>
+            <ListItemButton
+              onClick={toggleDrawer}
+              component={component}
+              smooth={true}
+              to={route}
+            >
+              <ListItemText primary={title} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
+  return (
+    <Drawer anchor="left" open={open} onClose={toggleDrawer(false)}>
+      {list()}
+    </Drawer>
+  );
+};

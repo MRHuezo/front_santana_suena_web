@@ -8,6 +8,7 @@ function Participantes() {
   return (
     <div>
       <TopNavAdmin title="Participantes" />
+      si es sede principal buscar por todos si no nada mas su sede
       <BuscarParticiante />
       <Box my={2} />
       <TablaParticipantes />

@@ -14,7 +14,7 @@ const InstitucionOrganizadora = () => {
       <Box my={2}>
         <Parallax
           animation={{ x: 0, opacity: 1, playScale: [0.1, 0.5] }}
-          style={{ transform: "translateX(100px)", opacity: 0 }}
+          style={{ transform: "translateX(-100px)", opacity: 0 }}
           className="code-box-shape"
         >
           <Grid container spacing={2}>
@@ -56,49 +56,52 @@ const InstitucionOrganizadora = () => {
             </Grid>
           </Grid>
         </Parallax>
-        </Box>
-        <Box my={2}mt={10}>
+      </Box>
+      <Box my={2} mt={10}>
         <Parallax
           animation={{ x: 0, opacity: 1, playScale: [0.1, 0.5] }}
-          style={{ transform: "translateX(100px)", opacity: 0 }}
+          style={{ transform: "translateX(0px)", opacity: 0 }}
           className="code-box-shape"
-        >  
-          <Grid container spacing={2} >
+        >
+          <Grid container spacing={2}>
             <Grid item md={6} xs={12}>
-              <Typography variant="h6"> 
-                <b>Comité organizador:</b>  
+              <Typography variant="h6">
+                <b>Comité organizador:</b>
               </Typography>
               <ul>
-                  <li>
-                    <Typography variant="h6">
-                      Centro Comunitario y de Salud Tiopa Tlanextli, Dr. Martin Sandoval Gómez
-                    </Typography>
-                  </li>
-                
-                  <li>
-                    <Typography variant="h6">
-                      Museo del Rock Mexicano A.C., Francisco Sánchez Loaeza.
-                    </Typography>
-                  </li>
-                 
-                  <li>
-                    <Typography variant="h6">
-                      Museo del Rock Mexicano A.C., Miguel Ángel Pichardo.
-                    </Typography>
-                  </li>
-                 
-                  <li>
-                    <Typography variant="h6">
-                      Centro Cultural Cuicacalli Tiopa Tlanextli A.C., Martín Rivera Hueso.
-                    </Typography>
-                  </li>
-                 
-                  <li>
-                    <Typography variant="h6">
-                      Soul Sacrifice - Carlos Santana tribute band, Edgar L. Santana.
-                    </Typography>
-                  </li>
-              </ul>    
+                <li>
+                  <Typography variant="h6">
+                    Centro Comunitario y de Salud Tiopa Tlanextli, Dr. Martin
+                    Sandoval Gómez
+                  </Typography>
+                </li>
+
+                <li>
+                  <Typography variant="h6">
+                    Museo del Rock Mexicano A.C., Francisco Sánchez Loaeza.
+                  </Typography>
+                </li>
+
+                <li>
+                  <Typography variant="h6">
+                    Museo del Rock Mexicano A.C., Miguel Ángel Pichardo.
+                  </Typography>
+                </li>
+
+                <li>
+                  <Typography variant="h6">
+                    Centro Cultural Cuicacalli Tiopa Tlanextli A.C., Martín
+                    Rivera Hueso.
+                  </Typography>
+                </li>
+
+                <li>
+                  <Typography variant="h6">
+                    Soul Sacrifice - Carlos Santana tribute band, Edgar L.
+                    Santana.
+                  </Typography>
+                </li>
+              </ul>
             </Grid>
             <Grid
               item
@@ -112,21 +115,14 @@ const InstitucionOrganizadora = () => {
                 alignItems: "center",
               }}
             >
-              <img
-                alt="Tiopatlanextli"
-                src={tiopa}
-                height="65%"
-                width="65%"
-              />
+              <img alt="Tiopatlanextli" src={tiopa} height="50%" width="50%" />
               <img
                 alt="Museo del rock mexicano"
                 src="https://revistakuadro.com/wp-content/uploads/2016/09/image-2.jpeg"
-                height="55%"
-                width="55%"
+                height="50%"
+                width="50%"
               />
-               
             </Grid>
-            
           </Grid>
         </Parallax>
         <Box my={5} />
@@ -148,7 +144,7 @@ const InstitucionOrganizadora = () => {
                 alignItems: "center",
               }}
             >
-              <Box 
+              <Box
                 mt={10}
                 sx={{
                   height: "100%",
@@ -164,9 +160,7 @@ const InstitucionOrganizadora = () => {
                   height="100%"
                   width="100%"
                 />
-
               </Box>
-              
             </Grid>
             <Grid
               item

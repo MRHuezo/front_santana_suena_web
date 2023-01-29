@@ -9,7 +9,7 @@ const Etapas = () => {
     <Container maxWidth="md" sx={{my: 6}}>
       <Parallax
         animation={{ x: 0, opacity: 1, playScale: [0.1, 0.5] }}
-        style={{ transform: "translateX(100px)", opacity: 0 }}
+        style={{ transform: "translateX(0px)", opacity: 0 }}
         className="code-box-shape"
       >
         <Box sx={{ mt: 4, mb: 1, display: "flex", justifyContent: "center" }}>

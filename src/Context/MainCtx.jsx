@@ -1,10 +1,10 @@
 import { withSnackbar } from "notistack";
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 
 export const MainContext = createContext();
 
 const MainCtxProvider = ({ children, enqueueSnackbar }) => {
-
+  const [user, setUser] = useState(null);
     
   const snackMessage = ({
     message = "No Message",
@@ -23,6 +23,8 @@ const MainCtxProvider = ({ children, enqueueSnackbar }) => {
     <MainContext.Provider
       value={{
         snackMessage,
+        user, 
+        setUser
       }}
     >
       {children}

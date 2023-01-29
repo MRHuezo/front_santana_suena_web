@@ -2,7 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import { Parallax } from "rc-scroll-anim";
 import { Container } from "@mui/system";
-import { Typography } from "@mui/material";
+import { Typography, Grid } from "@mui/material";
 import { AssignmentTurnedIn, Gavel, Place } from "@mui/icons-material";
 import ListSedes from "./ListSedes";
 
@@ -77,35 +77,27 @@ const SedesHome = () => {
             </Box>
             <Box
               my={2}
-              sx={{ display: "flex", justifyContent: "space-around" }}
             >
-              <ul>
-                <li>
-                  <Typography variant="h5">Originalidad</Typography>
-                </li>
-                <br />
-                <li>
-                  <Typography variant="h5">Habilidad</Typography>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <Typography variant="h5">Ejecución</Typography>
-                </li>
-                <br />
-                <li>
-                  <Typography variant="h5">Técnica</Typography>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <Typography variant="h5">Expresión</Typography>
-                </li>
-                <br />
-                <li>
-                  <Typography variant="h5">Improvisación</Typography>
-                </li>
-              </ul>
+              <Grid container spacing={2} justifyContent="center">
+                <Grid item xs={6} sm={4}>
+                <Typography variant="h5" align="center">Originalidad</Typography>
+                </Grid>
+                <Grid item xs={6} sm={4}>
+                <Typography variant="h5" align="center">Habilidad</Typography>
+                </Grid>
+                <Grid item xs={6} sm={4}>
+                <Typography variant="h5" align="center">Ejecución</Typography>
+                </Grid>
+                <Grid item xs={6} sm={4}>
+                <Typography variant="h5" align="center">Técnica</Typography>
+                </Grid>
+                <Grid item xs={6} sm={4}>
+                <Typography variant="h5" align="center">Expresión</Typography>
+                </Grid>
+                <Grid item xs={6} sm={4}>
+                <Typography variant="h5" align="center">Improvisación</Typography>
+                </Grid>
+              </Grid>
             </Box>
           </Parallax>
         </Box>

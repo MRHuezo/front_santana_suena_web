@@ -1,15 +1,12 @@
 import React, { Fragment } from "react";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import { Parallax } from "rc-scroll-anim";
-import NavbarHome from "../../../Components/Navbar/NavbarHome";
 import StepComponent from "./StepComponent";
 import InscripcionCtxProvider from "../../../Context/InscripcionCtx";
 
 function InscripcionesHome() {
   return (
     <Fragment>
-      <NavbarHome />
-
       <Box
         sx={{
           height: "100vh",
@@ -102,7 +99,7 @@ const FormContainer = () => {
           flexDirection: "column",
           zIndex: 999,
           backgroundColor: "rgb(255,255,255,0.8)",
-          padding: 3,
+          padding: {xs: 0, sm: 3},
           borderRadius: 5,
         }}
       >

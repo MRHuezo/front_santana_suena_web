@@ -6,7 +6,7 @@ const BuscarFinalista = () => {
   return (
     <div>
       <TextField
-        sx={{ minWidth: 600 }}
+        sx={{ width: {xs: "100%", md: "50%"} }}
         placeholder="Buscar finalista"
         variant="outlined"
         size="small"

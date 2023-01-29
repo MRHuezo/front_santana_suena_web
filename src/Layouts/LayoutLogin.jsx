@@ -10,7 +10,7 @@ import {
   Visibility,
   VisibilityOff,
 } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axiosClient from "../Config/axios";
 import { CircularProgress, InputAdornment } from "@mui/material";
 import { MainContext } from "../Context/MainCtx";
@@ -23,6 +23,16 @@ const LayoutLogin = () => {
   const [loading, setLoading] = React.useState(false);
   const [show, setShow] = React.useState(false);
   const { snackMessage } = React.useContext(MainContext);
+  const token = localStorage.getItem("tokenSS");
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  }, [token, navigate]);
+
+  if(token)return null
 
   const login = async (e) => {
     e.preventDefault();
@@ -35,10 +45,8 @@ const LayoutLogin = () => {
       .post("/login/", userData)
       .then((res) => {
         setLoading(false);
-        const token = res.data.token;
-        localStorage.setItem("tokenSS", token);
-        //success
-        console.log(res);
+        localStorage.setItem("tokenSS", res.data.token);
+        navigate("/admin")
       })
       .catch((err) => {
         setLoading(false);

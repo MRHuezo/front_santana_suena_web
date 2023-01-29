@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
+import Avatar from "@mui/material/Avatar";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -8,29 +9,74 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import {
   Campaign,
-  //DomainAdd,
+  DomainAdd,
   EmojiEvents,
   EmojiPeople,
   // Handshake,
   Home,
   Logout,
   MarkEmailUnread,
+  Menu,
   //PostAdd,
 } from "@mui/icons-material";
+import { IconButton, Typography } from "@mui/material";
+import { useContext } from "react";
+import { MainContext } from "../../Context/MainCtx";
+
+function stringToColor(string) {
+  let hash = 0;
+  let i;
+
+  /* eslint-disable no-bitwise */
+  for (i = 0; i < string.length; i += 1) {
+    hash = string.charCodeAt(i) + ((hash << 5) - hash);
+  }
+
+  let color = "#";
+
+  for (i = 0; i < 3; i += 1) {
+    const value = (hash >> (i * 8)) & 0xff;
+    color += `00${value.toString(16)}`.slice(-2);
+  }
+  /* eslint-enable no-bitwise */
+
+  return color;
+}
+
+function stringAvatar(name) {
+  return {
+    sx: {
+      bgcolor: stringToColor(name),
+      height: 30,
+      width: 30,
+    },
+    children: `${name.split(" ")[0][0]}`,
+  };
+}
+
 
 const NavbarAdmin = () => {
+  const { user } = useContext(MainContext);
+  const usuario = user.user ? user.user.split(" ")[0] : "";
+
+  const handleCloseSesion = () => {
+    localStorage.removeItem("tokenSS");
+    window.location.reload();
+  };
+  
   return (
     <Box sx={{ width: "100%" }}>
       <nav aria-label="main mailbox folders">
         <List>
-          {/* <ListItem disablePadding>
-            <ListItemButton component={Link} to="/admin/sedes">
-              <ListItemIcon>
-                <DomainAdd />
-              </ListItemIcon>
-              <ListItemText primary="Sedes" />
-            </ListItemButton>
-          </ListItem> */}
+          <ListItem>
+            <ListItemIcon>
+              <Avatar {...stringAvatar(user.user)} />
+            </ListItemIcon>
+            <ListItemText primary={<Typography noWrap>{usuario}</Typography>} />
+            <IconButton sx={{ display: { xs: "flex", md: "none" } }} variant="body2" color="text.secondary">
+              <Menu />
+            </IconButton>
+          </ListItem>
           <ListItem disablePadding>
             <ListItemButton component={Link} to="/admin/solicitudes">
               <ListItemIcon>
@@ -47,14 +93,27 @@ const NavbarAdmin = () => {
               <ListItemText primary="Participantes" />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton component={Link} to="/admin/finalistas">
-              <ListItemIcon>
-                <EmojiEvents />
-              </ListItemIcon>
-              <ListItemText primary="Finalistas" />
-            </ListItemButton>
-          </ListItem>
+          {user.rol && user.rol === "FIRST" ? (
+            <ListItem disablePadding>
+              <ListItemButton component={Link} to="/admin/finalistas">
+                <ListItemIcon>
+                  <EmojiEvents />
+                </ListItemIcon>
+                <ListItemText primary="Finalistas" />
+              </ListItemButton>
+            </ListItem>
+          ) : null}
+          {user.rol && user.rol === "FIRST" ? (
+            <ListItem disablePadding>
+              <ListItemButton component={Link} to="/admin/sedes">
+                <ListItemIcon>
+                  <DomainAdd />
+                </ListItemIcon>
+                <ListItemText primary="Sedes" />
+              </ListItemButton>
+            </ListItem>
+          ) : null}
+
           {/* <ListItem disablePadding>
             <ListItemButton component={Link} to="/admin/publicaciones">
               <ListItemIcon>
@@ -71,14 +130,16 @@ const NavbarAdmin = () => {
               <ListItemText primary="Patrocinadores" />
             </ListItemButton>
           </ListItem> */}
-          <ListItem disablePadding>
-            <ListItemButton component={Link} to="/admin/comunicados">
-              <ListItemIcon>
-                <Campaign />
-              </ListItemIcon>
-              <ListItemText primary="Comunicados" />
-            </ListItemButton>
-          </ListItem>
+          {user.rol && user.rol === "FIRST" ? (
+            <ListItem disablePadding>
+              <ListItemButton component={Link} to="/admin/comunicados">
+                <ListItemIcon>
+                  <Campaign />
+                </ListItemIcon>
+                <ListItemText primary="Comunicados" />
+              </ListItemButton>
+            </ListItem>
+          ) : null}
           <ListItem disablePadding>
             <ListItemButton component={Link} to="/">
               <ListItemIcon>
@@ -88,7 +149,7 @@ const NavbarAdmin = () => {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={handleCloseSesion}>
               <ListItemIcon>
                 <Logout />
               </ListItemIcon>

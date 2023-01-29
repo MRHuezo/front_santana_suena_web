@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import NavbarHome from "../Components/Navbar/NavbarHome";
 import PatrocinadoresHome from "../Views/Home/Patrocinadores";
 import PrincipalHome from "../Views/Home/PrincipalHome";
@@ -11,8 +11,19 @@ import Bases from "../Views/Home/PrincipalHome/Bases";
 import Etapas from "../Views/Home/PrincipalHome/Etapas";
 import Fechas from "../Views/Home/PrincipalHome/Fechas";
 import Premios from "../Views/Home/PrincipalHome/Premios";
+import { MainContext } from "../Context/MainCtx";
+import jwtDecode from "jwt-decode";
 
 function HomeLayout() {
+  const token = localStorage.getItem("tokenSS");
+  const { setUser } = useContext(MainContext);
+
+  useEffect(() => {
+    if (token) {
+      setUser(jwtDecode(token));
+    }
+  }, [setUser, token]);
+
   return (
     <div>
       <NavbarHome />
