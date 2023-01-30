@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import {
   TextField,
   Paper,
@@ -9,41 +9,70 @@ import {
   Grid,
 } from "@mui/material";
 import { InscripcionContext } from "../../../Context/InscripcionCtx";
+import { MainContext } from "../../../Context/MainCtx";
 
 const DatosPersonales = () => {
-  const { error, data, setData } = useContext(InscripcionContext)
-  const handleChange = (e) => {
-    let name = e.target.name;
-    let value = name === "accept" ? !data.accept : e.target.value;
+  const { data, setData } = useContext(InscripcionContext);
+  const { sedes } = useContext(MainContext);
+  const {
+    sede,
+    name,
+    lugar_origen,
+    fecha_nacimiento,
+    address,
+    mail,
+    genero,
+    telefono,
+  } = data;
 
+  const handleChange = (e, child) => {
+    const { name, value } = e.target;
+    console.log(child)
+    if (name === "sede") {
+      setData({ ...data, [name]: value, id_sede: child.props.id_sede });
+      return;
+    }
     setData({ ...data, [name]: value });
   };
 
   return (
-    <Paper variant="outlined" sx={{ display: "block", p: 4, width: "100%", height: "100%" }}>
+    <Paper
+      variant="outlined"
+      sx={{ display: "block", p: 4, width: "100%", height: "100%" }}
+    >
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <FormControl
             variant="outlined"
             size="small"
             sx={{ minWidth: "100%" }}
-            error={error && data.sede === ""}
+            required
           >
             <InputLabel id="sede-label">Sede</InputLabel>
             <Select
               labelId="sede-label"
               id="sede"
               name="sede"
-              value={data.sede}
+              value={sede}
               onChange={handleChange}
               label="Sede"
             >
               <MenuItem value="">
-                <em> </em>
+                <em>Selecciona una sede</em>
               </MenuItem>
-              <MenuItem value={1}>Guadalajara</MenuItem>
-              <MenuItem value={2}>Cd. México</MenuItem>
-              <MenuItem value={3}>Baja california</MenuItem>
+              {sedes.data ? (
+                sedes.data?.map(({ name, place, _id }, index) => (
+                  <MenuItem
+                    key={`${place} - ${index}`}
+                    id_sede={_id}
+                    value={`${name} - ${place}`}
+                  >{`${name} - ${place}`}</MenuItem>
+                ))
+              ) : (
+                <MenuItem value="No hay sedes disponibles">
+                  <em>No hay sedes disponibles</em>
+                </MenuItem>
+              )}
             </Select>
           </FormControl>
         </Grid>
@@ -52,13 +81,12 @@ const DatosPersonales = () => {
             fullWidth
             size="small"
             label="Nombre"
-            name="nombre"
+            name="name"
             variant="outlined"
-            error={error && data.nombre === ""}
-            helperText={error ? "Campo Requerido" : ""}
             placeholder="Nombre del participante"
-            value={data.nombre !== "" ? data.nombre : ""}
+            value={name}
             onChange={handleChange}
+            required
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -68,11 +96,10 @@ const DatosPersonales = () => {
             name="lugar_origen"
             label="Lugar de origen"
             variant="outlined"
-            error={error && data.lugar_origen === ""}
-            helperText={error ? "Campo Requerido" : ""}
             placeholder="Lugar de origen"
-            value={data.lugar_origen !== "" ? data.lugar_origen : ""}
+            value={lugar_origen}
             onChange={handleChange}
+            required
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -83,15 +110,14 @@ const DatosPersonales = () => {
             type="date"
             fullWidth
             variant="outlined"
-            error={error && data.fecha_nacimiento === ""}
-            helperText={error ? "Campo Requerido" : ""}
             onChange={handleChange}
-            value={data.fecha_nacimiento !== "" ? data.fecha_nacimiento : ""}
+            value={fecha_nacimiento}
             placeholder="Fecha de nacimiento"
             size="small"
             InputLabelProps={{
               shrink: true,
             }}
+            required
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -99,16 +125,16 @@ const DatosPersonales = () => {
             variant="outlined"
             size="small"
             sx={{ minWidth: "100%" }}
-            error={error && data.sexo === ""}
+            required
           >
-            <InputLabel id="sexo-label">Sexo</InputLabel>
+            <InputLabel id="genero-label">Género</InputLabel>
             <Select
-              labelId="sexo-label"
-              id="sexo"
-              name="sexo"
-              value={data.sexo}
+              labelId="genero-label"
+              id="genero"
+              name="genero"
+              value={genero}
               onChange={handleChange}
-              label="Sexo"
+              label="genero"
             >
               <MenuItem value="">
                 <em> </em>
@@ -123,14 +149,13 @@ const DatosPersonales = () => {
           <TextField
             fullWidth
             size="small"
-            name="direccion"
+            name="address"
             label="Dirección"
             variant="outlined"
             placeholder="Dirección"
-            value={data.direccion !== "" ? data.direccion : ""}
-            error={error && data.direccion === ""}
-            helperText={error ? "Campo Requerido" : ""}
+            value={address}
             onChange={handleChange}
+            required
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -142,9 +167,8 @@ const DatosPersonales = () => {
             name="telefono"
             placeholder="Teléfono"
             onChange={handleChange}
-            value={data.telefono !== "" ? data.telefono : ""}
-            error={error && data.telefono === ""}
-            helperText={error ? "Campo Requerido" : ""}
+            value={telefono}
+            requiredo
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -152,13 +176,12 @@ const DatosPersonales = () => {
             fullWidth
             size="small"
             label="Correo eléctronico"
-            name="email"
+            name="mail"
             variant="outlined"
             placeholder="Correo eléctronico"
             onChange={handleChange}
-            value={data.email !== "" ? data.email : ""}
-            error={error && data.email === ""}
-            helperText={error ? "Campo Requerido" : ""}
+            value={mail}
+            required
           />
         </Grid>
       </Grid>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import { Parallax } from "rc-scroll-anim";
 import { Grid, Typography } from "@mui/material";
@@ -7,48 +7,39 @@ import axiosClient from "../../../Config/axios";
 import { MainContext } from "../../../Context/MainCtx";
 import LoadingPage from "./LoadingPage";
 
-const initial_query_state = {
-  data: undefined,
-  loading: false,
-  error: undefined,
-};
-
 const ListSedes = () => {
-  const { snackMessage } = React.useContext(MainContext);
-  const [query, setQuery] = useState(initial_query_state);
-  const { data, loading, error } = query;
-
-  const getSedes = React.useCallback(async () => {
-    setQuery((query) => ({ ...query, loading: true }));
-    await axiosClient
-      .get("/sede/consultarSedes")
-      .then((res) => {
-        setQuery((query) => ({
-          ...query,
-          data: res.data.sedes,
-          loading: false,
-        }));
-      })
-      .catch((error) => {
-        setQuery((query) => ({ ...query, error, loading: false }));
-        console.log(error);
-        if (error.response) {
-          snackMessage({
-            message: error.response.data.message,
-            variant: "error",
-          });
-        } else {
-          snackMessage({
-            message: "No se pudo establecer una conexión con el servidor",
-            variant: "error",
-          });
-        }
-      });
-  }, [snackMessage]);
+  const { snackMessage, setSedes, sedes } = React.useContext(MainContext);
+  const { data, loading, error } = sedes;
 
   React.useEffect(() => {
+    const getSedes = async () => {
+      await axiosClient
+        .get("/sede/consultarSedes")
+        .then((res) => {
+          setSedes((sedes) => ({
+            ...sedes,
+            data: res.data.sedes,
+            loading: false,
+          }));
+        })
+        .catch((error) => {
+          setSedes((sedes) => ({ ...sedes, error, loading: false }));
+          console.log(error);
+          if (error.response) {
+            snackMessage({
+              message: error.response.data.message,
+              variant: "error",
+            });
+          } else {
+            snackMessage({
+              message: "No se pudo establecer una conexión con el servidor",
+              variant: "error",
+            });
+          }
+        });
+    };
     getSedes();
-  }, [getSedes]);
+  }, [setSedes, snackMessage]);
 
   if (loading) {
     return <LoadingPage />;
@@ -89,9 +80,6 @@ const ListSedes = () => {
             </Grid>
             <Grid item xs={12} md={3}>
               <Box
-                item
-                xs={12}
-                md={2}
                 sx={{
                   height: "100%",
                   display: "flex",

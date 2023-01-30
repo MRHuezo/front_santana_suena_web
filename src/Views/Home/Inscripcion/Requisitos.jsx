@@ -3,13 +3,21 @@ import { TextField, Box, Typography, Paper, Checkbox } from "@mui/material";
 import { InscripcionContext } from "../../../Context/InscripcionCtx";
 
 const Requisitos = () => {
-  const { error, data, setData } = useContext(InscripcionContext);
+  const { data, setData } = useContext(InscripcionContext);
+  const {
+    experiencia_artistica,
+    nombre_tema,
+    url_video,
+    aviso_privacidad,
+  } = data;
 
   const handleChange = (e) => {
-    let name = e.target.name;
-    let value = name === "accept" ? !data.accept : e.target.value;
+    const { name, value } = e.target;
+    setData((data) => ({ ...data, [name]: value }));
+  };
 
-    setData(data => ({ ...data, [name]: value }));
+  const handleChangeAviso = (e) => {
+    setData((data) => ({ ...data, aviso_privacidad: e.target.checked }));
   };
 
   return (
@@ -22,9 +30,7 @@ const Requisitos = () => {
         name="url_video"
         placeholder="Url video"
         onChange={handleChange}
-        value={data.url_video !== "" ? data.url_video : ""}
-        error={error && data.url_video === ""}
-        helperText={error ? "Campo Requerido" : ""}
+        value={url_video}
         margin="normal"
       />
       <TextField
@@ -32,12 +38,10 @@ const Requisitos = () => {
         size="small"
         label="Nombre de la canción"
         variant="outlined"
-        name="nombre_cancion"
+        name="nombre_tema"
         placeholder="Nombre de la canción"
         onChange={handleChange}
-        value={data.nombre_cancion !== "" ? data.nombre_cancion : ""}
-        error={error && data.nombre_cancion === ""}
-        helperText={error ? "Campo Requerido" : ""}
+        value={nombre_tema}
         margin="normal"
       />
       <TextField
@@ -47,19 +51,16 @@ const Requisitos = () => {
         variant="outlined"
         placeholder="Experiencia artística"
         onChange={handleChange}
-        value={
-          data.experiencia_artistica !== "" ? data.experiencia_artistica : ""
-        }
-        error={error && data.experiencia_artistica === ""}
+        value={experiencia_artistica}
         margin="normal"
         multiline
         rows={4}
       />
       <Box display="center" justifyContent="center" sx={{ mt: 1 }}>
         <Checkbox
-          name="accept"
-          checked={data.accept}
-          onChange={handleChange}
+          name="aviso_privacidad"
+          checked={aviso_privacidad}
+          onChange={handleChangeAviso}
           inputProps={{ "aria-label": "controlled" }}
         />
         <Typography sx={{ mt: 1 }}>Aceptar términos y condiciones</Typography>

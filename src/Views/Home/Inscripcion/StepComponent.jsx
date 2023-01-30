@@ -12,6 +12,12 @@ import Requisitos from "./Requisitos";
 import { CircularProgress } from "@mui/material";
 import { Done } from "@mui/icons-material";
 import { MainContext } from "../../../Context/MainCtx";
+import {
+  validar_comprobantes,
+  validar_datos_personales,
+  validar_requisitos,
+} from "./validacion";
+import axiosClient from "../../../Config/axios";
 
 const steps = ["Datos personales", "Comprobantes de pago", "Tu video"];
 const RenderView = ({ activeStep }) => {
@@ -30,7 +36,7 @@ const RenderView = ({ activeStep }) => {
 export default function StepComponent() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
-  const { data, error } = React.useContext(InscripcionContext);
+  const { data } = React.useContext(InscripcionContext);
   const { snackMessage } = React.useContext(MainContext);
   const [loading, setLoading] = React.useState(false);
 
@@ -44,14 +50,36 @@ export default function StepComponent() {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleOk = () => {
+  console.log(data);
+
+  const handleOk = async () => {
     console.log("ok");
     console.log(data);
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      snackMessage({ message: "Listo!", variant: "success" });
-    }, 2500);
+    await axiosClient
+      .post("/login/", data)
+      .then((res) => {
+        setLoading(false);
+       console.log(res)
+       snackMessage({
+        message: "listo!",
+        variant: "success",
+      });
+      })
+      .catch((err) => {
+        setLoading(false);
+        if (err.response) {
+          snackMessage({
+            message: err.response.data.message,
+            variant: "error",
+          });
+        } else {
+          snackMessage({
+            message: "No se pudo establecer una conexión con el servidor",
+            variant: "error",
+          });
+        }
+      });
   };
 
   return (
@@ -75,7 +103,7 @@ export default function StepComponent() {
         <Box sx={{ minHeight: "57vh" }}>
           <RenderView activeStep={activeStep} />
         </Box>
-        <Box sx={{ display:"flex", pt: 2, justifyContent: "space-between" }}>
+        <Box sx={{ display: "flex", pt: 2, justifyContent: "space-between" }}>
           <Button
             variant="contained"
             color="primary"
@@ -88,6 +116,7 @@ export default function StepComponent() {
             <Button
               variant="contained"
               onClick={handleOk}
+              disabled={validar_requisitos(data)}
               startIcon={
                 loading ? (
                   <CircularProgress color="inherit" size={20} />
@@ -99,7 +128,17 @@ export default function StepComponent() {
               Terminar
             </Button>
           ) : (
-            <Button variant="contained" onClick={handleNext}>
+            <Button
+              variant="contained"
+              onClick={handleNext}
+              disabled={
+                activeStep === 0
+                  ? validar_datos_personales(data)
+                  : activeStep === 1
+                  ? validar_comprobantes(data)
+                  : false
+              }
+            >
               Siguiente
             </Button>
           )}

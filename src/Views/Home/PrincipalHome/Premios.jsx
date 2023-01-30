@@ -73,7 +73,7 @@ const Premios = () => {
           </Box>
           <Box my={5}>
             <Grid container>
-              <Grid md={6} xs={12}>
+              <Grid item md={6} xs={12}>
                 <Box my={5}>
                   <Typography align="center" variant="h6">
                     <b>Premios por SEDE</b>
@@ -116,7 +116,7 @@ const Premios = () => {
                   </Parallax>
                 ))}
               </Grid>
-              <Grid md={6} xs={12}>
+              <Grid item md={6} xs={12}>
                 <Box my={5}>
                   <Typography align="center" variant="h6">
                     <b>Premios de la GRAN FINAL</b>

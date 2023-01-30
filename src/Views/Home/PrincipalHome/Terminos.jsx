@@ -48,37 +48,37 @@ export default function Terminos(props){
               <br />
               <ol type="I" className="indice-aviso">
                 <li className="li-aviso">
-                  <HashLink to="#aviso-i">
+                  <HashLink to="#aviso-i" smooth="true">
                     <span>IDENTIFICACIÓN DEL RESPONSABLE Y DEL ENCARGADO</span>
                   </HashLink>
                 </li>
                 <li className="li-aviso">
-                  <HashLink to="#aviso-ii">
+                  <HashLink  smooth="true" to="#aviso-ii">
                     <span>PARA EFECTOS DEL PRESENTE AVISO SE ENTIENDE</span>
                   </HashLink>
                 </li>
                 <li className="li-aviso">
-                  <HashLink to="#aviso-iii">
+                  <HashLink  smooth="true" to="#aviso-iii">
                     <span>FINALIDAD DEL TRATAMIENTO</span>
                   </HashLink>
                 </li>
                 <li className="li-aviso">
-                  <HashLink to="#aviso-iv">
+                  <HashLink  smooth="true" to="#aviso-iv">
                     <span>FINALIDADES SECUNDARIAS</span>
                   </HashLink>
                 </li>
                 <li className="li-aviso">
-                  <HashLink to="#aviso-v">
+                  <HashLink  smooth="true" to="#aviso-v">
                     <span>DATOS PERSONALES A RECABAR</span>
                   </HashLink>
                 </li>
                 <li className="li-aviso">
-                  <HashLink to="#aviso-vi">
+                  <HashLink  smooth="true" to="#aviso-vi">
                     <span>CONSENTIMIENTO</span>
                   </HashLink>
                 </li>
                 <li className="li-aviso">
-                  <HashLink to="#aviso-vii">
+                  <HashLink  smooth="true" to="#aviso-vii">
                     <span>
                       PROTECCIÓN A DATOS PERSONALES DE MENORES Y PERSONAS CON
                       ESTADO DE INTERDICCIÓN
@@ -86,17 +86,17 @@ export default function Terminos(props){
                   </HashLink>
                 </li>
                 <li className="li-aviso">
-                  <HashLink to="#aviso-viii">
+                  <HashLink  smooth="true" to="#aviso-viii">
                     <span>REMISIÓN DE DATOS PERSONALES</span>
                   </HashLink>
                 </li>
                 <li className="li-aviso">
-                  <HashLink to="#aviso-ix">
+                  <HashLink  smooth="true" to="#aviso-ix">
                     <span>TRANSFERENCIA DE DATOS PERSONALES</span>
                   </HashLink>
                 </li>
                 <li className="li-aviso">
-                  <HashLink to="#aviso-x">
+                  <HashLink  smooth="true" to="#aviso-x">
                     <span>
                       {" "}
                       LIMITACIÓN DEL USO O DIVULGACIÓN DE SUS DATOS PERSONALES
@@ -104,7 +104,7 @@ export default function Terminos(props){
                   </HashLink>
                 </li>
                 <li className="li-aviso">
-                  <HashLink to="#aviso-xi">
+                  <HashLink  smooth="true" to="#aviso-xi">
                     <span>
                       REVOCACIÓN DE SU CONSENTIMIENTO PARA EL TRATAMIENTO DE
                       DATOS
@@ -112,17 +112,17 @@ export default function Terminos(props){
                   </HashLink>
                 </li>
                 <li className="li-aviso">
-                  <HashLink to="#aviso-xii">
+                  <HashLink  smooth="true" to="#aviso-xii">
                     <span>EXCLUSIÓN DE RESPONSABILIDAD</span>
                   </HashLink>
                 </li>
                 <li className="li-aviso">
-                  <HashLink to="#aviso-xiii">
+                  <HashLink  smooth="true" to="#aviso-xiii">
                     <span>CAMBIOS AL AVISO DE PRIVACIDAD</span>
                   </HashLink>
                 </li>
                 <li className="li-aviso">
-                  <HashLink to="#aviso-xiv">
+                  <HashLink  smooth="true" to="#aviso-xiv">
                     <span>DERECHOS DEL TITULAR DE LOS DATOS PERSONALES</span>
                   </HashLink>
                 </li>

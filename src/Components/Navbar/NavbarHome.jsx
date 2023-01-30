@@ -80,7 +80,7 @@ ElevationScroll.propTypes = {
 };
 
 export default function NavbarHome(props) {
-  const [openDraw, setOpenDraw] = React.useState(null);
+  const [openDraw, setOpenDraw] = React.useState(false);
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -117,7 +117,7 @@ export default function NavbarHome(props) {
               {pages.map(({ title, route, component }, index) => (
                 <Button
                   component={component}
-                  smooth={true}
+                  smooth="true"
                   key={index + title}
                   to={route}
                   sx={{
@@ -162,7 +162,7 @@ const ResponsiveMenu = ({ toggleDrawer, open }) => {
             <ListItemButton
               onClick={toggleDrawer}
               component={component}
-              smooth={true}
+              smooth="true"
               to={route}
             >
               <ListItemText primary={title} />

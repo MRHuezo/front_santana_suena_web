@@ -6,7 +6,7 @@ const LoadingPage = () => {
   return (
     <Box>
       {[1, 2, 3].map((res) => (
-        <Grid container spacing={2} sx={{ width: "100%", my: 3 }}>
+        <Grid key={res} container spacing={2} sx={{ width: "100%", my: 3 }}>
           <Grid
             item
             xs={12}

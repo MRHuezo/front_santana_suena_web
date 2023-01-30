@@ -5,7 +5,6 @@ import { InscripcionContext } from "../../../Context/InscripcionCtx";
 
 const Comprobantes = () => {
   const {
-    error,
     data,
     setData,
     previewComprobante,
@@ -17,7 +16,7 @@ const Comprobantes = () => {
       setPreviewComprobante(URL.createObjectURL(files[0]));
       setData({
         ...data,
-        comprobante_de_pago: files[0],
+        comprobante_pago: files[0],
       });
     },
     [data, setData, setPreviewComprobante]
@@ -67,7 +66,7 @@ const Comprobantes = () => {
 };
 
 const IdentificacionComponent = () => {
-  const { error, data, setData, previewID, setPreviewID } = useContext(
+  const { data, setData, previewID, setPreviewID } = useContext(
     InscripcionContext
   );
 
@@ -76,7 +75,7 @@ const IdentificacionComponent = () => {
       setPreviewID(URL.createObjectURL(files[0]));
       setData({
         ...data,
-        identificacion: files[0],
+        identificacion_personal: files[0],
       });
     },
     [setPreviewID, data, setData]
