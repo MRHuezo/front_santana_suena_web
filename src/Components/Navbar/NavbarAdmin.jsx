@@ -72,7 +72,7 @@ const NavbarAdmin = () => {
             <ListItemIcon>
               <Avatar {...stringAvatar(user.user)} />
             </ListItemIcon>
-            <ListItemText primary={<Typography noWrap>{usuario}</Typography>} />
+            <ListItemText primary={<Typography noWrap>{usuario}</Typography>} secondary={user.id_sede.name} />
             <IconButton sx={{ display: { xs: "flex", md: "none" } }} variant="body2" color="text.secondary">
               <Menu />
             </IconButton>

@@ -3,12 +3,14 @@ export function validar_datos_personales(data) {
     !data.name ||
     !data.sede ||
     !data.id_sede ||
-    !data.lugar_origen ||
-    !data.fecha_nacimiento ||
-    !data.genero ||
+    !data.from ||
+    !data.birthday ||
+    !data.genre ||
     !data.address || 
-    !data.telefono ||
-    !data.mail
+    !data.phone ||
+    !data.email || 
+    !data.photo || 
+    !data.curp
   ) {
     return true
   }else{
@@ -18,8 +20,8 @@ export function validar_datos_personales(data) {
 
 export function validar_comprobantes(data) {
     if (
-      !data.comprobante_pago || 
-      !data.identificacion_personal
+      !data.pay || 
+      !data.personal_identify
     ) {
       return true
     }else{
@@ -30,9 +32,9 @@ export function validar_comprobantes(data) {
   export function validar_requisitos(data) {
     if (
       !data.url_video || 
-      !data.nombre_tema ||
-      !data.experiencia_artistica ||
-      !data.aviso_privacidad
+      !data.name_song ||
+      !data.artistic_experience ||
+      !data.privacy_notice
     ) {
       return true
     }else{

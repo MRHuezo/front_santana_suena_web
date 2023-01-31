@@ -6,6 +6,7 @@ import { PushPin } from "@mui/icons-material";
 import axiosClient from "../../../Config/axios";
 import { MainContext } from "../../../Context/MainCtx";
 import LoadingPage from "./LoadingPage";
+import { handlerErrors } from "../../../Config/errors";
 
 const ListSedes = () => {
   const { snackMessage, setSedes, sedes } = React.useContext(MainContext);
@@ -25,17 +26,10 @@ const ListSedes = () => {
         .catch((error) => {
           setSedes((sedes) => ({ ...sedes, error, loading: false }));
           console.log(error);
-          if (error.response) {
-            snackMessage({
-              message: error.response.data.message,
-              variant: "error",
-            });
-          } else {
-            snackMessage({
-              message: "No se pudo establecer una conexión con el servidor",
-              variant: "error",
-            });
-          }
+          snackMessage({
+            message: handlerErrors(error, "GET"),
+            variant: "error",
+          });
         });
     };
     getSedes();

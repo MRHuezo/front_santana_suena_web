@@ -5,10 +5,10 @@ import { InscripcionContext } from "../../../Context/InscripcionCtx";
 const Requisitos = () => {
   const { data, setData } = useContext(InscripcionContext);
   const {
-    experiencia_artistica,
-    nombre_tema,
+    artistic_experience,
+    name_song,
     url_video,
-    aviso_privacidad,
+    privacy_notice,
   } = data;
 
   const handleChange = (e) => {
@@ -17,7 +17,7 @@ const Requisitos = () => {
   };
 
   const handleChangeAviso = (e) => {
-    setData((data) => ({ ...data, aviso_privacidad: e.target.checked }));
+    setData((data) => ({ ...data, privacy_notice: e.target.checked }));
   };
 
   return (
@@ -38,28 +38,28 @@ const Requisitos = () => {
         size="small"
         label="Nombre de la canción"
         variant="outlined"
-        name="nombre_tema"
+        name="name_song"
         placeholder="Nombre de la canción"
         onChange={handleChange}
-        value={nombre_tema}
+        value={name_song}
         margin="normal"
       />
       <TextField
         fullWidth
-        name="experiencia_artistica"
+        name="artistic_experience"
         label="Experiencia artística"
         variant="outlined"
         placeholder="Experiencia artística"
         onChange={handleChange}
-        value={experiencia_artistica}
+        value={artistic_experience}
         margin="normal"
         multiline
         rows={4}
       />
       <Box display="center" justifyContent="center" sx={{ mt: 1 }}>
         <Checkbox
-          name="aviso_privacidad"
-          checked={aviso_privacidad}
+          name="privacy_notice"
+          checked={privacy_notice}
           onChange={handleChangeAviso}
           inputProps={{ "aria-label": "controlled" }}
         />

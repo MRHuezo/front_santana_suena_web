@@ -14,6 +14,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axiosClient from "../Config/axios";
 import { CircularProgress, InputAdornment } from "@mui/material";
 import { MainContext } from "../Context/MainCtx";
+import { handlerErrors } from "../Config/errors";
 
 const LayoutLogin = () => {
   const [userData, setUserData] = React.useState({
@@ -42,7 +43,7 @@ const LayoutLogin = () => {
     }
     setLoading(true);
     await axiosClient
-      .post("/login/", userData)
+      .post("/user/login/", userData)
       .then((res) => {
         setLoading(false);
         localStorage.setItem("tokenSS", res.data.token);
@@ -50,17 +51,11 @@ const LayoutLogin = () => {
       })
       .catch((err) => {
         setLoading(false);
-        if (err.response) {
-          snackMessage({
-            message: err.response.data.message,
-            variant: "error",
-          });
-        } else {
-          snackMessage({
-            message: "No se pudo establecer una conexión con el servidor",
-            variant: "error",
-          });
-        }
+        console.log(err)
+        snackMessage({
+          message: handlerErrors(err, "POST"),
+          variant: "error",
+        });
       });
   };
 

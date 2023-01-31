@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { InscripcionContext } from "../../../Context/InscripcionCtx";
 import { MainContext } from "../../../Context/MainCtx";
+import UserPhoto from "./UserPhoto";
 
 const DatosPersonales = () => {
   const { data, setData } = useContext(InscripcionContext);
@@ -17,17 +18,17 @@ const DatosPersonales = () => {
   const {
     sede,
     name,
-    lugar_origen,
-    fecha_nacimiento,
+    from,
+    birthday,
     address,
-    mail,
-    genero,
-    telefono,
+    email,
+    genre,
+    phone,
+    curp,
   } = data;
 
   const handleChange = (e, child) => {
     const { name, value } = e.target;
-    console.log(child)
     if (name === "sede") {
       setData({ ...data, [name]: value, id_sede: child.props.id_sede });
       return;
@@ -42,62 +43,81 @@ const DatosPersonales = () => {
     >
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          <FormControl
-            variant="outlined"
-            size="small"
-            sx={{ minWidth: "100%" }}
-            required
-          >
-            <InputLabel id="sede-label">Sede</InputLabel>
-            <Select
-              labelId="sede-label"
-              id="sede"
-              name="sede"
-              value={sede}
-              onChange={handleChange}
-              label="Sede"
-            >
-              <MenuItem value="">
-                <em>Selecciona una sede</em>
-              </MenuItem>
-              {sedes.data ? (
-                sedes.data?.map(({ name, place, _id }, index) => (
-                  <MenuItem
-                    key={`${place} - ${index}`}
-                    id_sede={_id}
-                    value={`${name} - ${place}`}
-                  >{`${name} - ${place}`}</MenuItem>
-                ))
-              ) : (
-                <MenuItem value="No hay sedes disponibles">
-                  <em>No hay sedes disponibles</em>
-                </MenuItem>
-              )}
-            </Select>
-          </FormControl>
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            fullWidth
-            size="small"
-            label="Nombre"
-            name="name"
-            variant="outlined"
-            placeholder="Nombre del participante"
-            value={name}
-            onChange={handleChange}
-            required
-          />
+          <Grid container spacing={1}>
+            <Grid item xs={12} md={4}>
+              <UserPhoto />
+            </Grid>
+            <Grid item xs={12} md={8}>
+              <FormControl
+                variant="outlined"
+                size="small"
+                fullWidth
+                required
+                margin="dense"
+              >
+                <InputLabel id="sede-label">Sede</InputLabel>
+                <Select
+                  labelId="sede-label"
+                  id="sede"
+                  name="sede"
+                  value={sede}
+                  onChange={handleChange}
+                  label="Sede"
+                >
+                  <MenuItem value="">
+                    <em>Selecciona una sede</em>
+                  </MenuItem>
+                  {sedes.data ? (
+                    sedes.data?.map(({ name, place, _id }, index) => (
+                      <MenuItem
+                        key={`${place} - ${index}`}
+                        id_sede={_id}
+                        value={`${name} - ${place}`}
+                      >{`${name} - ${place}`}</MenuItem>
+                    ))
+                  ) : (
+                    <MenuItem value="No hay sedes disponibles">
+                      <em>No hay sedes disponibles</em>
+                    </MenuItem>
+                  )}
+                </Select>
+              </FormControl>
+              <TextField
+                fullWidth
+                size="small"
+                label="Nombre"
+                name="name"
+                variant="outlined"
+                placeholder="Nombre del participante"
+                value={name}
+                onChange={handleChange}
+                required
+                margin="dense"
+              />
+              <TextField
+                fullWidth
+                size="small"
+                label="CURP"
+                name="curp"
+                variant="outlined"
+                placeholder="CURP"
+                value={curp}
+                onChange={handleChange}
+                required
+                margin="dense"
+              />
+            </Grid>
+          </Grid>
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
             fullWidth
             size="small"
-            name="lugar_origen"
+            name="from"
             label="Lugar de origen"
             variant="outlined"
             placeholder="Lugar de origen"
-            value={lugar_origen}
+            value={from}
             onChange={handleChange}
             required
           />
@@ -106,12 +126,12 @@ const DatosPersonales = () => {
           <TextField
             id="date"
             label="Fecha de nacimiento"
-            name="fecha_nacimiento"
+            name="birthday"
             type="date"
             fullWidth
             variant="outlined"
             onChange={handleChange}
-            value={fecha_nacimiento}
+            value={birthday}
             placeholder="Fecha de nacimiento"
             size="small"
             InputLabelProps={{
@@ -127,12 +147,12 @@ const DatosPersonales = () => {
             sx={{ minWidth: "100%" }}
             required
           >
-            <InputLabel id="genero-label">Género</InputLabel>
+            <InputLabel id="genre-label">Género</InputLabel>
             <Select
-              labelId="genero-label"
-              id="genero"
-              name="genero"
-              value={genero}
+              labelId="genre-label"
+              id="genre"
+              name="genre"
+              value={genre}
               onChange={handleChange}
               label="genero"
             >
@@ -164,10 +184,10 @@ const DatosPersonales = () => {
             size="small"
             label="Teléfono"
             variant="outlined"
-            name="telefono"
+            name="phone"
             placeholder="Teléfono"
             onChange={handleChange}
-            value={telefono}
+            value={phone}
             requiredo
           />
         </Grid>
@@ -176,11 +196,11 @@ const DatosPersonales = () => {
             fullWidth
             size="small"
             label="Correo eléctronico"
-            name="mail"
+            name="email"
             variant="outlined"
             placeholder="Correo eléctronico"
             onChange={handleChange}
-            value={mail}
+            value={email}
             required
           />
         </Grid>

@@ -16,7 +16,7 @@ const Comprobantes = () => {
       setPreviewComprobante(URL.createObjectURL(files[0]));
       setData({
         ...data,
-        comprobante_pago: files[0],
+        pay: files[0],
       });
     },
     [data, setData, setPreviewComprobante]
@@ -75,7 +75,7 @@ const IdentificacionComponent = () => {
       setPreviewID(URL.createObjectURL(files[0]));
       setData({
         ...data,
-        identificacion_personal: files[0],
+        personal_identify: files[0],
       });
     },
     [setPreviewID, data, setData]

@@ -18,6 +18,7 @@ import {
   validar_requisitos,
 } from "./validacion";
 import axiosClient from "../../../Config/axios";
+import { handlerErrors } from "../../../Config/errors";
 
 const steps = ["Datos personales", "Comprobantes de pago", "Tu video"];
 const RenderView = ({ activeStep }) => {
@@ -50,35 +51,23 @@ export default function StepComponent() {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  console.log(data);
-
   const handleOk = async () => {
-    console.log("ok");
-    console.log(data);
     setLoading(true);
     await axiosClient
-      .post("/login/", data)
+      .post("/competitor/create", data)
       .then((res) => {
         setLoading(false);
-       console.log(res)
        snackMessage({
-        message: "listo!",
+        message: res.data.message,
         variant: "success",
       });
       })
       .catch((err) => {
         setLoading(false);
-        if (err.response) {
-          snackMessage({
-            message: err.response.data.message,
-            variant: "error",
-          });
-        } else {
-          snackMessage({
-            message: "No se pudo establecer una conexión con el servidor",
-            variant: "error",
-          });
-        }
+        snackMessage({
+          message: handlerErrors(err, "POST"),
+          variant: "error",
+        });
       });
   };
 

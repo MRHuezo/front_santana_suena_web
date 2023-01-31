@@ -7,23 +7,26 @@ const initial_participante_state = {
   id_sede: "",
   sede: "",
   address: "",
-  mail: "",
+  email: "",
   url_video: "",
-  comprobante_pago: "",
-  identificacion_personal: "",
-  telefono: "",
-  nombre_tema: "",
-  experiencia_artistica: "",
-  lugar_origen: "",
-  fecha_nacimiento: "",
-  genero: "",
-  aviso_privacidad: false,
-}
+  pay: "",
+  personal_identify: "",
+  phone: "",
+  name_song: "",
+  artistic_experience: "",
+  from: "",
+  birthday: "",
+  genre: "",
+  privacy_notice: false,
+  curp: "",
+  photo: "",
+};
 
 const InscripcionCtxProvider = ({ children }) => {
   const [data, setData] = React.useState(initial_participante_state);
   const [previewComprobante, setPreviewComprobante] = React.useState("");
   const [previewID, setPreviewID] = React.useState("");
+  const [previewUser, setPreviewUser] = React.useState("");
 
   return (
     <InscripcionContext.Provider
@@ -34,7 +37,9 @@ const InscripcionCtxProvider = ({ children }) => {
         setPreviewComprobante,
         previewID,
         setPreviewID,
-        initial_participante_state
+        initial_participante_state,
+        previewUser,
+        setPreviewUser,
       }}
     >
       {children}
