@@ -8,7 +8,7 @@ import Drawer from "@mui/material/Drawer";
 import NavbarAdmin from "./NavbarAdmin";
 
 const TopNavAdmin = ({ title = "Santana Suena" }) => {
-  const [openDraw, setOpenDraw] = React.useState(null);
+  const [openDraw, setOpenDraw] = React.useState(false);
 
   const toggleDrawer = (open) => (event) => {
     if (

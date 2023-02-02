@@ -5,7 +5,6 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
 import EliminarParticipante from "./EliminarParticipante";
 import { Verified } from "@mui/icons-material";
 import DetallesIndex from "./DetallesParticipante/DetallesIndex";
@@ -61,19 +60,17 @@ export default function TablaParticipantes() {
 
   return (
     <TableContainer
-      component={Paper}
       style={{ maxHeight: "80vh", overflowX: "scroll" }}
     >
-      <Table sx={{ minWidth: 650 }} aria-label="simple table" stickyHeader>
+      <Table aria-label="simple table" stickyHeader size="small">
         <TableHead>
           <TableRow>
-            <TableCell>status</TableCell>
-            <TableCell>Sede</TableCell>
+            <TableCell></TableCell>
+            <TableCell>Tema</TableCell>
             <TableCell>Nombre</TableCell>
-            <TableCell>Email</TableCell>
-            <TableCell>Telefono</TableCell>
+            <TableCell>Sede</TableCell>
             <TableCell>Ciudad</TableCell>
-            <TableCell>Detalles</TableCell>
+            <TableCell>status</TableCell>
             <TableCell>Eliminar</TableCell>
           </TableRow>
         </TableHead>
@@ -83,15 +80,14 @@ export default function TablaParticipantes() {
               key={row._id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              <TableCell align="center" padding="checkbox"><Verified color="primary" /></TableCell>
+              <TableCell align="center"><DetallesIndex data={row} /></TableCell>
               <TableCell component="th" scope="row">
-                {row.id_sede.name}
+                {row.name_song}
               </TableCell>
               <TableCell>{row.name}</TableCell>
-              <TableCell>{row.email}</TableCell>
-              <TableCell>{row.phone}</TableCell>
+              <TableCell>{row.id_sede.name}</TableCell>
               <TableCell>{row.from}</TableCell>
-              <TableCell align="center" padding="checkbox"><DetallesIndex data={row} /></TableCell>
+              <TableCell align="center" padding="checkbox"><Verified color="primary" /></TableCell>
               <TableCell align="center" padding="checkbox"><EliminarParticipante data={row} /></TableCell>
             </TableRow>
           ))}

@@ -4,11 +4,12 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import Slide from "@mui/material/Slide";
-import { IconButton, Typography } from "@mui/material";
-import { FilePresent } from "@mui/icons-material";
+import { DialogTitle, Grid, Typography } from "@mui/material";
+import { Close, Done, YouTube } from "@mui/icons-material";
 import { Box } from "@mui/system";
 import moment from "moment";
 import "moment/locale/es-mx";
+import DialogImagenPayOrId from "./DialogImagenPayOrId";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -28,18 +29,47 @@ export default function DetallesIndex({ data }) {
     setCompetitor(null);
   };
 
-  /* 
-  id_sede;
-  pay;
-  personal_identify;
-  from;
-  status; */
+  let youtube_video_id = data.url_video
+    .match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/)
+    .pop();
+  console.log(youtube_video_id);
 
   return (
     <div>
-      <IconButton size="small" color="primary" onClick={handleClickOpen}>
-        <FilePresent />
-      </IconButton>
+      <Box
+        onClick={handleClickOpen}
+        sx={{
+          position: "relative",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "80px",
+          width: "100px",
+          cursor: "pointer",
+          ":hover": {
+            "& .play-icon": {
+              display: "flex",
+              transition: "1s ease-out",
+            },
+          },
+        }}
+      >
+        <img
+          src={`http://img.youtube.com/vi/${youtube_video_id}/0.jpg`}
+          alt=""
+          style={{ maxHeight: "100%", maxWidth: "100%" }}
+        />
+        <YouTube
+          className="play-icon"
+          sx={{
+            position: "absolute",
+            color: "rgb(255,255,255,0.8)",
+            fontSize: 50,
+            display: "none",
+            transition: "1s ease-out",
+          }}
+        />
+      </Box>
       <DialogInfoParticipante
         open={open}
         handleClose={handleClose}
@@ -61,10 +91,10 @@ const DialogInfoParticipante = ({ competitor, open, handleClose }) => {
       fullWidth
       maxWidth="sm"
     >
-      <DialogContent>
+      <DialogTitle component="div" sx={{ p: 0 }}>
         <Box
           sx={{
-            height: "250px",
+            height: "275px",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -73,19 +103,23 @@ const DialogInfoParticipante = ({ competitor, open, handleClose }) => {
           <iframe
             width="100%"
             height="100%"
-            src={competitor.url_video}
+            src={`${competitor.url_video}?autoplay=1`}
             title="YouTube video player"
-            frameborder="0"
-            allowfullscreen
-            on
+            frameBorder="0"
+            allow="autoplay; fullscreen"
+            allowFullScreen
           ></iframe>
         </Box>
-        <Typography variant="h6" sx={{ mt: 1 }}>
-          <b>{competitor.name_song}</b>
-        </Typography>
-        <Typography variant="subtitle1" sx={{ mb: 1 }}>
-          <b>{competitor.name}</b>
-        </Typography>
+        <Box sx={{ px: 1 }}>
+          <Typography variant="h6">
+            <b>{competitor.name_song}</b>
+          </Typography>
+          <Typography variant="subtitle1">
+            <b>{competitor.name}</b>
+          </Typography>
+        </Box>
+      </DialogTitle>
+      <DialogContent>
         <Box sx={{ mb: 1 }}>
           <Typography variant="subtitle2" color="gray">
             Experiencia artística
@@ -98,23 +132,60 @@ const DialogInfoParticipante = ({ competitor, open, handleClose }) => {
           <Typography variant="subtitle2" color="gray">
             Más datos del participante
           </Typography>
-          <Typography>{`Género: ${competitor.genre}`}</Typography>
-          <Typography>{`Fecha de nacimiento: ${moment()
-            .locale("es-mx")
-            .format("LL")}`}</Typography>
-          <Typography>{`Correo: ${competitor.email}`}</Typography>
-          <Typography>{`Telefono: ${competitor.phone}`}</Typography>
-          <Typography>{`Domicilio: ${competitor.address}, ${competitor.from}`}</Typography>
-          <Box sx={{display: "flex", my: 2}}>
-            <Button color="primary">Comprobante de pago</Button>
-            <Button color="primary">Identificación personal</Button>
+          <Grid container spacing={2}>
+            <Grid
+              item
+              xs={12}
+              md={3}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Box
+                sx={{
+                  border: "1px solid #e6e6e6",
+                  borderRadius: 2,
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "90%",
+                  width: "100%",
+                }}
+              >
+                foto
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={9}>
+              <Typography>{`Género: ${competitor.genre}`}</Typography>
+              <Typography>{`Fecha de nacimiento: ${moment()
+                .locale("es-mx")
+                .format("LL")}`}</Typography>
+              <Typography>{`Correo: ${competitor.email}`}</Typography>
+              <Typography>{`Telefono: ${competitor.phone}`}</Typography>
+              <Typography>{`Domicilio: ${competitor.address}, ${competitor.from}`}</Typography>
+            </Grid>
+          </Grid>
+          <Box sx={{ display: "flex", justifyContent: "center", my: 2 }}>
+            <DialogImagenPayOrId
+              text="Comprobante de pago"
+              competitor={competitor}
+            />
+            <DialogImagenPayOrId
+              text="Identificación personal"
+              competitor={competitor}
+            />
           </Box>
         </Box>
       </DialogContent>
-      <DialogActions>
-        <Button onClick={handleClose}>Cancelar</Button>
-        <Button color="primary" onClick={handleClose}>
-          Aceptar
+      <DialogActions sx={{ justifyContent: "flex-start" }}>
+        <Button color="primary" startIcon={<Done />} onClick={handleClose}>
+          Calificar
+        </Button>
+        <Box sx={{ flexGrow: 1 }} />
+        <Button color="inherit" startIcon={<Close />} onClick={handleClose}>
+          Cerrar
         </Button>
       </DialogActions>
     </Dialog>
