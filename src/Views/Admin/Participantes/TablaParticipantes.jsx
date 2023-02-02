@@ -29,7 +29,7 @@ export default function TablaParticipantes() {
   React.useEffect(() => {
     const getCompetitors = async () => {
       await axiosClient
-        .get(`/competitor/get/`)
+        .get(`/competitor/get`)
         .then((res) => {
           setCompetitors((comp) => ({
             ...comp,
