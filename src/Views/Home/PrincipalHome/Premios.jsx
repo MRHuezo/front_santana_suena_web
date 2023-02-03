@@ -110,7 +110,7 @@ const Reconocimientos = () => {
                               <Typography>{award}</Typography>
                             </li>
                           ))}
-                        </ul>
+                        </ul>   
                       </Grid>
                     </Grid>
                   </Parallax>
