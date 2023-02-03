@@ -53,23 +53,24 @@ export default function StepComponent() {
 
   const handleOk = async () => {
     setLoading(true);
-   
-    let form_data = new FormData();
 
-    for ( var key in data ) {
-      form_data.append(key, data[key]);
-  
-      
+    let formData = new FormData();
+    for (var key in data) {
+      formData.append(key, data[key]);
     }
-    console.log(form_data)
+    /* for (var pair of formData.entries()) {
+      console.log(pair[0] + ", " + pair[1]);
+    } */
     await axiosClient
-      .post("/competitor/create", form_data, {headers: { 'Content-Type': 'application/json' }})
+      .post("/competitor/create", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      })
       .then((res) => {
         setLoading(false);
-       snackMessage({
-        message: res.data.message,
-        variant: "success",
-      });
+        snackMessage({
+          message: res.data.message,
+          variant: "success",
+        });
       })
       .catch((err) => {
         setLoading(false);
@@ -78,7 +79,6 @@ export default function StepComponent() {
           variant: "error",
         });
       });
-   
   };
 
   return (
