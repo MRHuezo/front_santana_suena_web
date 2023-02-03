@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import NavbarHome from "../Components/Navbar/NavbarHome";
 import PatrocinadoresHome from "../Views/Home/Patrocinadores";
+import InstitucionesHome from "../Views/Home/Instituciones";
 import PrincipalHome from "../Views/Home/PrincipalHome";
 import SedesHome from "../Views/Home/Sedes";
 import FinalistasHome from "../Views/Home/Finalistas";
@@ -31,11 +32,11 @@ function HomeLayout() {
       <InstitucionOrganizadora />
       <Bases />
       <Etapas />
-      <Fechas />
       <SedesHome />
       <Premios />
       <InscripcionesHome />
       <PatrocinadoresHome />
+      <InstitucionesHome />
       <FinalistasHome />
       <Footer />
     </div>

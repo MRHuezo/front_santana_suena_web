@@ -21,7 +21,7 @@ const Fechas = () => {
           <ul>
             <li>
               <Typography variant="h6">
-                <b>Del 30 de Febrero al 30 de Marzo 2023</b>
+                <b>Del 04 de Febrero al 30 de Abril del 2023</b>
               </Typography>
               <Typography variant="h6">
                 Convocatoria de inscripción y recepción de material audiovisual
@@ -53,7 +53,7 @@ const Fechas = () => {
                 <b>17 de Noviembre 2023</b>
               </Typography>
               <Typography variant="h6">
-                Final del concurso en Autlán de Navarro Jalisco
+                Final del concurso en Autlán de Navarro, Jalisco
               </Typography>
             </li>
             <br />
@@ -63,7 +63,7 @@ const Fechas = () => {
               </Typography>
               <Typography variant="h6">
                 Presentación de Ganador de la final junto con el grupo Soul
-                Sacrifice en el marco del 7to. Festival Músico Cultural Carlos
+                Sacrifice en el marco del 6to. Festival Músico Cultural Carlos
                 Santana en Autlán.
               </Typography>
             </li>
@@ -75,7 +75,7 @@ const Fechas = () => {
               proyecto en tiempo y forma
             </Typography>
             <Typography variant="h5" align="center">
-              <b>Fecha límite de inscripción 30 de marzo 2023</b>
+              <b>Fecha límite de inscripción 30 de abril 2023</b>
             </Typography>
           </Box>
         </Box>

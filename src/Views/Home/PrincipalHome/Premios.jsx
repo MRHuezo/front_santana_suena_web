@@ -57,26 +57,26 @@ const premiosFinal = [
   },
 ];
 
-const Premios = () => {
+const Reconocimientos = () => {
   return (
-    <Box sx={{ py: 5 }} id="premios">
+    <Box sx={{ py: 5 }} id="reconocimientos">
       <Container maxWidth="lg">
         <Parallax
           animation={{ x: 0, opacity: 1, playScale: [0.1, 0.5] }}
           style={{ transform: "translateX(-100px)", opacity: 0 }}
           className="code-box-shape"
         >
-          <Box sx={{ my: 4, display: "flex", justifyContent: "center" }}>
+          <Box sx={{ my: 4, mt:1, mb:1, display: "flex", justifyContent: "center" }}>
             <EmojiEvents sx={{ fontSize: 50, mx: 2 }} color="secondary" />
-            <Typography variant="h3">Premios</Typography>
+            <Typography variant="h3">Reconocimientos</Typography>
             <EmojiEvents sx={{ fontSize: 50, mx: 2 }} color="secondary" />
           </Box>
-          <Box my={5}>
+          <Box my={5} mt={2}>
             <Grid container>
               <Grid item md={6} xs={12}>
-                <Box my={5}>
+                <Box my={5} mt={2}>
                   <Typography align="center" variant="h6">
-                    <b>Premios por SEDE</b>
+                    <b>Reconocimientos por SEDE</b>
                   </Typography>
                 </Box>
                 {premios.map(({ lugar, premios, icon }, index) => (
@@ -117,9 +117,9 @@ const Premios = () => {
                 ))}
               </Grid>
               <Grid item md={6} xs={12}>
-                <Box my={5}>
+                <Box my={5} mt={2}>
                   <Typography align="center" variant="h6">
-                    <b>Premios de la GRAN FINAL</b>
+                    <b>Reconocimientos de la GRAN FINAL</b>
                   </Typography>
                 </Box>
                 {premiosFinal.map(({ lugar, premios, icon }, index) => (
@@ -167,4 +167,4 @@ const Premios = () => {
   );
 };
 
-export default Premios;
+export default Reconocimientos;

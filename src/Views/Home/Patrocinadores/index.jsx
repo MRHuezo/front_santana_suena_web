@@ -2,8 +2,8 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Parallax } from "rc-scroll-anim";
 import prs from "./img/prs_logo.png";
-import sony from "./img/sony_logo.png";
 import colectivamente from "./img/colectivamente.png";
+import hermes from "./img/hermes.png";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -18,17 +18,21 @@ import { makeStyles } from "@mui/styles";
 
 const sponsors = [
   {
-    nombre: "Sponsor 1",
+    nombre: "PRS",
     imagen: prs,
   },
   {
-    nombre: "Sponsor 2",
+    nombre: "Hermes",
+    imagen: hermes,
+  },
+  /* {
+    nombre: "SONY MUSIC",
     imagen: sony,
-  },
+  }, */
   {
-    nombre: "Sponsor 3",
+    nombre: "COLECTIVAMENTE",
     imagen: colectivamente,
-  },
+  }
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -52,7 +56,7 @@ const PatrocinadoresHome = () => {
             style={{ transform: "translateX(-100px)", opacity: 0 }}
             className="code-box-shape"
           >
-            <Box
+             <Box
               sx={{
                 my: 5,
                 display: "flex",
@@ -62,7 +66,7 @@ const PatrocinadoresHome = () => {
             >
               <Handshake sx={{ fontSize: 50, mx: 2 }} color="secondary" />
               <Typography variant="h3">Patrocinadores</Typography>
-            </Box>
+            </Box> 
           </Parallax>
           <Swiper
             slidesPerView={3}

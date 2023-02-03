@@ -132,8 +132,9 @@ const Bases = () => {
             <Box sx={{ mx: 1 }} />
             <Box>
               <Typography variant="h6">
-                Enviar un video en cualquier formato a la página oficial de cada
-                sede. (Puede ser desde su celular)
+                Subír un video en youtube o vimeo a su canal personal (Puede ser desde su celular) 
+                y compartir el Link en la página oficial www.santanasuena.com en la sede de su elección 
+                al momento de realizar su registro.
               </Typography>
               <Typography variant="h6">
                 El video deberá comenzar mostrando su recibo de pago e
@@ -147,18 +148,17 @@ const Bases = () => {
             <Apartment sx={{ fontSize: 30 }} color="primary" />
             <Box sx={{ mx: 1 }} />
             <Typography variant="h6">
-              Los participantes solo podrán registrarse en una sola sede, si se
-              registran en más de una automáticamente quedarán descalificados y
-              no tiene derecho a reembolso.
+            Cada participante únicamente podrá registrarse en una sola sede, 
+            si se registrara en más de una, quedará automáticamente descalificado 
+            y no tendrá derecho al reembolso de las inscripciones que haya realizado.
             </Typography>
           </Box>
           <Box sx={{ my: 2, display: "flex" }}>
             <Verified sx={{ fontSize: 30 }} color="primary" />
             <Box sx={{ mx: 1 }} />
             <Typography variant="h6">
-              El ganador del 1er lugar de cada sede participará en un sorteo
-              donde se elegirá al azahar un tema musical para interpretar en la
-              gran final.
+            El ganador del 1er lugar de cada sede participará en un sorteo donde se elegirá 
+            al azahar un tema musical de una lista de 5 para interpretar en la gran final.
             </Typography>
           </Box>
           <Box sx={{ my: 2, display: "flex" }}>

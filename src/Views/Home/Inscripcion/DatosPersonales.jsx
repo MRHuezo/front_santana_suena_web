@@ -68,13 +68,22 @@ const DatosPersonales = () => {
                     <em>Selecciona una sede</em>
                   </MenuItem>
                   {sedes.data ? (
-                    sedes.data?.map(({ name, place, _id }, index) => (
-                      <MenuItem
-                        key={`${place} - ${index}`}
-                        id_sede={_id}
-                        value={`${name} - ${place}`}
-                      >{`${name} - ${place}`}</MenuItem>
-                    ))
+                    sedes.data?.map(({ name, place, _id, main }, index) => {
+                      if(main){
+                        return(
+                          <div/>
+                          )
+                      }else{
+                        return(
+                          <MenuItem
+                            key={`${place} - ${index}`}
+                            id_sede={_id}
+                            value={`${name} - ${place}`}
+                          >{`${name} - ${place}`}</MenuItem>
+                          )
+                      }
+                     
+                    })
                   ) : (
                     <MenuItem value="No hay sedes disponibles">
                       <em>No hay sedes disponibles</em>

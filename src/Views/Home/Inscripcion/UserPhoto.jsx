@@ -9,7 +9,8 @@ const UserPhoto = () => {
     setData,
     previewUser, setPreviewUser
   } = useContext(InscripcionContext);
-
+  
+  
   const onDrop = useCallback(
     (files) => {
       setPreviewUser(URL.createObjectURL(files[0]));

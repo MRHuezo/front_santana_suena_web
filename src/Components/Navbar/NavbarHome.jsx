@@ -29,19 +29,15 @@ const pages = [
     route: "/#como_participar",
     component: HashLink,
   },
-  {
-    title: "Fechas",
-    route: "/#fechas",
-    component: HashLink,
-  },
+ 
   {
     title: "Sedes",
     route: "/#sedes",
     component: HashLink,
   },
   {
-    title: "Premios",
-    route: "/#premios",
+    title: "Reconocimientos",
+    route: "/#reconocimientos",
     component: HashLink,
   },
   {

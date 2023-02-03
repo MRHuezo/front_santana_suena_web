@@ -3,7 +3,14 @@ import { Box, Typography, Grid } from "@mui/material";
 import { Container } from "@mui/system";
 import { Parallax } from "rc-scroll-anim";
 import tiopa from "./img/tiopa.png";
+import { alpha } from '@mui/material/styles';
+import { grey } from '@mui/material/colors';
+
+import soulsacrifice from "./img/soulsacrifice.png";
+import cuicacalli from "./img/cuicacalli.png";
+import museorock from "./img/museorock.png";
 const InstitucionOrganizadora = () => {
+  const color = grey[900];
   return (
     <Container maxWidth="lg">
       <Box my={5}>
@@ -49,9 +56,9 @@ const InstitucionOrganizadora = () => {
             >
               <img
                 alt="institucion"
-                src="https://letrafria.com/wp-content/uploads/tiopa_tlanextli_carlos_santana_20200122.jpg"
-                height="100%"
-                width="100%"
+                src={tiopa}
+                height="60%"
+                width="60%"
               />
             </Grid>
           </Grid>
@@ -105,23 +112,45 @@ const InstitucionOrganizadora = () => {
             </Grid>
             <Grid
               item
+              container
               md={6}
               xs={12}
               sx={{
-                height: "100%",
-                width: "100%",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                
               }}
             >
-              <img alt="Tiopatlanextli" src={tiopa} height="50%" width="50%" />
-              <img
+            
+              <Grid item md={6}
+              xs={12}>
+                <img
                 alt="Museo del rock mexicano"
-                src="https://revistakuadro.com/wp-content/uploads/2016/09/image-2.jpeg"
-                height="50%"
-                width="50%"
+                src={museorock}
+                height="100%"
+                width="100%"
               />
+              </Grid>
+             
+              <Grid item md={6}
+              xs={12}>
+                <img
+                alt="Soul Sacrifice a Carlos Santana Tribute Band"
+                src={soulsacrifice}
+                height="100%"
+                width="100%"
+              />
+              </Grid>
+              <Grid item md={6}
+              xs={12}>
+                <img
+                alt="Centro cultural cuicacalli"
+                src={cuicacalli}
+                height="100%"
+                width="100%"
+              />
+              </Grid>
             </Grid>
           </Grid>
         </Parallax>

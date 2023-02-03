@@ -53,8 +53,17 @@ export default function StepComponent() {
 
   const handleOk = async () => {
     setLoading(true);
+   
+    let form_data = new FormData();
+
+    for ( var key in data ) {
+      form_data.append(key, data[key]);
+  
+      
+    }
+    console.log(form_data)
     await axiosClient
-      .post("/competitor/create", data)
+      .post("/competitor/create", form_data, {headers: { 'Content-Type': 'application/json' }})
       .then((res) => {
         setLoading(false);
        snackMessage({
@@ -69,6 +78,7 @@ export default function StepComponent() {
           variant: "error",
         });
       });
+   
   };
 
   return (

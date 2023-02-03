@@ -319,7 +319,7 @@ export default function Terminos(props){
                   2023”
                 </li>
                 <li>
-                  Otorgar los premios previstos en las bases del Concurso
+                  Otorgar los reconocimientos previstos en las bases del Concurso
                   Nacional de Guitarra “Santana Suena 2023”
                 </li>
               </ul>
