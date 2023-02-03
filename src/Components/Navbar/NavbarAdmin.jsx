@@ -93,7 +93,7 @@ const NavbarAdmin = () => {
               <ListItemText primary="Participantes" />
             </ListItemButton>
           </ListItem>
-          {user.rol && user.rol === "FIRST" ? (
+          {/* {user.id_sede && user.id_sede.main ? ( */}
             <ListItem disablePadding>
               <ListItemButton component={Link} to="/admin/finalistas">
                 <ListItemIcon>
@@ -102,8 +102,8 @@ const NavbarAdmin = () => {
                 <ListItemText primary="Finalistas" />
               </ListItemButton>
             </ListItem>
-          ) : null}
-          {user.rol && user.rol === "FIRST" ? (
+          {/* ) : null} */}
+          {user.id_sede && user.id_sede.main ? (
             <ListItem disablePadding>
               <ListItemButton component={Link} to="/admin/sedes">
                 <ListItemIcon>
@@ -130,7 +130,7 @@ const NavbarAdmin = () => {
               <ListItemText primary="Patrocinadores" />
             </ListItemButton>
           </ListItem> */}
-          {user.rol && user.rol === "FIRST" ? (
+          {user.id_sede && user.id_sede.main ? (
             <ListItem disablePadding>
               <ListItemButton component={Link} to="/admin/comunicados">
                 <ListItemIcon>

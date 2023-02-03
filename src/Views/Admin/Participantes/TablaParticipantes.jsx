@@ -17,7 +17,7 @@ import LoadingSpiner from "../../../Components/NoMatch/LoadingSpiner";
 const initial_competitor_state = {
   data: undefined,
   loading: true,
-  error: undefined
+  error: undefined 
 }
 
 export default function TablaParticipantes() {
@@ -48,7 +48,7 @@ export default function TablaParticipantes() {
     getCompetitors();
   }, [setCompetitors, snackMessage]);
 
-  console.log(data)
+
 
   if (loading) {
     return <LoadingSpiner />
@@ -75,22 +75,30 @@ export default function TablaParticipantes() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((row) => (
-            <TableRow
-              key={row._id}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell align="center"><DetallesIndex data={row} /></TableCell>
-              <TableCell component="th" scope="row">
-                {row.name_song}
-              </TableCell>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.id_sede.name}</TableCell>
-              <TableCell>{row.from}</TableCell>
-              <TableCell align="center" padding="checkbox"><Verified color="primary" /></TableCell>
-              <TableCell align="center" padding="checkbox"><EliminarParticipante data={row} /></TableCell>
-            </TableRow>
-          ))}
+        {data.map((row) => {
+            if(row.status === "ACEPTADO"){
+            return(
+              <TableRow
+                key={row._id}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              >
+                <TableCell align="center"><DetallesIndex data={row} /></TableCell>
+                <TableCell component="th" scope="row">
+                  {row.name_song}
+                </TableCell>
+                <TableCell>{row.name}</TableCell>
+                <TableCell>{row.id_sede.name}</TableCell>
+                <TableCell>{row.from}</TableCell>
+                <TableCell>{row.status}</TableCell>
+                {/* <TableCell align="center" padding="checkbox"><Verified color="primary" /></TableCell>*/}
+                
+                
+              </TableRow>
+            )
+          }else{
+            return <div/>
+          }  
+          })}
         </TableBody>
       </Table>
     </TableContainer>

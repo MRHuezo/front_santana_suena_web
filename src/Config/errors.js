@@ -1,6 +1,11 @@
 export function handlerErrors(err, type) {
+  console.log(err, type);
   try {
     if (type === "POST") {
+      const { status, data } = err.response;
+      if(status === 400){
+        return data.message;
+      }
       const { code } = err;
       switch (code) {
         case "ERR_NETWORK":

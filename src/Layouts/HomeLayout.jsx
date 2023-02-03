@@ -37,7 +37,7 @@ function HomeLayout() {
       <InscripcionesHome />
       <PatrocinadoresHome />
       <InstitucionesHome />
-      <FinalistasHome />
+      {/* <FinalistasHome /> */}
       <Footer />
     </div>
   );

@@ -64,52 +64,13 @@ const InstitucionOrganizadora = () => {
           </Grid>
         </Parallax>
       </Box>
-      <Box my={2} mt={10}>
+      <Box my={2} mt={5}>
         <Parallax
           animation={{ x: 0, opacity: 1, playScale: [0.1, 0.5] }}
           style={{ transform: "translateX(0px)", opacity: 0 }}
           className="code-box-shape"
         >
           <Grid container spacing={2}>
-            <Grid item md={6} xs={12}>
-              <Typography variant="h6">
-                <b>Comité organizador:</b>
-              </Typography>
-              <ul>
-                <li>
-                  <Typography variant="h6">
-                    Centro Comunitario y de Salud Tiopa Tlanextli, Dr. Martin
-                    Sandoval Gómez
-                  </Typography>
-                </li>
-
-                <li>
-                  <Typography variant="h6">
-                    Museo del Rock Mexicano A.C., Francisco Sánchez Loaeza.
-                  </Typography>
-                </li>
-
-                <li>
-                  <Typography variant="h6">
-                    Museo del Rock Mexicano A.C., Miguel Ángel Pichardo.
-                  </Typography>
-                </li>
-
-                <li>
-                  <Typography variant="h6">
-                    Centro Cultural Cuicacalli Tiopa Tlanextli A.C., Martín
-                    Rivera Hueso.
-                  </Typography>
-                </li>
-
-                <li>
-                  <Typography variant="h6">
-                    Soul Sacrifice - Carlos Santana tribute band, Edgar L.
-                    Santana.
-                  </Typography>
-                </li>
-              </ul>
-            </Grid>
             <Grid
               item
               container
@@ -151,6 +112,45 @@ const InstitucionOrganizadora = () => {
                 width="100%"
               />
               </Grid>
+            </Grid>
+            <Grid item md={6} xs={12} mt={10}>
+              <Typography variant="h6">
+                <b>Comité organizador:</b>
+              </Typography>
+              <ul>
+                <li>
+                  <Typography variant="h6">
+                    Centro Comunitario y de Salud Tiopa Tlanextli, Dr. Martin
+                    Sandoval Gómez
+                  </Typography>
+                </li>
+
+                <li>
+                  <Typography variant="h6">
+                    Museo del Rock Mexicano A.C., Francisco Sánchez Loaeza.
+                  </Typography>
+                </li>
+
+                <li>
+                  <Typography variant="h6">
+                    Museo del Rock Mexicano A.C., Miguel Ángel Pichardo.
+                  </Typography>
+                </li>
+
+                <li>
+                  <Typography variant="h6">
+                    Centro Cultural Cuicacalli Tiopa Tlanextli A.C., Martín
+                    Rivera Hueso.
+                  </Typography>
+                </li>
+
+                <li>
+                  <Typography variant="h6">
+                    Soul Sacrifice - Carlos Santana tribute band, Edgar L.
+                    Santana.
+                  </Typography>
+                </li>
+              </ul>
             </Grid>
           </Grid>
         </Parallax>

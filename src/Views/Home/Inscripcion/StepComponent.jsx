@@ -106,7 +106,7 @@ export default function StepComponent() {
           <Button
             variant="contained"
             color="primary"
-            disabled={activeStep === 0}
+            disabled={activeStep === 0 }
             onClick={handleBack}
           >
             Regresar
@@ -136,6 +136,7 @@ export default function StepComponent() {
                   : activeStep === 1
                   ? validar_comprobantes(data)
                   : false
+
               }
             >
               Siguiente

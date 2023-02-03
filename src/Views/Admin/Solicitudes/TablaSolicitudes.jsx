@@ -5,51 +5,71 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
+import RechazarParticipante from "./RechazarParticipante";
+import AceptarParticipante from "./AceptarParticipante";
+//import { Verified } from "@mui/icons-material";
+import DetallesIndex from "./DetallesParticipante/DetallesIndex";
+import { MainContext } from "../../../Context/MainCtx";
+import EmptyQuery from "../../../Components/NoMatch/EmptyQuery";
+import LoadingSpiner from "../../../Components/NoMatch/LoadingSpiner"
 
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
 
-const TablaSolicitudes = () => {
+export default function TablaSolicitudes (props) {
+  const { snackMessage } = React.useContext(MainContext);
+  const { data, loading, error } = props.competitors;
+
+  if (loading) {
+    return <LoadingSpiner />
+  }
+  if (error || (!loading && !data)) {
+    console.log(error);
+    return <EmptyQuery />;
+  }
+
   return (
-    <TableContainer component={Paper} style={{maxHeight: "80vh", overflowX: 'scroll'}}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table" stickyHeader>
+    <TableContainer
+      style={{ maxHeight: "80vh", overflowX: "scroll" }}
+    >
+      <Table aria-label="simple table" stickyHeader size="small">
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell></TableCell>
+            <TableCell>Tema</TableCell>
+            <TableCell>Nombre</TableCell>
+            <TableCell>Sede</TableCell>
+            <TableCell>Ciudad</TableCell>
+            <TableCell>Estatus</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
-            </TableRow>
-          ))}
+          {data.map((row) => {
+            console.log(row)
+            if(row.status === "INSCRITO" || row.status === "RECHAZADO"){
+            return(
+              <TableRow
+                key={row._id}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              >
+                <TableCell align="center"><DetallesIndex data={row} /></TableCell>
+                <TableCell component="th" scope="row">
+                  {row.name_song}
+                </TableCell>
+                <TableCell>{row.name}</TableCell>
+                <TableCell>{row.id_sede.name}</TableCell>
+                <TableCell>{row.from}</TableCell>
+                <TableCell>{row.status}</TableCell>
+                {/* <TableCell align="center" padding="checkbox"><Verified color="primary" /></TableCell>*/}
+                
+                
+              </TableRow>
+            )
+          }else{
+            return <div/>
+          }  
+          })}
         </TableBody>
       </Table>
     </TableContainer>
   );
 }
-export default TablaSolicitudes
