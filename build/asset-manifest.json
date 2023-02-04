@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.b9ca4106.css",
-    "main.js": "/static/js/main.704d5001.js",
+    "main.js": "/static/js/main.bf635bd5.js",
     "static/js/787.6ab86626.chunk.js": "/static/js/787.6ab86626.chunk.js",
     "static/media/soulsacrifice.png": "/static/media/soulsacrifice.58f405b6fe3328f70112.png",
     "static/media/santana_suena_portada.png": "/static/media/santana_suena_portada.12f125593d07258203d7.png",
@@ -17,11 +17,11 @@
     "static/media/zapopan.png": "/static/media/zapopan.00f94d46e0a79a6e6743.png",
     "index.html": "/index.html",
     "main.b9ca4106.css.map": "/static/css/main.b9ca4106.css.map",
-    "main.704d5001.js.map": "/static/js/main.704d5001.js.map",
+    "main.bf635bd5.js.map": "/static/js/main.bf635bd5.js.map",
     "787.6ab86626.chunk.js.map": "/static/js/787.6ab86626.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b9ca4106.css",
-    "static/js/main.704d5001.js"
+    "static/js/main.bf635bd5.js"
   ]
 }
