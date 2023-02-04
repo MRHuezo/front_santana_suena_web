@@ -1,33 +1,36 @@
-import React from 'react';
-import BuscarParticiante from './BuscarParticipante';
-import TablaSolicitudes from './TablaSolicitudes';
+import React from "react";
+import BuscarParticiante from "./BuscarParticipante";
+import TablaSolicitudes from "./TablaSolicitudes";
 import { MainContext } from "../../../Context/MainCtx";
-import { Box } from '@mui/material';
-import TopNavAdmin from '../../../Components/Navbar/TopNavAdmin';
+import { Box } from "@mui/material";
+import TopNavAdmin from "../../../Components/Navbar/TopNavAdmin";
 import axiosClient from "../../../Config/axios";
 import { handlerErrors } from "../../../Config/errors";
-
+import { STATUS } from "../../../Config/constantes";
+import { useDebounce } from 'use-debounce';
 
 const initial_competitor_state = {
   data: undefined,
   loading: true,
-  error: undefined 
-}
+  error: undefined,
+};
 
 function Solicitudes() {
-  const [competitors, setCompetitors] = React.useState(initial_competitor_state);
-  const [search, setSearch] = React.useState('');
+  const [competitors, setCompetitors] = React.useState(
+    initial_competitor_state
+  );
+  const [search, setSearch] = React.useState("");
   const { snackMessage, user } = React.useContext(MainContext);
+  const { inscrito, revisado} = STATUS;
+  const [value] = useDebounce(search, 500);
 
   React.useEffect(() => {
     const getCompetitors = async () => {
-      console.log(user.id_sede)
-      let route = (user.id_sede.main) ? `/competitor/get/main/${search}` :  (search === '') ? `/competitor/get/sede/${user.id_sede._id}` : `/competitor/get/${search}/${user.id_sede._id}` ;
-      console.log(route)
+      const { id_sede } = user;
+      let route = `/competitor/get?main=${id_sede.main}&id_sede=${id_sede._id}&search=${value}&status=${inscrito}-${revisado}`;
       await axiosClient
         .get(route)
         .then((res) => {
-  
           setCompetitors((comp) => ({
             ...comp,
             data: res.data.competitor,
@@ -44,7 +47,7 @@ function Solicitudes() {
         });
     };
     getCompetitors();
-  }, [setCompetitors, snackMessage, search]);
+  }, [setCompetitors, snackMessage, value, inscrito, revisado, user]);
 
   return (
     <div>
@@ -53,7 +56,7 @@ function Solicitudes() {
       <Box my={2} />
       <TablaSolicitudes competitors={competitors} />
     </div>
-  )
+  );
 }
 
-export default Solicitudes
+export default Solicitudes;

@@ -13,22 +13,28 @@ import axiosClient from "../../../Config/axios";
 import { handlerErrors } from "../../../Config/errors";
 import EmptyQuery from "../../../Components/NoMatch/EmptyQuery";
 import LoadingSpiner from "../../../Components/NoMatch/LoadingSpiner";
+import { STATUS } from "../../../Config/constantes";
 
 const initial_competitor_state = {
   data: undefined,
   loading: true,
-  error: undefined 
-}
+  error: undefined,
+};
 
-export default function TablaParticipantes() {
-  const { snackMessage } = React.useContext(MainContext);
-  const [competitors, setCompetitors] = React.useState(initial_competitor_state)
+export default function TablaParticipantes({ search }) {
+  const { snackMessage, user } = React.useContext(MainContext);
+  const [competitors, setCompetitors] = React.useState(
+    initial_competitor_state
+  );
   const { data, loading, error } = competitors;
+  const { aceptado } = STATUS;
 
   React.useEffect(() => {
     const getCompetitors = async () => {
+      const { id_sede } = user;
+      let route = `/competitor/get?main=${id_sede.main}&id_sede=${id_sede._id}&search=${search}&status=${aceptado}`;
       await axiosClient
-        .get(`/competitor/get`)
+        .get(route)
         .then((res) => {
           setCompetitors((comp) => ({
             ...comp,
@@ -46,12 +52,10 @@ export default function TablaParticipantes() {
         });
     };
     getCompetitors();
-  }, [setCompetitors, snackMessage]);
-
-
+  }, [setCompetitors, snackMessage, search, aceptado, user]);
 
   if (loading) {
-    return <LoadingSpiner />
+    return <LoadingSpiner />;
   }
   if (error || (!loading && !data)) {
     console.log(error);
@@ -59,9 +63,7 @@ export default function TablaParticipantes() {
   }
 
   return (
-    <TableContainer
-      style={{ maxHeight: "80vh", overflowX: "scroll" }}
-    >
+    <TableContainer style={{ maxHeight: "80vh", overflowX: "scroll" }}>
       <Table aria-label="simple table" stickyHeader size="small">
         <TableHead>
           <TableRow>
@@ -75,14 +77,15 @@ export default function TablaParticipantes() {
           </TableRow>
         </TableHead>
         <TableBody>
-        {data.map((row) => {
-            if(row.status === "ACEPTADO"){
-            return(
+          {data.map((row) => {
+            return (
               <TableRow
                 key={row._id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell align="center"><DetallesIndex data={row} /></TableCell>
+                <TableCell align="center">
+                  <DetallesIndex data={row} />
+                </TableCell>
                 <TableCell component="th" scope="row">
                   {row.name_song}
                 </TableCell>
@@ -91,13 +94,8 @@ export default function TablaParticipantes() {
                 <TableCell>{row.from}</TableCell>
                 <TableCell>{row.status}</TableCell>
                 {/* <TableCell align="center" padding="checkbox"><Verified color="primary" /></TableCell>*/}
-                
-                
               </TableRow>
-            )
-          }else{
-            return <div/>
-          }  
+            );
           })}
         </TableBody>
       </Table>

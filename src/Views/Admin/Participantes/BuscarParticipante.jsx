@@ -2,10 +2,10 @@ import React from "react";
 import { InputAdornment, TextField } from "@mui/material";
 import { Search } from "@mui/icons-material";
 
-const BuscarParticipante = (props) => {
+const BuscarParticipante = ({search, setSearch}) => {
   
   const searchFunction = (e) => {
-    props.setSearch(e.target.value);
+    setSearch(e.target.value);
   };
 
   return (
@@ -16,7 +16,7 @@ const BuscarParticipante = (props) => {
         variant="outlined"
         size="small"
         onChange={searchFunction}
-        value={props.search}
+        value={search}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
