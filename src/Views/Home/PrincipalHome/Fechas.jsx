@@ -21,7 +21,7 @@ const Fechas = () => {
           <ul>
             <li>
               <Typography variant="h6">
-                <b>Del 04 de Febrero al 30 de Abril del 2023</b>
+                <b>Del 04 de Febrero al 31 de Mayo del 2023</b>
               </Typography>
               <Typography variant="h6">
                 Convocatoria de inscripción y recepción de material audiovisual

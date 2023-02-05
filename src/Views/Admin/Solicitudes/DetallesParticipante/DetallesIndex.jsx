@@ -175,7 +175,7 @@ const DialogInfoParticipante = ({ competitor, open, handleClose,youtube_video_id
           </Grid>
           <Box sx={{ display: "flex", justifyContent: "center", my: 2 }}>
             <DialogImagenPayOrId
-              text="Comprobante de pago"
+              text="Comprobante de donativo"
               img={competitor.personal_identify}
               competitor={competitor}
             />

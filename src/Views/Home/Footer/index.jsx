@@ -35,6 +35,10 @@ function Footer() {
                 de esta institución. No contamos con los derechos para manejo de
                 la imagen, ni de la música de <b>CARLOS SANTANA</b>
               </Typography>
+              <Typography variant="body2" color="text.secondary" align="center">
+                Este programa es sin fines políticos, ni afiliación partidista
+                ni religiosa, es exclusivamente con fines culturales.
+              </Typography>
             </Box>
           </Box>
         </Box>

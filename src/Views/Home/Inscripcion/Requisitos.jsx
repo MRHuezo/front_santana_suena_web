@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { TextField, Box, Typography, Paper, Checkbox } from "@mui/material";
 import { InscripcionContext } from "../../../Context/InscripcionCtx";
-
+import { Link } from "react-router-dom";
 const Requisitos = () => {
   const { data, setData } = useContext(InscripcionContext);
   const {
@@ -63,7 +63,7 @@ const Requisitos = () => {
           onChange={handleChangeAviso}
           inputProps={{ "aria-label": "controlled" }}
         />
-        <Typography sx={{ mt: 1 }}>Aceptar términos y condiciones</Typography>
+        <Typography sx={{ mt: 1 }}>He leído y acepto los   <Link to="/terminos">términos y condiciones</Link></Typography>
       </Box>
     </Paper>
   );

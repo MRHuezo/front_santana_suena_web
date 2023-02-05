@@ -34,7 +34,7 @@ const Etapas = () => {
               <UploadFile sx={{ fontSize: 30 }} color="primary" />
               <Box mx={1} />
               <Typography variant="h6">
-                <b>1er Etapa: </b>Del 04 de Febrero al 30 de Abril del 2023
+                <b>1er Etapa: </b>Del 04 de Febrero al 31 de Mayo del 2023
               </Typography>
             
             </Box>

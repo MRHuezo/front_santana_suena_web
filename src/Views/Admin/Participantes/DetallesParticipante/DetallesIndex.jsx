@@ -169,7 +169,7 @@ const DialogInfoParticipante = ({ competitor, open, handleClose }) => {
           </Grid>
           <Box sx={{ display: "flex", justifyContent: "center", my: 2 }}>
             <DialogImagenPayOrId
-              text="Comprobante de pago"
+              text="Comprobante de donativo"
               competitor={competitor}
             />
             <DialogImagenPayOrId
