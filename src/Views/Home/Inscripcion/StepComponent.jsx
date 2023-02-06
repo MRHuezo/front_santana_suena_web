@@ -20,7 +20,7 @@ import {
 import axiosClient from "../../../Config/axios";
 import { handlerErrors } from "../../../Config/errors";
 
-const steps = ["Datos personales", "Comprobantes de pago", "Tu video"];
+const steps = ["Datos personales", "Comprobantes", "Tu video"];
 const RenderView = ({ activeStep }) => {
   switch (activeStep) {
     case 0:

@@ -5,15 +5,15 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import EliminarParticipante from "./EliminarParticipante";
-import { Verified } from "@mui/icons-material";
-import DetallesIndex from "./DetallesParticipante/DetallesIndex";
+import DescalificarParticipante from "./DescalificarParticipante";
 import { MainContext } from "../../../Context/MainCtx";
 import axiosClient from "../../../Config/axios";
 import { handlerErrors } from "../../../Config/errors";
 import EmptyQuery from "../../../Components/NoMatch/EmptyQuery";
 import LoadingSpiner from "../../../Components/NoMatch/LoadingSpiner";
 import { STATUS } from "../../../Config/constantes";
+import { Chip } from "@mui/material";
+import DetallesIndex from "../Solicitudes/DetallesParticipante/DetallesIndex";
 
 const initial_competitor_state = {
   data: undefined,
@@ -27,12 +27,12 @@ export default function TablaParticipantes({ search }) {
     initial_competitor_state
   );
   const { data, loading, error } = competitors;
-  const { aceptado } = STATUS;
+  const { revisado } = STATUS;
 
   React.useEffect(() => {
     const getCompetitors = async () => {
       const { id_sede } = user;
-      let route = `/competitor/get?main=${id_sede.main}&id_sede=${id_sede._id}&search=${search}&status=${aceptado}`;
+      let route = `/competitor/get?main=${id_sede.main}&id_sede=${id_sede._id}&search=${search}&status=${revisado}`;
       await axiosClient
         .get(route)
         .then((res) => {
@@ -52,7 +52,7 @@ export default function TablaParticipantes({ search }) {
         });
     };
     getCompetitors();
-  }, [setCompetitors, snackMessage, search, aceptado, user]);
+  }, [setCompetitors, snackMessage, search, revisado, user]);
 
   if (loading) {
     return <LoadingSpiner />;
@@ -84,7 +84,7 @@ export default function TablaParticipantes({ search }) {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell align="center">
-                  <DetallesIndex data={row} />
+                  <DetallesIndex data={row} status="REVISADO" />
                 </TableCell>
                 <TableCell component="th" scope="row">
                   {row.name_song}
@@ -92,8 +92,12 @@ export default function TablaParticipantes({ search }) {
                 <TableCell>{row.name}</TableCell>
                 <TableCell>{row.id_sede.name}</TableCell>
                 <TableCell>{row.from}</TableCell>
-                <TableCell>{row.status}</TableCell>
-                {/* <TableCell align="center" padding="checkbox"><Verified color="primary" /></TableCell>*/}
+                <TableCell>
+                  <Chip label={row.status} variant="outlined" color="primary" />
+                </TableCell>
+                <TableCell align="center" padding="checkbox">
+                  <DescalificarParticipante idCompetitor={row._id} />
+                </TableCell>
               </TableRow>
             );
           })}

@@ -21,13 +21,13 @@ function Solicitudes() {
   );
   const [search, setSearch] = React.useState("");
   const { snackMessage, user } = React.useContext(MainContext);
-  const { inscrito, revisado} = STATUS;
+  const { inscrito, rechazado} = STATUS;
   const [value] = useDebounce(search, 500);
 
   React.useEffect(() => {
     const getCompetitors = async () => {
       const { id_sede } = user;
-      let route = `/competitor/get?main=${id_sede.main}&id_sede=${id_sede._id}&search=${value}&status=${inscrito}-${revisado}`;
+      let route = `/competitor/get?main=${id_sede.main}&id_sede=${id_sede._id}&search=${value}&status=${inscrito}-${rechazado}`;
       await axiosClient
         .get(route)
         .then((res) => {
@@ -47,7 +47,7 @@ function Solicitudes() {
         });
     };
     getCompetitors();
-  }, [setCompetitors, snackMessage, value, inscrito, revisado, user]);
+  }, [setCompetitors, snackMessage, value, inscrito, rechazado, user]);
 
   return (
     <div>

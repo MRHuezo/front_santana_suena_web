@@ -5,17 +5,20 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import Slide from "@mui/material/Slide";
 import { DialogTitle, Grid, Typography } from "@mui/material";
-import { Close, Done, YouTube, Cancel } from "@mui/icons-material";
+import { Close, YouTube } from "@mui/icons-material";
 import { Box } from "@mui/system";
 import moment from "moment";
 import "moment/locale/es-mx";
 import DialogImagenPayOrId from "./DialogImagenPayOrId";
+import RechazarSolicitud from "../RechazarSolicitud";
+import AceptarSolicitud from "../AceptarSolicitud";
+import SeleccionarParticipante from "../../Participantes/Seleccionar";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function DetallesIndex({ data }) {
+export default function DetallesIndex({ data, status = "INSCRITO" }) {
   const [open, setOpen] = React.useState(false);
   const [competitor, setCompetitor] = React.useState(null);
 
@@ -28,11 +31,9 @@ export default function DetallesIndex({ data }) {
     setOpen(false);
     setCompetitor(null);
   };
-console.log(data.url_video)
-const rgx = /(?:https?:)?\/{2}(?:www\.)?youtu\.?be(?:\/|\.com\/watch\?v\=|\.com\/v\/|\.com\/embed\/)?([\w-]*)[?&]?.*/
-  let youtube_video_id = data.url_video
-    .match(rgx).pop();
-
+  console.log(data.url_video);
+  const rgx = /(?:https?:)?\/{2}(?:www\.)?youtu\.?be(?:\/|\.com\/watch\?v\=|\.com\/v\/|\.com\/embed\/)?([\w-]*)[?&]?.*/;
+  let youtube_video_id = data.url_video.match(rgx).pop();
 
   return (
     <div>
@@ -75,12 +76,19 @@ const rgx = /(?:https?:)?\/{2}(?:www\.)?youtu\.?be(?:\/|\.com\/watch\?v\=|\.com\
         handleClose={handleClose}
         competitor={competitor}
         youtube_video_id={youtube_video_id}
+        status={status}
       />
     </div>
   );
 }
 
-const DialogInfoParticipante = ({ competitor, open, handleClose,youtube_video_id }) => {
+const DialogInfoParticipante = ({
+  competitor,
+  open,
+  handleClose,
+  youtube_video_id,
+  status
+}) => {
   if (!competitor) return;
 
   return (
@@ -101,7 +109,6 @@ const DialogInfoParticipante = ({ competitor, open, handleClose,youtube_video_id
             alignItems: "center",
           }}
         >
-        
           <iframe
             width="100%"
             height="100%"
@@ -175,7 +182,7 @@ const DialogInfoParticipante = ({ competitor, open, handleClose,youtube_video_id
           </Grid>
           <Box sx={{ display: "flex", justifyContent: "center", my: 2 }}>
             <DialogImagenPayOrId
-              text="Comprobante de pago"
+              text="Comprobante de donativo"
               img={competitor.personal_identify}
               competitor={competitor}
             />
@@ -188,12 +195,15 @@ const DialogInfoParticipante = ({ competitor, open, handleClose,youtube_video_id
         </Box>
       </DialogContent>
       <DialogActions sx={{ justifyContent: "flex-start" }}>
-        <Button color="primary" startIcon={<Done />} onClick={handleClose}>
-          ACEPTAR SOLICITUD
-        </Button>
-        <Button color="secondary" startIcon={<Cancel />} onClick={handleClose}>
-          RECHAZAR SOLICITUD
-        </Button>
+        {status === "REVISADO" ? (
+          <SeleccionarParticipante />
+        ) : (
+          <>
+            <AceptarSolicitud competitor={competitor} />
+            <RechazarSolicitud competitor={competitor} />
+          </>
+        )}
+
         <Box sx={{ flexGrow: 1 }} />
         <Button color="inherit" startIcon={<Close />} onClick={handleClose}>
           Cerrar

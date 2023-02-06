@@ -41,6 +41,8 @@ const InstitucionOrganizadora = () => {
                 Aunque se enfoca en la población más vulnerable, es abierta para
                 toda la comunidad sin importar su estatus económico-social.
               </Typography>
+              <br />
+              
             </Grid>
             <Grid
               item

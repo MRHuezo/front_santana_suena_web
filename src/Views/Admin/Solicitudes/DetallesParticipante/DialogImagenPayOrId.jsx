@@ -1,10 +1,11 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
+import * as React from "react";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import { Link } from "@mui/material";
 
-export default function DialogImagenPayOrId({competitor, text, img}) {
+export default function DialogImagenPayOrId({ competitor, text, img }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -17,24 +18,22 @@ export default function DialogImagenPayOrId({competitor, text, img}) {
 
   return (
     <div>
-      <Button onClick={handleClickOpen}>
-        {text}
-      </Button>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-      >
+      <Button onClick={handleClickOpen}>{text}</Button>
+      <Dialog open={open} onClose={handleClose}>
         <DialogContent>
           <img
             src={`${img}`}
             alt=""
             style={{ maxHeight: "100%", maxWidth: "100%" }}
-          /> 
+          />
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Descargar
-          </Button>
+          <Link href={img} download={`${text}-${competitor.name}`}>
+            <Button autoFocus onClick={handleClose} componet="a">
+              Descargar
+            </Button>
+          </Link>
+
           <Button onClick={handleClose}>Cerrar</Button>
         </DialogActions>
       </Dialog>

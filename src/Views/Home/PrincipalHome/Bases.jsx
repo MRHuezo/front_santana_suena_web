@@ -115,7 +115,7 @@ const Bases = () => {
             <Box sx={{ mx: 1 }} />
             <Box>
               <Typography variant="h6">
-                Presentar y/o enviar comprobante de pago del costo de
+                Presentar y/o enviar comprobante de donativo de
                 inscripción.
               </Typography>
               <Typography variant="h6">
@@ -132,8 +132,8 @@ const Bases = () => {
             <Box sx={{ mx: 1 }} />
             <Box>
               <Typography variant="h6">
-                Subír un video en youtube o vimeo a su canal personal (Puede ser desde su celular) 
-                y compartir el Link en la página oficial www.santanasuena.com en la sede de su elección 
+                Subír un video en youtube con el título "Primer Nombre del participante" "Sede registro" "Nombre canción Cover" "Santana Suena"a su canal personal 
+                (Puede ser desde su celular) y compartir el Link en la página oficial www.santanasuena.com en la sede de su elección 
                 al momento de realizar su registro.
               </Typography>
               <Typography variant="h6">

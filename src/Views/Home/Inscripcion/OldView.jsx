@@ -272,10 +272,10 @@ const Formulario = () => {
             <TextField
               fullWidth
               size="small"
-              label="Comprobante de pago"
+              label="Comprobante de donativo"
               name="comprobante_de_pago"
               variant="outlined"
-              placeholder="Comprobante de pago"
+              placeholder="Comprobante de donativo"
               onChange={handleChange}
               value={(data.comprobante_de_pago !== '') ? data.comprobante_de_pago : ''}
               error={error && data.comprobante_de_pago === null}

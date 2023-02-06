@@ -34,7 +34,7 @@ const Comprobantes = () => {
   return (
     <Paper variant="outlined" sx={{ display: "block", px: 4, py: 2, width: "100%" }}>
       <Box>
-        <Typography>Comprobante de pago:</Typography>
+        <Typography>Comprobante de donativo:</Typography>
         <div {...getRootProps()} style={styleDragContainer}>
           <input {...getInputProps()} />
           {previewComprobante ? (
