@@ -39,12 +39,14 @@ export default function RechazarSolicitud({ competitor }) {
     setLoading(true);
     await axiosClient
       .post(
-        `/competitor/decline/${competitor}`,
-        { reason },
+        `/competitor/edit/decline/`,
         {
           headers: {
             Authorization: `bearer ${token}`,
           },
+          reason: reason,
+          id_competitor: competitor._id
+          
         }
       )
       .then((res) => {

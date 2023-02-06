@@ -7,18 +7,20 @@ import {
   CircularProgress,
   DialogContent,
   DialogContentText,
+  TextField,
 } from "@mui/material";
-import { ThumbUpAlt } from "@mui/icons-material";
+import { ThumbDownAlt } from "@mui/icons-material";
 import axiosClient from "../../../Config/axios";
 import { useContext } from "react";
 import { MainContext } from "../../../Context/MainCtx";
 import { handlerErrors } from "../../../Config/errors";
 
-export default function AceptarSolicitud({ competitor }) {
+export default function RechazarSolicitud({ competitor }) {
   const [open, setOpen] = React.useState(false);
   const token = localStorage.getItem("tokenSS");
   const { snackMessage } = useContext(MainContext);
   const [loading, setLoading] = React.useState(false);
+  const [reason, setReason] = React.useState("");
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -26,13 +28,19 @@ export default function AceptarSolicitud({ competitor }) {
 
   const handleClose = () => {
     setOpen(false);
+    setReason("");
   };
 
-  const handleAccept = async () => {
+  const handleGetReason = (e) => {
+    setReason(e.target.value);
+  };
+
+  const handleDecline = async () => {
     setLoading(true);
     await axiosClient
       .post(
-        `/competitor/edit/accept?id_competitor=${competitor._id}`,
+        `/competitor/decline/${competitor}`,
+        { reason },
         {
           headers: {
             Authorization: `bearer ${token}`,
@@ -59,38 +67,48 @@ export default function AceptarSolicitud({ competitor }) {
   return (
     <div>
       <Button
-        startIcon={<ThumbUpAlt />}
-        color="primary"
+        startIcon={<ThumbDownAlt />}
+        color="secondary"
         onClick={handleClickOpen}
       >
-        Aceptar solicitud
+        Rechazar solicitud
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle id="alert-dialog-title">
-          Aceptar solicitud
+          ¿Está seguro que desea rechazar la solicitud?
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Se aceptará la solicitud de este participante y se le enviará un
-            correo para notificarle.
+            Se rechazará la solicitud de este participante y se le enviará un
+            correo para notificarle, en el siguiente recuadro de texto puedes
+            indicar el motivo de recházo.
           </DialogContentText>
+          <TextField
+            fullWidth
+            size="small"
+            multiline
+            placeholder="Motivo de rechazo"
+            rows={3}
+            value={reason}
+            onChange={handleGetReason}
+          />
         </DialogContent>
         <DialogActions>
           <Button color="inherit" onClick={handleClose} autoFocus>
             Cancelar
           </Button>
           <Button
-            onClick={() => handleAccept()}
+            onClick={() => handleDecline()}
             startIcon={
               loading ? (
                 <CircularProgress size={20} color="inherit" />
               ) : (
-                <ThumbUpAlt />
+                <ThumbDownAlt />
               )
             }
-            color="primary"
+            color="error"
           >
-            Aceptar
+            Rechazar
           </Button>
         </DialogActions>
       </Dialog>

@@ -63,7 +63,7 @@ const Requisitos = () => {
           onChange={handleChangeAviso}
           inputProps={{ "aria-label": "controlled" }}
         />
-        <Typography sx={{ mt: 1 }}>He leído y acepto los   <Link to="/terminos">términos y condiciones</Link></Typography>
+        <Typography sx={{ mt: 1 }}>He leído y acepto los   <Link to="/terminos" target="_blank">términos y condiciones</Link></Typography>
       </Box>
     </Paper>
   );

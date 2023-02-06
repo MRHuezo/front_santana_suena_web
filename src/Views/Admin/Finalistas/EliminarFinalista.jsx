@@ -3,18 +3,14 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
-import {
-  CircularProgress,
-  DialogContent,
-  DialogContentText,
-} from "@mui/material";
-import { ThumbUpAlt } from "@mui/icons-material";
+import { CircularProgress, IconButton } from "@mui/material";
+import { Delete } from "@mui/icons-material";
 import axiosClient from "../../../Config/axios";
 import { useContext } from "react";
 import { MainContext } from "../../../Context/MainCtx";
 import { handlerErrors } from "../../../Config/errors";
 
-export default function AceptarSolicitud({ competitor }) {
+export default function EliminarFinalista({ idCompetitor }) {
   const [open, setOpen] = React.useState(false);
   const token = localStorage.getItem("tokenSS");
   const { snackMessage } = useContext(MainContext);
@@ -28,17 +24,14 @@ export default function AceptarSolicitud({ competitor }) {
     setOpen(false);
   };
 
-  const handleAccept = async () => {
+  const handleDelete = async () => {
     setLoading(true);
     await axiosClient
-      .post(
-        `/competitor/edit/accept?id_competitor=${competitor._id}`,
-        {
-          headers: {
-            Authorization: `bearer ${token}`,
-          },
-        }
-      )
+      .post(`/competitor/delete/${idCompetitor}`, {
+        headers: {
+          Authorization: `bearer ${token}`,
+        },
+      })
       .then((res) => {
         setLoading(false);
         snackMessage({
@@ -58,39 +51,29 @@ export default function AceptarSolicitud({ competitor }) {
 
   return (
     <div>
-      <Button
-        startIcon={<ThumbUpAlt />}
-        color="primary"
-        onClick={handleClickOpen}
-      >
-        Aceptar solicitud
-      </Button>
+      <IconButton variant="outlined" color="error" onClick={handleClickOpen}>
+        <Delete />
+      </IconButton>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle id="alert-dialog-title">
-          Aceptar solicitud
+          ¿Estás seguro de eliminar este participante?
         </DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            Se aceptará la solicitud de este participante y se le enviará un
-            correo para notificarle.
-          </DialogContentText>
-        </DialogContent>
         <DialogActions>
           <Button color="inherit" onClick={handleClose} autoFocus>
             Cancelar
           </Button>
           <Button
-            onClick={() => handleAccept()}
+            onClick={() => handleDelete()}
             startIcon={
               loading ? (
                 <CircularProgress size={20} color="inherit" />
               ) : (
-                <ThumbUpAlt />
+                <Delete />
               )
             }
-            color="primary"
+            color="error"
           >
-            Aceptar
+            Eliminar
           </Button>
         </DialogActions>
       </Dialog>
