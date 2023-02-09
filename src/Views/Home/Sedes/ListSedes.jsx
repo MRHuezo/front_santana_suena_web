@@ -70,7 +70,7 @@ const ListSedes = () => {
               <Typography variant="h6">
                 <b>{`${name}, ${place}`}</b>
               </Typography>
-              <Typography>{`Encargado: ${encargado}`}</Typography>
+              <Typography>{`Coordinador: ${encargado}`}</Typography>
             </Grid>
             <Grid item xs={12} md={3}>
               <Box
