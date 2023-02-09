@@ -120,7 +120,7 @@ const Bases = () => {
               </Typography>
               <Typography variant="h6">
                 <b>
-                  Donativo de inscripción 300.00 pesos a favor de Santuario de Luz
+                  Donativo de 300.00 pesos a favor de Santuario de Luz
                   A.C. a la cuenta bancaria BBVA: 0176 2439 08 Clabe: 0123 3300
                   1762 4390 84
                 </b>
@@ -137,7 +137,7 @@ const Bases = () => {
                 al momento de realizar su registro.
               </Typography>
               <Typography variant="h6">
-                El video deberá comenzar mostrando su recibo de pago e
+                El video deberá comenzar mostrando su recibo de donativo e
                 información personal como nombre, edad y lugar de residencia
                 seguido de la interpretación musical con la que se pretende
                 concursar.
@@ -150,7 +150,7 @@ const Bases = () => {
             <Typography variant="h6">
             Cada participante únicamente podrá registrarse en una sola sede, 
             si se registrara en más de una, quedará automáticamente descalificado 
-            y no tendrá derecho al reembolso de las inscripciones que haya realizado.
+            y no tendrá derecho al reembolso del donativo que haya realizado.
             </Typography>
           </Box>
           <Box sx={{ my: 2, display: "flex" }}>
@@ -158,7 +158,7 @@ const Bases = () => {
             <Box sx={{ mx: 1 }} />
             <Typography variant="h6">
             El ganador del 1er lugar de cada sede participará en un sorteo donde se elegirá 
-            al azahar un tema musical de una lista de 5 para interpretar en la gran final.
+            al azar un tema musical de una lista de 5 para interpretar en la gran final.
             </Typography>
           </Box>
           <Box sx={{ my: 2, display: "flex" }}>
