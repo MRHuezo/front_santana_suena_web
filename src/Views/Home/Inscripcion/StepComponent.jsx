@@ -89,9 +89,9 @@ export default function StepComponent() {
           return (
             <Step key={label} {...stepProps}>
               <StepLabel
-                StepIconProps={{ sx: { width: "1.5em", height: "1.5em" } }}
+                StepIconProps={{ sx: { width: {xs: "1.2em", sm: "1.5em"}, height: {xs: "1.2em", sm: "1.5em"} } }}
               >
-                <Typography variant="body1">{label}</Typography>
+                <Typography variant="body1" sx={{fontSize: {xs: 14, sm: 16}}}>{label}</Typography>
               </StepLabel>
             </Step>
           );
@@ -102,7 +102,7 @@ export default function StepComponent() {
         <Box sx={{ minHeight: "57vh" }}>
           <RenderView activeStep={activeStep} />
         </Box>
-        <Box sx={{ display: "flex", pt: 2, justifyContent: "space-between" }}>
+        <Box sx={{ display: "flex", py: 2, justifyContent: "space-between" }}>
           <Button
             variant="contained"
             color="primary"

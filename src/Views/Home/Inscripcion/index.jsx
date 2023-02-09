@@ -9,7 +9,7 @@ function InscripcionesHome() {
     <Fragment>
       <Box
         sx={{
-          height: "100vh",
+          minHeight: "100vh",
           position: "relative",
           backgroundImage:
             "url(https://www.teahub.io/photos/full/125-1255650_carlos-santana.jpg)",
@@ -19,7 +19,7 @@ function InscripcionesHome() {
         <Box
           sx={{
             position: "absolute",
-            height: "100vh",
+            minHeight: "100%",
             width: "100vw",
             background:
               "linear-gradient(90deg, rgba(0,0,0,0.8590029761904762) 50%, rgba(0,0,0,0.42679009103641454) 120%)",
@@ -77,7 +77,7 @@ function InscripcionesHome() {
           maxWidth="lg"
           sx={{
             display: { xs: "flex", md: "none" },
-            height: "100vh",
+            minHeight: "100vh",
             justifyContent: "center",
             alignItems: "center",
           }}
@@ -94,13 +94,14 @@ const FormContainer = () => {
     <InscripcionCtxProvider>
       <Box
         sx={{
-          height: "90vh",
+          height: "100%",
           display: "flex",
           flexDirection: "column",
           zIndex: 999,
           backgroundColor: "rgb(255,255,255,0.8)",
-          padding: {xs: 0, sm: 3},
-          borderRadius: 5,
+          padding: {xs: 1, sm: 3},
+          borderRadius: 2,
+          margin: "16px 0px"
         }}
       >
         <StepComponent />

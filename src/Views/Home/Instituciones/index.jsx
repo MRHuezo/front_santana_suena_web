@@ -1,5 +1,5 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+//import { Swiper, SwiperSlide } from "swiper/react";
 import { Parallax } from "rc-scroll-anim";
 import autlan from "./img/autlan.png";
 import baja from "./img/baja.png";
@@ -12,54 +12,61 @@ import "./styles.css";
 
 // import required modules
 import { Box, Container } from "@mui/system";
-import { Autoplay, Pagination, Navigation } from "swiper";
+//import { Autoplay, Pagination, Navigation } from "swiper";
 import { Handshake } from "@mui/icons-material";
-import { Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 const sponsors = [
-  {
+  /* {
     nombre: "default1",
-    imagen: '',
-  },
+    imagen: "",
+  }, */
   {
     nombre: "Gobierno de Autlán",
     imagen: autlan,
+    bgcolor: "#5A3D76",
   },
   {
     nombre: "Gobierno de Coyoacán",
     imagen: coyoacan,
+    bgcolor: "#F9F4FF",
   },
   {
     nombre: "Zapopan",
     imagen: zapopan,
+    bgcolor: "#46C5F1",
   },
   {
     nombre: "Instituto de cultura de Baja California",
     imagen: baja,
+    bgcolor: "#FFE7E7",
   },
-  {
+  /* {
     nombre: "default2",
-    imagen: '',
-  },
- 
+    imagen: "",
+  }, */
 ];
 
 const useStyles = makeStyles((theme) => ({
   img: {
-    height: 200,
+    height: 250,
     width: "100%",
-
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "contain",
-    backgroundPosition: "center",
+    display: "flex", 
+    justifyContent: "center",
+    alignItems: "center", 
+    padding: 8,
+    borderRadius: 8
+    //backgroundRepeat: "no-repeat",
+    //backgroundSize: "contain",
+    //backgroundPosition: "center",
   },
 }));
 
 const InstitucionesHome = () => {
   const classes = useStyles();
   return (
-    <Container maxWidth="lg" sx={{ height: "70vh", pt: 5}} id="instituciones">
+    <Container maxWidth="xl" sx={{ minHeight: "70vh", pt: 5 }} id="instituciones">
       <Box>
         <Box>
           <Parallax
@@ -67,20 +74,37 @@ const InstitucionesHome = () => {
             style={{ transform: "translateX(-100px)", opacity: 0 }}
             className="code-box-shape"
           >
-             <Box
+            <Box
               sx={{
                 my: 5,
                 display: "flex",
                 justifyContent: "center",
                 flexDirection: { xs: "column", sm: "row" },
-            
               }}
             >
               <Handshake sx={{ fontSize: 50, mx: 2 }} color="secondary" />
               <Typography variant="h3">Instituciones participantes</Typography>
-            </Box> 
+            </Box>
           </Parallax>
-          <Swiper
+          <Grid container spacing={3}>
+            {sponsors.map(({ imagen, nombre, bgcolor }, index) => (
+              <Grid key={`${nombre}-${index}`} item xs={12} sm={6} md={6} lg={3}>
+                <Box
+                  className={classes.img}
+                  sx={{
+                    backgroundColor: bgcolor,
+                  }}
+                >
+                  <img
+                    alt={`imagen-${nombre}`}
+                    src={imagen}
+                    style={{ maxHeight: "100%", maxWidth: "100%" }}
+                  />
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+          {/* <Swiper
             slidesPerView={3}
             spaceBetween={35}
             autoplay={{
@@ -104,7 +128,7 @@ const InstitucionesHome = () => {
                 />
               </SwiperSlide>
             ))}
-          </Swiper>
+          </Swiper> */}
         </Box>
       </Box>
     </Container>
