@@ -5,6 +5,7 @@ import autlan from "./img/autlan.png";
 import baja from "./img/baja.png";
 import coyoacan from "./img/coyoacan.png";
 import zapopan from "./img/zapopan.png";
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -30,12 +31,13 @@ const sponsors = [
   {
     nombre: "Gobierno de Coyoacán",
     imagen: coyoacan,
-    bgcolor: "#F9F4FF",
+    
+    bgcolor: "#F2C4FC",
   },
   {
     nombre: "Zapopan",
     imagen: zapopan,
-    bgcolor: "#46C5F1",
+    bgcolor: "#F9F4FF",
   },
   {
     nombre: "Instituto de cultura de Baja California",
