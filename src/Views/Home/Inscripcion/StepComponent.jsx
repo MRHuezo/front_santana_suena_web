@@ -37,7 +37,14 @@ const RenderView = ({ activeStep }) => {
 export default function StepComponent() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
-  const { data } = React.useContext(InscripcionContext);
+  const {
+    data,
+    setData,
+    initial_participante_state,
+    setPreviewComprobante,
+    setPreviewID,
+    setPreviewUser
+  } = React.useContext(InscripcionContext);
   const { snackMessage } = React.useContext(MainContext);
   const [loading, setLoading] = React.useState(false);
 
@@ -50,6 +57,13 @@ export default function StepComponent() {
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
+
+  const clearData = () => {
+    setData(initial_participante_state);
+    setPreviewComprobante("");
+    setPreviewID("");
+    setPreviewUser("");
+  }
 
   const handleOk = async () => {
     setLoading(true);
@@ -67,6 +81,7 @@ export default function StepComponent() {
       })
       .then((res) => {
         setLoading(false);
+        clearData();
         snackMessage({
           message: res.data.message,
           variant: "success",
@@ -89,9 +104,19 @@ export default function StepComponent() {
           return (
             <Step key={label} {...stepProps}>
               <StepLabel
-                StepIconProps={{ sx: { width: {xs: "1.2em", sm: "1.5em"}, height: {xs: "1.2em", sm: "1.5em"} } }}
+                StepIconProps={{
+                  sx: {
+                    width: { xs: "1.2em", sm: "1.5em" },
+                    height: { xs: "1.2em", sm: "1.5em" },
+                  },
+                }}
               >
-                <Typography variant="body1" sx={{fontSize: {xs: 14, sm: 16}}}>{label}</Typography>
+                <Typography
+                  variant="body1"
+                  sx={{ fontSize: { xs: 14, sm: 16 } }}
+                >
+                  {label}
+                </Typography>
               </StepLabel>
             </Step>
           );
@@ -106,7 +131,7 @@ export default function StepComponent() {
           <Button
             variant="contained"
             color="primary"
-            disabled={activeStep === 0 }
+            disabled={activeStep === 0}
             onClick={handleBack}
           >
             Regresar
@@ -136,7 +161,6 @@ export default function StepComponent() {
                   : activeStep === 1
                   ? validar_comprobantes(data)
                   : false
-
               }
             >
               Siguiente
