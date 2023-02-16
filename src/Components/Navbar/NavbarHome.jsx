@@ -91,7 +91,7 @@ export default function NavbarHome(props) {
   return (
     <React.Fragment>
       <ElevationScroll {...props}>
-        <AppBar sx={{ backgroundColor: "rgb(0,0,0, 0.6)" }}>
+        <AppBar sx={{ backgroundColor: "rgb(0,0,0, 0.8)" }}>
           <Toolbar
             variant="dense"
             sx={{ minHeight: 40, height: 40, display: "flex" }}

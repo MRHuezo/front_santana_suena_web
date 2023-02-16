@@ -5,8 +5,8 @@ import {
   FormControl,
   InputLabel,
   Select,
-  MenuItem,
   Grid,
+  NativeSelect,
 } from "@mui/material";
 import { InscripcionContext } from "../../../Context/InscripcionCtx";
 import { MainContext } from "../../../Context/MainCtx";
@@ -16,6 +16,7 @@ const DatosPersonales = () => {
   const { data, setData } = useContext(InscripcionContext);
   const { sedes } = useContext(MainContext);
   const {
+    id_sede,
     sede,
     name,
     from,
@@ -27,10 +28,14 @@ const DatosPersonales = () => {
     curp,
   } = data;
 
-  const handleChange = (e, child) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === "sede") {
-      setData({ ...data, [name]: value, id_sede: child.props.id_sede });
+      setData({
+        ...data,
+        [name]: value.split("/")[0],
+        id_sede: value.split("/")[1],
+      });
       return;
     }
     setData({ ...data, [name]: value });
@@ -48,48 +53,41 @@ const DatosPersonales = () => {
               <UserPhoto />
             </Grid>
             <Grid item xs={12} md={8}>
-              <FormControl
-                variant="outlined"
-                size="small"
-                fullWidth
-                required
-                margin="dense"
-              >
-                <InputLabel id="sede-label">Sede</InputLabel>
-                <Select
-                  labelId="sede-label"
-                  id="sede"
-                  name="sede"
-                  value={sede}
+              <FormControl fullWidth size="small" required>
+                <InputLabel variant="outlined" htmlFor="sede-label">
+                  Sede
+                </InputLabel>
+                <NativeSelect
+                  inputProps={{
+                    name: "sede",
+                    id: "sede-label",
+                  }}
+                  value={`${sede}/${id_sede}`}
                   onChange={handleChange}
-                  label="Sede"
+                  input={<Select label="sede" />}
                 >
-                  <MenuItem value="">
+                  <option value="">
                     <em>Selecciona una sede</em>
-                  </MenuItem>
+                  </option>
                   {sedes.data ? (
                     sedes.data?.map(({ name, place, _id, main }, index) => {
-                      if(main){
-                        return(
-                          <div/>
-                          )
-                      }else{
-                        return(
-                          <MenuItem
+                      if (main) {
+                        return null;
+                      } else {
+                        return (
+                          <option
                             key={`${place} - ${index}`}
-                            id_sede={_id}
-                            value={`${name} - ${place}`}
-                          >{`${name} - ${place}`}</MenuItem>
-                          )
+                            value={`${name} - ${place}/${_id}`}
+                          >{`${name} - ${place}`}</option>
+                        );
                       }
-                     
                     })
                   ) : (
-                    <MenuItem value="No hay sedes disponibles">
+                    <option value="No hay sedes disponibles">
                       <em>No hay sedes disponibles</em>
-                    </MenuItem>
+                    </option>
                   )}
-                </Select>
+                </NativeSelect>
               </FormControl>
               <TextField
                 fullWidth
@@ -150,28 +148,26 @@ const DatosPersonales = () => {
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <FormControl
-            variant="outlined"
-            size="small"
-            sx={{ minWidth: "100%" }}
-            required
-          >
-            <InputLabel id="genre-label">Género</InputLabel>
-            <Select
-              labelId="genre-label"
-              id="genre"
-              name="genre"
+          <FormControl fullWidth size="small" required>
+            <InputLabel variant="outlined" htmlFor="genero-label">
+              Género
+            </InputLabel>
+            <NativeSelect
+              inputProps={{
+                name: "genre",
+                id: "genero-label",
+              }}
               value={genre}
               onChange={handleChange}
-              label="genero"
+              input={<Select label="Género" />}
             >
-              <MenuItem value="">
-                <em> </em>
-              </MenuItem>
-              <MenuItem value={"Masculino"}>Masculino</MenuItem>
-              <MenuItem value={"Femenino"}>Femenino</MenuItem>
-              <MenuItem value={"Otro"}>Otro</MenuItem>
-            </Select>
+              <option value=" ">
+                <em>Selecciona un genero</em>
+              </option>
+              <option value={"Masculino"}>Masculino</option>
+              <option value={"Femenino"}>Femenino</option>
+              <option value={"Otro"}>Otro</option>
+            </NativeSelect>
           </FormControl>
         </Grid>
         <Grid item xs={12} md={6}>

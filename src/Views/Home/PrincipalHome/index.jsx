@@ -49,13 +49,11 @@ const images = [
   },
 ];
 
-
-
 export default function PrincipalHome() {
   return (
-    <Box sx={{ height: "82vh" }} id="home">
+    <Box sx={{ height: {xs: "50vh", md: "75vh"} }} id="home">
       <Swiper
-        spaceBetween={30}
+        //spaceBetween={30}
         centeredSlides={true}
         autoplay={{
           delay: 3000,
@@ -72,14 +70,12 @@ export default function PrincipalHome() {
           <SwiperSlide key={id}>
             <Box
               sx={{
-                height: "100%",
-                width: "100%",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
               }}
             >
-              <img alt={title} src={img} />
+              <img alt={title} src={img} style={{maxHeight: "100%", maxWidth: "100%"}} />
             </Box>
           </SwiperSlide>
         ))}
