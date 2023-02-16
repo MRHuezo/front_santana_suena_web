@@ -35,7 +35,7 @@ export default function TablaSolicitudes(props) {
             <TableCell>Sede</TableCell>
             <TableCell>Ciudad</TableCell>
             <TableCell>Estatus</TableCell>
-            <TableCell>Eliminar</TableCell>
+            {/* <TableCell>Eliminar</TableCell> */}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -62,9 +62,9 @@ export default function TablaSolicitudes(props) {
                     color={row.status === rechazado ? "error" : "primary"}
                   />
                 </TableCell>
-                <TableCell align="center" padding="checkbox">
+                {/* <TableCell align="center" padding="checkbox">
                   <EliminarSolicitud idCompetitor={row._id} />
-                </TableCell>
+                </TableCell> */}
               </TableRow>
             );
           })}

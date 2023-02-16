@@ -18,7 +18,7 @@ import { handlerErrors } from "../Config/errors";
 
 const LayoutLogin = () => {
   const [userData, setUserData] = React.useState({
-    email: "",
+    usuario: "",
     password: "",
   });
   const [loading, setLoading] = React.useState(false);
@@ -37,7 +37,7 @@ const LayoutLogin = () => {
 
   const login = async (e) => {
     e.preventDefault();
-    if (!userData.email || !userData.password) {
+    if (!userData.usuario || !userData.password) {
       snackMessage({ message: "Datos incompletos", variant: "error" });
       return;
     }
@@ -89,11 +89,11 @@ const LayoutLogin = () => {
       <form autoComplete="off" onSubmit={login}>
         <Paper sx={{ display: "block", p: 4 }}>
           <TextField
-            label="Email"
+            label="Usuario"
             fullWidth
             margin="normal"
-            name="email"
-            value={userData.email}
+            name="usuario"
+            value={userData.usuario}
             onChange={handleGetUserData}
             required
           />

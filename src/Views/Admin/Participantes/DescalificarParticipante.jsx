@@ -63,22 +63,26 @@ export default function EliminarParticipante({ idCompetitor }) {
 
   return (
     <div>
-      <IconButton variant="outlined" color="error" onClick={handleClickOpen}>
-        <ThumbDownAlt />
-      </IconButton>
+       <Button
+        startIcon={<ThumbDownAlt />}
+        color="secondary"
+        onClick={handleClickOpen}
+      >
+       Descalificar participante
+      </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle id="alert-dialog-title">
           ¿Estás seguro de descalificar a este participante?
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Estas a punto de descalificar a un participante, este se borrará y
+            Estas a punto de descalificar a un participante, se
             enviará un email presentando el motivo de descalificación
           </DialogContentText>
           <TextField
             fullWidth
             variant="outlined"
-            placeholder="motivo de desscalificación"
+            placeholder="Motivo"
             value={reason}
             onChange={handleGetReason}
             multiline

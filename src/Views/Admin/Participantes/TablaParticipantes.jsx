@@ -72,8 +72,8 @@ export default function TablaParticipantes({ search }) {
             <TableCell>Nombre</TableCell>
             <TableCell>Sede</TableCell>
             <TableCell>Ciudad</TableCell>
-            <TableCell>status</TableCell>
-            <TableCell>Eliminar</TableCell>
+            <TableCell>Estatus</TableCell>
+            {/* <TableCell>Eliminar</TableCell> */}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -95,9 +95,9 @@ export default function TablaParticipantes({ search }) {
                 <TableCell>
                   <Chip label={row.status} variant="outlined" color="primary" />
                 </TableCell>
-                <TableCell align="center" padding="checkbox">
+               {/*  <TableCell align="center" padding="checkbox">
                   <DescalificarParticipante idCompetitor={row._id} />
-                </TableCell>
+                </TableCell> */}
               </TableRow>
             );
           })}
