@@ -3,7 +3,8 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
-import { CircularProgress, IconButton } from "@mui/material";
+import { CircularProgress, IconButton,   DialogContent,
+  DialogContentText, TextField} from "@mui/material";
 import { Delete } from "@mui/icons-material";
 import axiosClient from "../../../Config/axios";
 import { useContext } from "react";
@@ -15,13 +16,16 @@ export default function EliminarSolicitud({ idCompetitor }) {
   const token = localStorage.getItem("tokenSS");
   const { snackMessage } = useContext(MainContext);
   const [loading, setLoading] = React.useState(false);
-
+  const [reason, setReason] = React.useState("");
   const handleClickOpen = () => {
     setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
+  };
+  const handleGetReason = (e) => {
+    setReason(e.target.value);
   };
 
   const handleDelete = async () => {
@@ -56,8 +60,23 @@ export default function EliminarSolicitud({ idCompetitor }) {
       </IconButton>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle id="alert-dialog-title">
-          ¿Estás seguro de eliminar este participante?
+          ¿Estás seguro de eliminar esta solicitud?
         </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Estas a punto de eliminar esta solicitud , se
+            enviará un email presentando el motivo y detalles en caso de darle otra oportunidad para inscribirse nuevamente.
+          </DialogContentText>
+          <TextField
+            fullWidth
+            variant="outlined"
+            placeholder="Motivo"
+            value={reason}
+            onChange={handleGetReason}
+            multiline
+            rows={3}
+          />
+        </DialogContent>
         <DialogActions>
           <Button color="inherit" onClick={handleClose} autoFocus>
             Cancelar

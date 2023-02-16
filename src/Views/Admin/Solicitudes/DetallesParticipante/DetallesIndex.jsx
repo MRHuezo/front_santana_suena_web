@@ -13,6 +13,8 @@ import DialogImagenPayOrId from "./DialogImagenPayOrId";
 import RechazarSolicitud from "../RechazarSolicitud";
 import AceptarSolicitud from "../AceptarSolicitud";
 import SeleccionarParticipante from "../../Participantes/Seleccionar";
+import DescalificarParticipante from "../../Participantes/DescalificarParticipante";
+import { MainContext } from "../../../../Context/MainCtx";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -21,7 +23,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function DetallesIndex({ data, status = "INSCRITO" }) {
   const [open, setOpen] = React.useState(false);
   const [competitor, setCompetitor] = React.useState(null);
-
+  const { user } = React.useContext(MainContext);
+  console.log(user);
   const handleClickOpen = () => {
     setOpen(true);
     setCompetitor(data);
@@ -31,10 +34,17 @@ export default function DetallesIndex({ data, status = "INSCRITO" }) {
     setOpen(false);
     setCompetitor(null);
   };
-  console.log(data.url_video);
-  const rgx = /(?:https?:)?\/{2}(?:www\.)?youtu\.?be(?:\/|\.com\/watch\?v\=|\.com\/v\/|\.com\/embed\/)?([\w-]*)[?&]?.*/;
-  let youtube_video_id = data.url_video.match(rgx).pop();
-
+  const getUrlYouTube = () =>{
+    try {
+      const rgx = /(?:https?:)?\/{2}(?:www\.)?youtu\.?be(?:\/|\.com\/watch\?v\=|\.com\/v\/|\.com\/embed\/)?([\w-]*)[?&]?.*/;
+      return data.url_video.match(rgx).pop();
+    } catch (error) {
+      return '';
+    }
+  }
+  let youtube_video_id = getUrlYouTube();
+  
+ 
   return (
     <div>
       <Box
@@ -77,6 +87,7 @@ export default function DetallesIndex({ data, status = "INSCRITO" }) {
         competitor={competitor}
         youtube_video_id={youtube_video_id}
         status={status}
+        typeUser={user.rol}
       />
     </div>
   );
@@ -87,7 +98,8 @@ const DialogInfoParticipante = ({
   open,
   handleClose,
   youtube_video_id,
-  status
+  status,
+  typeUser
 }) => {
   if (!competitor) return;
 
@@ -196,12 +208,18 @@ const DialogInfoParticipante = ({
       </DialogContent>
       <DialogActions sx={{ justifyContent: "flex-start" }}>
         {status === "REVISADO" ? (
-          <SeleccionarParticipante />
+          <>
+            <SeleccionarParticipante competitor={competitor}/>
+            <DescalificarParticipante competitor={competitor} />
+          </>
         ) : (
+          (typeUser === "FIRST") ? 
           <>
             <AceptarSolicitud competitor={competitor} />
             <RechazarSolicitud competitor={competitor} />
           </>
+          :
+          <div/>
         )}
 
         <Box sx={{ flexGrow: 1 }} />
