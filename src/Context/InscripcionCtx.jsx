@@ -27,6 +27,7 @@ const InscripcionCtxProvider = ({ children }) => {
   const [previewComprobante, setPreviewComprobante] = React.useState("");
   const [previewID, setPreviewID] = React.useState("");
   const [previewUser, setPreviewUser] = React.useState("");
+  const [verificado, setVerificado] = React.useState(null);
 
   return (
     <InscripcionContext.Provider
@@ -40,6 +41,8 @@ const InscripcionCtxProvider = ({ children }) => {
         initial_participante_state,
         previewUser,
         setPreviewUser,
+        verificado,
+        setVerificado,
       }}
     >
       {children}

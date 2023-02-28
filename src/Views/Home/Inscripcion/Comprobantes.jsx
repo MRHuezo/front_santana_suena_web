@@ -1,7 +1,8 @@
 import React, { useCallback, useContext } from "react";
-import { Box, Typography, Paper } from "@mui/material";
+import { Box, Typography, Paper, Alert } from "@mui/material";
 import { useDropzone } from "react-dropzone";
 import { InscripcionContext } from "../../../Context/InscripcionCtx";
+import { MainContext } from "../../../Context/MainCtx";
 
 const Comprobantes = () => {
   const {
@@ -10,6 +11,24 @@ const Comprobantes = () => {
     previewComprobante,
     setPreviewComprobante,
   } = useContext(InscripcionContext);
+
+  const { snackMessage } = React.useContext(MainContext);
+
+  const getError = (e) => {
+    if(e.message.includes("Overload resolution failed")){
+      snackMessage({
+        message: "Límite exedido, el limite son 3Mb",
+        variant: "error",
+        anchorOrigin: { horizontal: "left", vertical: "top" }
+      });
+    }else{
+      snackMessage({
+        message: "Hubo un error al cargar esta imagen",
+        variant: "error",
+        anchorOrigin: { horizontal: "left", vertical: "top" }
+      });
+    }
+  };
 
   const onDrop = useCallback(
     (files) => {
@@ -21,7 +40,11 @@ const Comprobantes = () => {
     },
     [data, setData, setPreviewComprobante]
   );
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    maxSize: 3000000,
+    onError: (error) => getError(error),
+  });
 
   const styleDragContainer = {
     border: "2px dashed #D9D9D9",
@@ -32,8 +55,12 @@ const Comprobantes = () => {
   };
 
   return (
-    <Paper variant="outlined" sx={{ display: "block", px: 4, py: 2, width: "100%" }}>
-      <Box>
+    <Paper
+      variant="outlined"
+      sx={{ display: "block", px: 4, py: 2, width: "100%" }}
+    >
+      <Alert severity="info">El tamaño de la imagen no debe pasar los 3Mb</Alert>
+      <Box mt={0.5}>
         <Typography>Comprobante de donativo:</Typography>
         <div {...getRootProps()} style={styleDragContainer}>
           <input {...getInputProps()} />
@@ -59,13 +86,13 @@ const Comprobantes = () => {
       </Box>
       <Box sx={{ my: 1 }}>
         <Typography>Identificación:</Typography>
-        <IdentificacionComponent />
+        <IdentificacionComponent getError={getError} />
       </Box>
     </Paper>
   );
 };
 
-const IdentificacionComponent = () => {
+const IdentificacionComponent = ({getError}) => {
   const { data, setData, previewID, setPreviewID } = useContext(
     InscripcionContext
   );
@@ -80,7 +107,11 @@ const IdentificacionComponent = () => {
     },
     [setPreviewID, data, setData]
   );
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    maxSize: 3000000,
+    onError: (error) => getError(error),
+  });
 
   const styleDragContainer = {
     border: "2px dashed #D9D9D9",

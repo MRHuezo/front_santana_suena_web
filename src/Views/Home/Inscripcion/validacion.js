@@ -29,12 +29,13 @@ export function validar_comprobantes(data) {
     }
   }
 
-  export function validar_requisitos(data) {
+  export function validar_requisitos(data, videoOK) {
     if (
       !data.url_video || 
       !data.name_song ||
       !data.artistic_experience ||
-      !data.privacy_notice
+      !data.privacy_notice ||
+      !videoOK
     ) {
       return true
     }else{
