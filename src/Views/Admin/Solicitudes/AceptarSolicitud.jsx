@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
+import { useNavigate } from "react-router-dom";
 import {
   CircularProgress,
   DialogContent,
@@ -14,18 +15,23 @@ import { useContext } from "react";
 import { MainContext } from "../../../Context/MainCtx";
 import { handlerErrors } from "../../../Config/errors";
 
-export default function AceptarSolicitud({ competitor }) {
+export default function AceptarSolicitud({ competitor, handleCloseInd }) {
   const [open, setOpen] = React.useState(false);
   const token = localStorage.getItem("tokenSS");
   const { snackMessage } = useContext(MainContext);
   const [loading, setLoading] = React.useState(false);
+  const navigate = useNavigate();
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
   const handleClose = () => {
+   
     setOpen(false);
+    handleCloseInd();
+    navigate("/admin/solicitudes");
+
   };
 
   const handleAccept = async () => {
@@ -45,7 +51,7 @@ export default function AceptarSolicitud({ competitor }) {
           message: res.data.message,
           variant: "success",
         });
-        handleClose();
+      
       })
       .catch((err) => {
         setLoading(false);
@@ -54,6 +60,8 @@ export default function AceptarSolicitud({ competitor }) {
           variant: "error",
         });
       });
+      handleClose();
+      
   };
 
   return (

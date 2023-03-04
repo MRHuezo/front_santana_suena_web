@@ -7,6 +7,7 @@ import {
   Select,
   Grid,
   NativeSelect,
+  Alert,
 } from "@mui/material";
 import { InscripcionContext } from "../../../Context/InscripcionCtx";
 import { MainContext } from "../../../Context/MainCtx";
@@ -46,7 +47,8 @@ const DatosPersonales = () => {
       variant="outlined"
       sx={{ display: "block", p: 4, width: "100%", height: "100%" }}
     >
-      <Grid container spacing={2}>
+      <Alert severity="info">El tamaño de la imagen no debe pasar los 3Mb</Alert>
+      <Grid container spacing={2} sx={{mt: 0.5}}>
         <Grid item xs={12}>
           <Grid container spacing={1}>
             <Grid item xs={12} md={4}>
@@ -157,12 +159,12 @@ const DatosPersonales = () => {
                 name: "genre",
                 id: "genero-label",
               }}
-              value={genre}
+              value={(genre !== "" ) ? `${genre}` : " "}
               onChange={handleChange}
               input={<Select label="Género" />}
             >
-              <option value=" ">
-                <em>Selecciona un genero</em>
+              <option value="">
+                <em>Selecciona un género</em>
               </option>
               <option value={"Masculino"}>Masculino</option>
               <option value={"Femenino"}>Femenino</option>

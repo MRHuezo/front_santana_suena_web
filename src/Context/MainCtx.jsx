@@ -1,5 +1,5 @@
 import { withSnackbar } from "notistack";
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 export const MainContext = createContext();
 
@@ -12,6 +12,8 @@ const initial_query_state = {
 const MainCtxProvider = ({ children, enqueueSnackbar }) => {
   const [user, setUser] = useState(null);
   const [sedes, setSedes] = useState(initial_query_state);
+ 
+    
     
   const snackMessage = React.useCallback(
     ({
@@ -39,6 +41,7 @@ const MainCtxProvider = ({ children, enqueueSnackbar }) => {
         initial_query_state,
         sedes, 
         setSedes
+       
       }}
     >
       {children}

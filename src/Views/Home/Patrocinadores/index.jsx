@@ -101,13 +101,13 @@ const PatrocinadoresHome = () => {
                 url="https://prsguitars.com.mx/"
               />
             </Grid>
-            <Grid item xs={12}>
+          {/*   <Grid item xs={12}>
               <CustomButton
                 bgimage={hermes_page}
                 image={hermes}
                 url="https://hermes-music.com.mx/"
               />
-            </Grid>
+            </Grid> */}
             <Grid item xs={12}>
               <CustomButton
                 bgimage={colectivamente}

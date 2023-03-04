@@ -43,7 +43,9 @@ export default function StepComponent() {
     initial_participante_state,
     setPreviewComprobante,
     setPreviewID,
-    setPreviewUser
+    setPreviewUser,
+    setVerificado,
+    verificado
   } = React.useContext(InscripcionContext);
   const { snackMessage } = React.useContext(MainContext);
   const [loading, setLoading] = React.useState(false);
@@ -63,6 +65,7 @@ export default function StepComponent() {
     setPreviewComprobante("");
     setPreviewID("");
     setPreviewUser("");
+    setVerificado(null);
   }
 
   const handleOk = async () => {
@@ -140,7 +143,7 @@ export default function StepComponent() {
             <Button
               variant="contained"
               onClick={handleOk}
-              disabled={validar_requisitos(data)}
+              disabled={validar_requisitos(data, verificado)}
               startIcon={
                 loading ? (
                   <CircularProgress color="inherit" size={20} />

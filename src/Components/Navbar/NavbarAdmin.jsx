@@ -77,6 +77,7 @@ const NavbarAdmin = () => {
               <Menu />
             </IconButton>
           </ListItem>
+          {user.rol === "FIRST"  ? (
           <ListItem disablePadding>
             <ListItemButton component={Link} to="/admin/solicitudes">
               <ListItemIcon>
@@ -85,6 +86,7 @@ const NavbarAdmin = () => {
               <ListItemText primary="Solicitudes" />
             </ListItemButton>
           </ListItem>
+          ) : null}
           <ListItem disablePadding>
             <ListItemButton component={Link} to="/admin/participantes">
               <ListItemIcon>
