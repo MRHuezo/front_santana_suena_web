@@ -159,12 +159,12 @@ const DatosPersonales = () => {
                 name: "genre",
                 id: "genero-label",
               }}
-              value={genre}
+              value={(genre !== "" ) ? `${genre}` : " "}
               onChange={handleChange}
               input={<Select label="Género" />}
             >
-              <option value=" ">
-                <em>Selecciona un genero</em>
+              <option value="">
+                <em>Selecciona un género</em>
               </option>
               <option value={"Masculino"}>Masculino</option>
               <option value={"Femenino"}>Femenino</option>

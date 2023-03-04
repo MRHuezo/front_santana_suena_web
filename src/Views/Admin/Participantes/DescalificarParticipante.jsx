@@ -16,7 +16,7 @@ import { useContext } from "react";
 import { MainContext } from "../../../Context/MainCtx";
 import { handlerErrors } from "../../../Config/errors";
 
-export default function EliminarParticipante({ idCompetitor }) {
+export default function EliminarParticipante({ idCompetitor, handleCloseInd }) {
   const [open, setOpen] = React.useState(false);
   const token = localStorage.getItem("tokenSS");
   const { snackMessage } = useContext(MainContext);
@@ -30,6 +30,7 @@ export default function EliminarParticipante({ idCompetitor }) {
   const handleClose = () => {
     setOpen(false);
     setReason("");
+    handleCloseInd();
   };
 
   const handleGetReason = (e) => {

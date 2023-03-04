@@ -23,8 +23,10 @@ function Solicitudes() {
   const { snackMessage, user } = React.useContext(MainContext);
   const { inscrito, rechazado} = STATUS;
   const [value] = useDebounce(search, 500);
+  const [reload, setReload] = React.useState(false);
 
   React.useEffect(() => {
+  
     const getCompetitors = async () => {
       const { id_sede } = user;
       let route = `/competitor/get?main=${id_sede.main}&id_sede=${id_sede._id}&search=${value}&status=${inscrito}-${rechazado}`;
@@ -47,14 +49,14 @@ function Solicitudes() {
         });
     };
     getCompetitors();
-  }, [setCompetitors, snackMessage, value, inscrito, rechazado, user]);
+  }, [setCompetitors, snackMessage, value, inscrito, rechazado, user, reload, setReload]);
 
   return (
     <div>
       <TopNavAdmin title="Solicitudes" />
       <BuscarParticiante setSearch={setSearch} search={search} />
       <Box my={2} />
-      <TablaSolicitudes competitors={competitors} />
+      <TablaSolicitudes competitors={competitors} setReload={setReload} />
     </div>
   );
 }

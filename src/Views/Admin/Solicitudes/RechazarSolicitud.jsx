@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
+import { useNavigate } from "react-router-dom";
 import {
   CircularProgress,
   DialogContent,
@@ -15,13 +16,13 @@ import { useContext } from "react";
 import { MainContext } from "../../../Context/MainCtx";
 import { handlerErrors } from "../../../Config/errors";
 
-export default function RechazarSolicitud({ competitor }) {
+export default function RechazarSolicitud({ competitor, handleCloseInd }) {
   const [open, setOpen] = React.useState(false);
   const token = localStorage.getItem("tokenSS");
-  const { snackMessage } = useContext(MainContext);
+  const { snackMessage, } = useContext(MainContext);
   const [loading, setLoading] = React.useState(false);
   const [reason, setReason] = React.useState("");
-
+  const navigate = useNavigate();
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -29,6 +30,8 @@ export default function RechazarSolicitud({ competitor }) {
   const handleClose = () => {
     setOpen(false);
     setReason("");
+    handleCloseInd();
+    navigate("/admin/solicitudes");
   };
 
   const handleGetReason = (e) => {
@@ -55,6 +58,7 @@ export default function RechazarSolicitud({ competitor }) {
           message: res.data.message,
           variant: "success",
         });
+     
         handleClose();
       })
       .catch((err) => {

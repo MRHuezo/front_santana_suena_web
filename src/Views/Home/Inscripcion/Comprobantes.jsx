@@ -17,7 +17,7 @@ const Comprobantes = () => {
   const getError = (e) => {
     if(e.message.includes("Overload resolution failed")){
       snackMessage({
-        message: "Límite exedido, el limite son 3Mb",
+        message: "Límite excedido, el limite son 3Mb",
         variant: "error",
         anchorOrigin: { horizontal: "left", vertical: "top" }
       });

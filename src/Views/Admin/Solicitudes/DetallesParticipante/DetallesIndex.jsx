@@ -4,6 +4,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import Slide from "@mui/material/Slide";
+
 import { DialogTitle, Grid, Typography } from "@mui/material";
 import { Close, YouTube } from "@mui/icons-material";
 import { Box } from "@mui/system";
@@ -20,11 +21,12 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function DetallesIndex({ data, status = "INSCRITO" }) {
+export default function DetallesIndex({ data, status = "INSCRITO",setReload }) {
   const [open, setOpen] = React.useState(false);
   const [competitor, setCompetitor] = React.useState(null);
   const { user } = React.useContext(MainContext);
-  console.log(user);
+  
+  
   const handleClickOpen = () => {
     setOpen(true);
     setCompetitor(data);
@@ -33,6 +35,7 @@ export default function DetallesIndex({ data, status = "INSCRITO" }) {
   const handleClose = () => {
     setOpen(false);
     setCompetitor(null);
+    setReload(true);
   };
   const getUrlYouTube = () =>{
     try {
@@ -183,10 +186,11 @@ const DialogInfoParticipante = ({
               </Box>
             </Grid>
             <Grid item xs={12} md={9}>
-              <Typography>{`Género: ${competitor.genre}`}</Typography>
-              <Typography>{`Fecha de nacimiento: ${moment()
+              <Typography>{`CURP: ${competitor.curp}`}</Typography>
+              <Typography>{`Fecha de nacimiento: ${moment(competitor.birthday)
                 .locale("es-mx")
                 .format("LL")}`}</Typography>
+              <Typography>{`Género: ${competitor.genre}`}</Typography>
               <Typography>{`Correo: ${competitor.email}`}</Typography>
               <Typography>{`Telefono: ${competitor.phone}`}</Typography>
               <Typography>{`Domicilio: ${competitor.address}, ${competitor.from}`}</Typography>
@@ -207,16 +211,16 @@ const DialogInfoParticipante = ({
         </Box>
       </DialogContent>
       <DialogActions sx={{ justifyContent: "flex-start" }}>
-        {status === "REVISADO" ? (
+        {status === "REVISADO" && typeUser === "FIRST" ? (
           <>
-            <SeleccionarParticipante competitor={competitor}/>
-            <DescalificarParticipante competitor={competitor} />
+            <SeleccionarParticipante competitor={competitor}  />
+            <DescalificarParticipante competitor={competitor}  />
           </>
         ) : (
           (typeUser === "FIRST") ? 
           <>
-            <AceptarSolicitud competitor={competitor} />
-            <RechazarSolicitud competitor={competitor} />
+            <AceptarSolicitud competitor={competitor} handleCloseInd={handleClose} />
+            <RechazarSolicitud competitor={competitor} handleCloseInd={handleClose} />
           </>
           :
           <div/>

@@ -40,14 +40,14 @@ export default function TablaSolicitudes(props) {
         </TableHead>
         <TableBody>
           {data.map((row) => {
-            console.log(row);
+           
             return (
               <TableRow
                 key={row._id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell align="center">
-                  <DetallesIndex data={row} />
+                  <DetallesIndex data={row}  setReload={props.setReload}/>
                 </TableCell>
                 <TableCell component="th" scope="row">
                   {row.name_song}

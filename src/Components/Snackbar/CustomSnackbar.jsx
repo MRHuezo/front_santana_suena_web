@@ -12,7 +12,7 @@ function RenderSnack({
   const { enqueueSnackbar } = useSnackbar();
 
   const alert = React.useCallback(() => {
-    console.log(open)
+   
     enqueueSnackbar(message, {
       variant,
       preventDuplicate,
