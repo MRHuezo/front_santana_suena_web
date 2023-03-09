@@ -45,7 +45,7 @@ const ListSedes = () => {
 
   return (
     <Box>
-      {data.map(({ encargado, place, name, img, _id }) => (
+      {data.map(({ encargado, place, name, img, _id,institution,  address, telefono }) => (
         <Parallax
           key={_id}
           animation={{ x: 0, opacity: 1, playScale: [0.1, 0.5] }}
@@ -70,7 +70,10 @@ const ListSedes = () => {
               <Typography variant="h6">
                 <b>{`${name}, ${place}`}</b>
               </Typography>
+              <Typography>{`Institución: ${institution}`}</Typography>
               <Typography>{`Coordinador: ${encargado}`}</Typography>
+              <Typography>{`Dirección: ${address.street} C.P. ${address.postal_code}`}</Typography>
+              <Typography>{`Teléfono: ${telefono}`}</Typography>
             </Grid>
             <Grid item xs={12} md={3}>
               <Box

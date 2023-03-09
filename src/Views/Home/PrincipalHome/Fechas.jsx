@@ -75,7 +75,7 @@ const Fechas = () => {
               proyecto en tiempo y forma
             </Typography>
             <Typography variant="h5" align="center">
-              <b>Fecha límite de inscripción 30 de abril 2023</b>
+              <b>Fecha límite de inscripción 31 de mayo 2023</b>
             </Typography>
           </Box>
         </Box>
