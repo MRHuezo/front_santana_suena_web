@@ -114,6 +114,7 @@ const DatosPersonales = () => {
                 onChange={handleChange}
                 required
                 margin="dense"
+                inputProps={{ style: { textTransform: "uppercase" } }}
               />
             </Grid>
           </Grid>
@@ -209,6 +210,7 @@ const DatosPersonales = () => {
             onChange={handleChange}
             value={email}
             required
+            inputProps={{ style: { textTransform: "lowercase" } }}
           />
         </Grid>
       </Grid>
