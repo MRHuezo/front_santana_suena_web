@@ -12,6 +12,7 @@ import Solicitudes from "./Views/Admin/Solicitudes";
 import Comunicados from "./Views/Admin/Comunicados";
 import SedePrincipal from "./Views/Admin/SedePrincipal"
 import Terminos from "./Views/Home/PrincipalHome/Terminos";
+import SedeDetail from "./Views/Home/Sedes/SedeDetail";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,11 @@ export const router = createBrowserRouter([
   {
     path: "/terminos",
     element: <Terminos />,
+    errorElement: <NoMatch />,
+  },
+  {
+    path: "/sede/:sede",
+    element: <SedeDetail />,
     errorElement: <NoMatch />,
   },
   {
