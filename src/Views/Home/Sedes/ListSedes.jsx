@@ -1,12 +1,11 @@
 import React from "react";
-import Box from "@mui/material/Box";
 import { Parallax } from "rc-scroll-anim";
-import { Grid, Typography } from "@mui/material";
-import { PushPin } from "@mui/icons-material";
+import { Grid } from "@mui/material";
 import axiosClient from "../../../Config/axios";
 import { MainContext } from "../../../Context/MainCtx";
 import LoadingPage from "./LoadingPage";
 import { handlerErrors } from "../../../Config/errors";
+import CardItemSede from "./CardItemSede";
 
 const ListSedes = () => {
   const { snackMessage, setSedes, sedes } = React.useContext(MainContext);
@@ -44,53 +43,25 @@ const ListSedes = () => {
   }
 
   return (
-    <Box>
-      {data.map(({ encargado, place, name, img, _id,institution,  address, telefono }) => (
-        <Parallax
-          key={_id}
-          animation={{ x: 0, opacity: 1, playScale: [0.1, 0.5] }}
-          style={{ transform: "translateX(-100px)", opacity: 0 }}
-          className="code-box-shape"
-        >
-          <Grid container spacing={2} sx={{ width: "100%", my: 3 }}>
-            <Grid
-              item
-              xs={12}
-              md={2}
-              sx={{
-                height: "100%",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <PushPin color="secondary" sx={{ fontSize: 80 }} />
-            </Grid>
-            <Grid item xs={12} md={7}>
-              <Typography variant="h6">
-                <b>{`${name}, ${place}`}</b>
-              </Typography>
-              <Typography>{`Institución: ${institution}`}</Typography>
-              <Typography>{`Coordinador: ${encargado}`}</Typography>
-              <Typography>{`Dirección: ${address.street} C.P. ${address.postal_code}`}</Typography>
-              <Typography>{`Teléfono: ${telefono}`}</Typography>
-            </Grid>
-            <Grid item xs={12} md={3}>
-              <Box
-                sx={{
-                  height: "100%",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <img alt={place} src={img} height="100%" width="100%" />
-              </Box>
-            </Grid>
+    <Parallax
+      animation={{ x: 0, opacity: 1, playScale: [0.1, 0.5] }}
+      style={{ transform: "translateX(-100px)", opacity: 0 }}
+      className="code-box-shape"
+    >
+      <Grid container spacing={2} sx={{ width: "100%", my: 3 }}>
+        {data.map((sede) => (
+          <Grid
+            key={sede._id}
+            item
+            xs={12}
+            md={6}
+            sx={{ minHeight: 400 }}
+          >
+            <CardItemSede sede={sede} />
           </Grid>
-        </Parallax>
-      ))}
-    </Box>
+        ))}
+      </Grid>
+    </Parallax>
   );
 };
 
