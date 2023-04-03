@@ -53,7 +53,7 @@ const Etapas = () => {
               <HowToReg sx={{ fontSize: 30 }} color="primary" />
               <Box mx={1} />
               <Typography variant="h6">
-                <b>2er Etapa: </b>Del 01 al 31 de Agosto 2023
+                <b>2da Etapa: </b>Del 01 al 31 de Agosto 2023
               </Typography>
             </Box>
               <Typography variant="h6">
