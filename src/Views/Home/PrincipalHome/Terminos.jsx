@@ -408,6 +408,7 @@ export default function Terminos(props){
               Cualquier cambio que hayas hecho se guardará automáticamente.`}
               </Typography>
               <br />
+               
               <Typography>
                 Para otro tipo de navegadores o versiones, consulta la sección
                 de ayuda en tu navegador.
