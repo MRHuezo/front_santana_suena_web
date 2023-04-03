@@ -115,6 +115,7 @@ const Reconocimientos = () => {
                     </Grid>
                   </Parallax>
                 ))}
+                
               </Grid>
               <Grid item md={6} xs={12}>
                 <Box my={5} mt={2}>
