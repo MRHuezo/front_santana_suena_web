@@ -50,6 +50,10 @@ const ListSedes = () => {
     >
       <Grid container spacing={2} sx={{ width: "100%", my: 3 }}>
         {data.map((sede) => (
+          (sede.main) ?
+          <div/>
+          :
+
           <Grid
             key={sede._id}
             item
