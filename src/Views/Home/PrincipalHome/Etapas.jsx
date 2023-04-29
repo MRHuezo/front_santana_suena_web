@@ -99,7 +99,7 @@ const Etapas = () => {
             <Typography variant="h6">
                 
                 Gran Final en Autlán de Navarro Jalisco, dentro
-                del marco del 7to. Festival Músico Cultural Carlos Santana.
+                del marco del 6to. Festival Músico Cultural Carlos Santana.
               </Typography>    
           </Box>
           <Box>

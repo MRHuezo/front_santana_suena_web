@@ -32,7 +32,7 @@ function AdminLayout() {
 
   if (!token || !user) return null;
 
-  console.log(user);
+ 
 
   return (
     <Grid container>

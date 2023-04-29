@@ -22,6 +22,7 @@ export default function Competitors({ competitors }) {
         <Box sx={{ mt: 2 }}>
           <Grid container spacing={2} justifyContent="center">
             {competitorsDinamic.map((res) => (
+             
               <Grid key={res._id} item xs={12} md={3}>
                 <ItemCompetitor data={res} />
               </Grid>

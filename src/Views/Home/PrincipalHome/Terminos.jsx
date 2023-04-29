@@ -1,7 +1,7 @@
 import { Menu, Settings } from "@mui/icons-material";
 import { Container, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React,{useEffect} from "react";
 import NavbarHome from "../../../Components/Navbar/NavbarHome";
 import { HashLink } from "react-router-hash-link";
 import PropTypes from "prop-types";
@@ -34,6 +34,13 @@ ElevationScroll.propTypes = {
 };
 
 export default function Terminos(props){
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, [])
+  
   return (
     <div>
       <NavbarHome />

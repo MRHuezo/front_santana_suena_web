@@ -199,12 +199,12 @@ const DialogInfoParticipante = ({
           <Box sx={{ display: "flex", justifyContent: "center", my: 2 }}>
             <DialogImagenPayOrId
               text="Comprobante de donativo"
-              img={competitor.personal_identify}
+              img={competitor.pay}
               competitor={competitor}
             />
             <DialogImagenPayOrId
               text="Identificación personal"
-              img={competitor.pay}
+              img={competitor.personal_identify}
               competitor={competitor}
             />
           </Box>
