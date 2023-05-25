@@ -25,7 +25,7 @@ const pages = [
     component: HashLink,
   },
   {
-    title: "Báses",
+    title: "Bases",
     route: "/#como_participar",
     component: HashLink,
   },
