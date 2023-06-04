@@ -105,7 +105,7 @@ const InstitucionOrganizadora = () => {
                 width="100%"
               />
               </Grid>
-              <Grid item md={6}
+            {/*   <Grid item md={6}
               xs={12}>
                 <img
                 alt="Centro cultural cuicacalli"
@@ -113,7 +113,7 @@ const InstitucionOrganizadora = () => {
                 height="100%"
                 width="100%"
               />
-              </Grid>
+              </Grid> */}
             </Grid>
             <Grid item md={6} xs={12} mt={10}>
               <Typography variant="h6">
@@ -139,12 +139,12 @@ const InstitucionOrganizadora = () => {
                   </Typography>
                 </li>
 
-                <li>
+              {/*   <li>
                   <Typography variant="h6">
                     Centro Cultural Cuicacalli Tiopa Tlanextli A.C., Martín
                     Rivera Hueso.
                   </Typography>
-                </li>
+                </li> */}
 
                 <li>
                   <Typography variant="h6">
