@@ -19,7 +19,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 const images = [
   {
     img:
-      "https://mountainsantanasuena.s3.us-east-2.amazonaws.com/santanaBanner2.png",
+      "https://mountainsantanasuena.s3.us-east-2.amazonaws.com/santanaBanner2CambioFecha.jpeg",
     title: "Santana Suena",
     description:
       "",
