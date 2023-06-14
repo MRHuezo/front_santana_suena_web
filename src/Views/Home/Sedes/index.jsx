@@ -4,7 +4,7 @@ import { Parallax } from "rc-scroll-anim";
 import { Container } from "@mui/system";
 import { Typography, Grid } from "@mui/material";
 import { AssignmentTurnedIn, Gavel, Place } from "@mui/icons-material";
-import ListSedes from "./ListSedes";
+import ListSedesNew from "./ListSedesNew";
 
 const SedesHome = () => {
   return (
@@ -20,7 +20,7 @@ const SedesHome = () => {
             <Typography variant="h3">Sedes</Typography>
           </Box>
         </Parallax>
-        <ListSedes />
+        <ListSedesNew />
         <Box my={5}>
           <Parallax
             animation={{ x: 0, opacity: 1, playScale: [0.1, 0.5] }}

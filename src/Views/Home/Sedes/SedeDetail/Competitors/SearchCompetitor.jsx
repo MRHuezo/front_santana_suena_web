@@ -29,9 +29,10 @@ export default function SearchCompetitor({
   }, [search, competitors, setCompetitorsDinamic]);
 
   return (
-    <Box sx={{ display: "flex", justifyContent: "center", my: 5 }}>
-      <Paper sx={{ backgroundColor: "rgb(255,255,255,0.7)" }}>
+    <Box sx={{ display: "flex", justifyContent: "flex-end"}}>
+      <Paper sx={{ backgroundColor: "rgb(255,255,255,0.4)" }}>
         <TextField
+        size="small"
           variant="outlined"
           placeholder="Busca un participante"
           sx={{ width: { xs: 350, md: 500 } }}

@@ -13,6 +13,7 @@ import Comunicados from "./Views/Admin/Comunicados";
 import SedePrincipal from "./Views/Admin/SedePrincipal"
 import Terminos from "./Views/Home/PrincipalHome/Terminos";
 import SedeDetail from "./Views/Home/Sedes/SedeDetail";
+import Participante from "./Views/Home/Participante";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +39,11 @@ export const router = createBrowserRouter([
   {
     path: "/sede/:sede",
     element: <SedeDetail />,
+    errorElement: <NoMatch />,
+  },
+  {
+    path: "/participante/:id_name",
+    element: <Participante />,
     errorElement: <NoMatch />,
   },
   {

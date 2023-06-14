@@ -11,6 +11,7 @@ import { handlerErrors } from "../../../../Config/errors";
 import { MusicNote } from "@mui/icons-material";
 import "./style.css";
 import Competitors from "./Competitors";
+import MoreSedes from "./MoreSedes";
 
 const initial_query_state = {
   data: undefined,
@@ -97,31 +98,28 @@ export default function SedeDetail() {
         }}
       >
         <Box sx={{ color: "white" }}>
+          <Box sx={{ pt: 5 }} />
+          <MoreSedes id_name={id_name} />
           <Container maxWidth="lg">
-            <Box sx={{ pt: 7 }}>
-              <Typography gutterBottom variant="h5" component="div">
-                <b>{`${sede.name}, ${sede.place}`}</b>
-              </Typography>
-            </Box>
-            <Box>
+            <Competitors competitors={competitors} sede={sede} />
+            <Box py={2}>
               <Typography
                 sx={{ fontSize: 20 }}
-                variant="h3"
+                variant="h3" align="center"
               >{`Institución: ${sede.institution}`}</Typography>
               <Typography
                 sx={{ fontSize: 20 }}
-                variant="h3"
+                variant="h3" align="center"
               >{`Coordinador: ${sede.encargado}`}</Typography>
               <Typography
                 sx={{ fontSize: 20 }}
-                variant="h3"
+                variant="h3" align="center"
               >{`Dirección: ${sede.address.street} C.P. ${sede.address.postal_code}`}</Typography>
               <Typography
                 sx={{ fontSize: 20 }}
-                variant="h3"
+                variant="h3" align="center"
               >{`Teléfono: ${sede.telefono}`}</Typography>
             </Box>
-            <Competitors competitors={competitors} />
           </Container>
         </Box>
       </Box>
