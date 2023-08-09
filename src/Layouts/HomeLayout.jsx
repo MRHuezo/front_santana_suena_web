@@ -31,8 +31,8 @@ function HomeLayout() {
       <PrincipalHome />
       <InstitucionOrganizadora />
       <Bases />
-      <Etapas />
       <SedesHome />
+      <Etapas />
       <Premios />
       <InscripcionesHome />
       <PatrocinadoresHome />
