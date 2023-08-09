@@ -13,7 +13,7 @@ export default function Competitors({ competitors, sede }) {
     return (
       <Box sx={{ my: 5 }}>
         <Typography variant="h5" align="center">
-          <b> Aun no hay participantes</b>
+          <b> Aún no hay participantes</b>
         </Typography>
       </Box>
     );
@@ -36,9 +36,17 @@ export default function Competitors({ competitors, sede }) {
         <Box sx={{ mt: 5 }}>
           <Grid container spacing={3} justifyContent="center">
             {competitorsDinamic.map((res) => (
-              <Grid key={res._id} item>
-                <ItemCompetitor data={res} />
-              </Grid>
+              
+                (res.status !== "INSCRITO") ?
+                <Grid key={res._id} item>
+                  <ItemCompetitor data={res} />
+                </Grid>
+                :
+                <div/>
+                  
+                
+              
+              
             ))}
           </Grid>
         </Box>

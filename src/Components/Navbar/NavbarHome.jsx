@@ -36,6 +36,12 @@ const pages = [
     component: HashLink,
   },
   {
+    title: "Participantes",
+    route: "/sede/zapopan",
+    component: HashLink,
+  },
+ 
+  {
     title: "Reconocimientos",
     route: "/#reconocimientos",
     component: HashLink,

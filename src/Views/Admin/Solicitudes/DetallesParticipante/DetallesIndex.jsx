@@ -91,6 +91,7 @@ export default function DetallesIndex({ data, status = "INSCRITO",setReload }) {
         youtube_video_id={youtube_video_id}
         status={status}
         typeUser={user.rol}
+        id_sede={user.id_sede}
       />
     </div>
   );
@@ -102,6 +103,7 @@ const DialogInfoParticipante = ({
   handleClose,
   youtube_video_id,
   status,
+  id_sede,
   typeUser
 }) => {
   if (!competitor) return;
@@ -196,25 +198,35 @@ const DialogInfoParticipante = ({
               <Typography>{`Domicilio: ${competitor.address}, ${competitor.from}`}</Typography>
             </Grid>
           </Grid>
-          <Box sx={{ display: "flex", justifyContent: "center", my: 2 }}>
-            <DialogImagenPayOrId
-              text="Comprobante de donativo"
-              img={competitor.pay}
-              competitor={competitor}
-            />
-            <DialogImagenPayOrId
-              text="Identificación personal"
-              img={competitor.personal_identify}
-              competitor={competitor}
-            />
-          </Box>
+          {
+            (status === "INSCRITO") ? 
+            <Box sx={{ display: "flex", justifyContent: "center", my: 2 }}>
+              <DialogImagenPayOrId
+                text="Comprobante de donativo"
+                img={competitor.pay}
+                competitor={competitor}
+              />
+              <DialogImagenPayOrId
+                text="Identificación personal"
+                img={competitor.personal_identify}
+                competitor={competitor}
+              />
+            </Box>
+            :
+            null
+          }
+          
         </Box>
       </DialogContent>
+
       <DialogActions sx={{ justifyContent: "flex-start" }}>
-        {status === "REVISADO" && typeUser === "FIRST" ? (
+
+        {
+        
+        status === "REVISADO" && typeUser === "FIRST" ? (
           <>
             <SeleccionarParticipante competitor={competitor}  />
-            <DescalificarParticipante competitor={competitor}  />
+            {/* <DescalificarParticipante competitor={competitor}  /> */}
           </>
         ) : (
           (typeUser === "FIRST") ? 

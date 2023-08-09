@@ -70,7 +70,7 @@ export default function SedeDetail() {
     );
   }
   if (query.error)
-    return <NotMatchSede error="Ups, Algo paso al mostrar esta sede" />;
+    return <NotMatchSede error="Ups, Algo pasó al mostrar esta sede" />;
   if (!query.data) return <NotMatchSede />;
 
   const { sede, competitors } = query.data;
@@ -101,25 +101,44 @@ export default function SedeDetail() {
           <Box sx={{ pt: 5 }} />
           <MoreSedes id_name={id_name} />
           <Container maxWidth="lg">
+            
             <Competitors competitors={competitors} sede={sede} />
-            <Box py={2}>
-              <Typography
-                sx={{ fontSize: 20 }}
-                variant="h3" align="center"
-              >{`Institución: ${sede.institution}`}</Typography>
-              <Typography
-                sx={{ fontSize: 20 }}
-                variant="h3" align="center"
-              >{`Coordinador: ${sede.encargado}`}</Typography>
-              <Typography
-                sx={{ fontSize: 20 }}
-                variant="h3" align="center"
-              >{`Dirección: ${sede.address.street} C.P. ${sede.address.postal_code}`}</Typography>
-              <Typography
-                sx={{ fontSize: 20 }}
-                variant="h3" align="center"
-              >{`Teléfono: ${sede.telefono}`}</Typography>
-            </Box>
+            
+              <Box py={2}>
+                <Typography
+                  sx={{ fontSize: 22 }}
+                  variant="h2" align="center"
+                >{` Datos evento semifinal`}</Typography>
+                <Typography
+                  sx={{ fontSize: 19 }}
+                  variant="h3" align="center"
+                >{`Lugar: ${sede.lugar_final}`}</Typography>
+                <Typography
+                  sx={{ fontSize: 19 }}
+                  variant="h3" align="center"
+                >{`Fecha: ${sede.fecha_final} Hora: ${sede.hora_final}`}</Typography>
+                
+              </Box>
+              <Box py={2}>
+
+                <Typography
+                  sx={{ fontSize: 20 }}
+                  variant="h3" align="center"
+                >{`Institución: ${sede.institution}`}</Typography>
+                <Typography
+                  sx={{ fontSize: 20 }}
+                  variant="h3" align="center"
+                >{`Coordinador: ${sede.encargado}`}</Typography>
+                <Typography
+                  sx={{ fontSize: 20 }}
+                  variant="h3" align="center"
+                >{`Dirección: ${sede.address.street} C.P. ${sede.address.postal_code}`}</Typography>
+                <Typography
+                  sx={{ fontSize: 20 }}
+                  variant="h3" align="center"
+                >{`Teléfono: ${sede.telefono}`}</Typography>
+              </Box>
+            
           </Container>
         </Box>
       </Box>

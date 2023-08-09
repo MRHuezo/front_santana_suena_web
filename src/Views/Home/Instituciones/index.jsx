@@ -28,12 +28,12 @@ const sponsors = [
     imagen: autlan,
     bgcolor: "#5A3D76",
   },
-  {
+ /*  {
     nombre: "Gobierno de Coyoacán",
     imagen: coyoacan,
     
     bgcolor: "#F2C4FC",
-  },
+  }, */
   {
     nombre: "Zapopan",
     imagen: zapopan,
