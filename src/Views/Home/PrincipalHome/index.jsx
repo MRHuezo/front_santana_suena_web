@@ -17,13 +17,49 @@ import "./styles.css";
 import { Autoplay, Pagination, Navigation } from "swiper";
 
 const images = [
-  {
+  /* {
     img:
       "https://mountainsantanasuena.s3.us-east-2.amazonaws.com/santanaBanner2CambioFecha.jpeg",
     title: "Santana Suena",
     description:
       "",
     id: 1,
+  }, */
+  
+  {
+    img: "https://mountainsantanasuena.s3.us-east-2.amazonaws.com/santanaBanner1.png",
+    title: "Santana Suena",
+    description:
+      "",
+    id: 2,
+  },
+  /* {
+    img: "https://www.teahub.io/photos/full/125-1255650_carlos-santana.jpg",
+    title: "Santana Suena",
+    description:
+      "",
+    id: 3,
+  }, */
+  {
+    img: "https://mountainsantanasuena.s3.us-east-2.amazonaws.com/BannerTijuana.png",
+    title: "Santana Suena Sede Tijuana",
+    description:
+      "",
+    id: 4,
+  },
+  {
+    img: "https://mountainsantanasuena.s3.us-east-2.amazonaws.com/BannerZapopan.png",
+    title: "Santana Suena Sede Zapopan",
+    description:
+      "",
+    id: 5,
+  },
+  {
+    img: "https://mountainsantanasuena.s3.us-east-2.amazonaws.com/BannerCdmx.png",
+    title: "Santana Suena Sede Ciudad de México",
+    description:
+      "",
+    id: 6,
   },
   {
     img: imagen1,
@@ -32,20 +68,6 @@ const images = [
     description:
       "",
     id: 2,
-  },
-  {
-    img: "https://mountainsantanasuena.s3.us-east-2.amazonaws.com/santanaBanner1.png",
-    title: "Santana Suena",
-    description:
-      "",
-    id: 2,
-  },
-  {
-    img: "https://www.teahub.io/photos/full/125-1255650_carlos-santana.jpg",
-    title: "Santana Suena",
-    description:
-      "",
-    id: 3,
   },
 ];
 
@@ -56,7 +78,7 @@ export default function PrincipalHome() {
         //spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 3000,
+          delay: 7000,
           disableOnInteraction: false,
         }}
         pagination={{

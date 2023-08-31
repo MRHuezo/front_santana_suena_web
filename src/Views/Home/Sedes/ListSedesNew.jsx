@@ -151,14 +151,30 @@ const CustomButton = ({ sede }) => {
               flexDirection: "column",
             }}
           >
+           
+            <Typography gutterBottom variant="h6" component="div">
+              <strong>{sede.name}</strong>
+            </Typography>
             <Place sx={{ fontSize: 40 }} />
             <Typography gutterBottom variant="h4" component="div">
               <strong>{sede.place}</strong>
             </Typography>
-            <Typography gutterBottom variant="h6" component="div">
-              <strong>{sede.name}</strong>
+           
+            
+            <Box  sx={{display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              color: "white",
+              flexDirection: "column",}}>
+            <Typography gutterBottom  sx={{fontSize:22}} component="div">
+            <strong>{sede.lugar_final.split(",")[0]} </strong>
             </Typography>
+            <Typography gutterBottom  sx={{fontSize:19}}  component="div">
+            <strong>{sede.fecha_final } {" " + sede.hora_final + " hrs"}</strong>
+            </Typography>
+            </Box>
           </Box>
+         
         </Image>
       </ImageButton>
     </Link>
