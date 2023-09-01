@@ -46,11 +46,11 @@ const pages = [
     route: "/#reconocimientos",
     component: HashLink,
   },
-  {
+ /*  {
     title: "Inscripción",
     route: "/#inscripcion",
     component: HashLink,
-  },
+  }, */
   {
     title: "Patrocinadores",
     route: "/#patrocinadores",

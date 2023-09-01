@@ -34,7 +34,7 @@ function HomeLayout() {
       <SedesHome />
       <Etapas />
       <Premios />
-      <InscripcionesHome />
+     {/*  <InscripcionesHome /> */}
       <PatrocinadoresHome />
       <InstitucionesHome />
       {/* <FinalistasHome /> */}
