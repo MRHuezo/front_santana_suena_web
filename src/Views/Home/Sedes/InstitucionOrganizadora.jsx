@@ -125,7 +125,16 @@ const InstitucionOrganizadora = () => {
                     Sandoval Gómez
                   </Typography>
                 </li>
-
+                <li>
+                  <Typography variant="h6">
+                    Centro Comunitario y de Salud Tiopa Tlanextli, Lic. Blanca Silva
+                  </Typography>
+                </li>
+                <li>
+                  <Typography variant="h6">
+                    Centro Comunitario y de Salud Tiopa Tlanextli, Lic. Alberto Tovar
+                  </Typography>
+                </li>
                 <li>
                   <Typography variant="h6">
                     Museo del Rock Mexicano A.C., Francisco Sánchez Loaeza.
@@ -138,12 +147,12 @@ const InstitucionOrganizadora = () => {
                   </Typography>
                 </li>
 
-                {/*   <li>
+                <li>
                   <Typography variant="h6">
-                    Centro Cultural Cuicacalli Tiopa Tlanextli A.C., Martín
+                    Centro Cultural Cuicacalli, Martín
                     Rivera Hueso.
                   </Typography>
-                </li> */}
+                </li> 
                 <li>
                   <Typography variant="h6">
                     FractalEstudioMx "Expande tus ideas"
