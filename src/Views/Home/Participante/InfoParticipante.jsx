@@ -3,11 +3,28 @@ import { Avatar, Grid, Typography, Box } from "@mui/material";
 import { FacebookShareButton, WhatsappShareButton } from "react-share";
 import { Facebook, WhatsApp } from "@mui/icons-material";
 import { useMatches } from "react-router-dom";
+import { makeStyles } from "@mui/styles";
 
+const useStyles = makeStyles((theme) => ({
+  img: {
+    height: 250,
+    width: "100%",
+    display: "flex", 
+    justifyContent: "center",
+    alignItems: "center", 
+    padding: 8,
+    borderRadius: 8
+    //backgroundRepeat: "no-repeat",
+    //backgroundSize: "contain",
+    //backgroundPosition: "center",
+  },
+}));
 function InfoParticipante({ participante }) {
+  const classes = useStyles();
   const matches = useMatches();
   let path = "";
   if (matches.length) path = matches[0].pathname;
+  let patrocinadores = (participante.patrocinadores) ? participante.patrocinadores : [];
 
   return (
     <Box mb={5}>
@@ -60,6 +77,41 @@ function InfoParticipante({ participante }) {
             <b>Experiencia Artística:</b>
           </Typography>
           <Typography>{participante.artistic_experience}</Typography>
+          {
+            (patrocinadores.length > 0) ? 
+            <Box>
+            <Typography  variant="h4" mt={2} >
+              <b>Patrocinadores</b>
+            </Typography>
+            <Grid container sx={{display:"flex", justifyContent:"center"}}>
+              {patrocinadores.map((patrocinador,index) => {
+                return(
+                  <Grid key={index} item xs={12} sm={8} md={8} lg={5}>
+                  <Box
+                    className={classes.img}
+                   
+                  >
+                    <img
+                      alt={`imagen-${patrocinador.nombre}`}
+                      src={patrocinador.url_logo}
+                      style={{ maxHeight: "100%", maxWidth: "100%" }}
+                    />
+                  </Box>
+                </Grid> 
+
+                )
+              }
+              )
+                
+              }
+              
+            </Grid>
+          </Box>
+          :
+          <div/>
+          }
+         
+         
         </Grid>
       </Grid>
     </Box>

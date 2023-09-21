@@ -3,11 +3,12 @@ import { Box, Typography, Grid } from "@mui/material";
 import { Container } from "@mui/system";
 import { Parallax } from "rc-scroll-anim";
 import tiopa from "./img/tiopa.png";
-import { alpha } from '@mui/material/styles';
-import { grey } from '@mui/material/colors';
+import { alpha } from "@mui/material/styles";
+import { grey } from "@mui/material/colors";
 
 import soulsacrifice from "./img/soulsacrifice.png";
 import cuicacalli from "./img/cuicacalli.png";
+
 import museorock from "./img/museorock.png";
 const InstitucionOrganizadora = () => {
   const color = grey[900];
@@ -42,7 +43,6 @@ const InstitucionOrganizadora = () => {
                 toda la comunidad sin importar su estatus económico-social.
               </Typography>
               <br />
-              
             </Grid>
             <Grid
               item
@@ -56,12 +56,7 @@ const InstitucionOrganizadora = () => {
                 alignItems: "center",
               }}
             >
-              <img
-                alt="institucion"
-                src={tiopa}
-                height="60%"
-                width="60%"
-              />
+              <img alt="institucion" src={tiopa} height="60%" width="60%" />
             </Grid>
           </Grid>
         </Parallax>
@@ -72,9 +67,10 @@ const InstitucionOrganizadora = () => {
           style={{ transform: "translateX(0px)", opacity: 0 }}
           className="code-box-shape"
         >
-          <Grid container spacing={2}>
+          <Grid container spacing={4}>
             <Grid
               item
+              spacing={4}
               container
               md={6}
               xs={12}
@@ -82,38 +78,41 @@ const InstitucionOrganizadora = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                
               }}
             >
-            
-              <Grid item md={6}
-              xs={12}>
+              <Grid item md={6} xs={12}>
                 <img
-                alt="Museo del rock mexicano"
-                src={museorock}
-                height="100%"
-                width="100%"
-              />
+                  alt="Museo del rock mexicano"
+                  src={museorock}
+                  height="80%"
+                  width="80%"
+                />
               </Grid>
-             
-              <Grid item md={6}
-              xs={12}>
+              <Grid item md={6} xs={12}>
                 <img
-                alt="Soul Sacrifice a Carlos Santana Tribute Band"
-                src={soulsacrifice}
-                height="100%"
-                width="100%"
-              />
+                  alt="Soul Sacrifice a Carlos Santana Tribute Band"
+                  src={soulsacrifice}
+                  height="80%"
+                  width="80%"
+                />
               </Grid>
-            {/*   <Grid item md={6}
-              xs={12}>
+              <Grid item md={6} xs={12}>
                 <img
-                alt="Centro cultural cuicacalli"
-                src={cuicacalli}
-                height="100%"
-                width="100%"
-              />
-              </Grid> */}
+                  alt="Centro cultural cuicacalli"
+                  src={cuicacalli}
+                  height="90%"
+                  width="90%"
+                />
+              </Grid>
+              
+              <Grid item md={6} xs={12}>
+                <img
+                  alt="FractalEstudioMx"
+                  src="https://mountainsantanasuena.s3.us-east-2.amazonaws.com/Logo.png"
+                  height="100%"
+                  width="100%"
+                />
+              </Grid>
             </Grid>
             <Grid item md={6} xs={12} mt={10}>
               <Typography variant="h6">
@@ -139,13 +138,17 @@ const InstitucionOrganizadora = () => {
                   </Typography>
                 </li>
 
-              {/*   <li>
+                {/*   <li>
                   <Typography variant="h6">
                     Centro Cultural Cuicacalli Tiopa Tlanextli A.C., Martín
                     Rivera Hueso.
                   </Typography>
                 </li> */}
-
+                <li>
+                  <Typography variant="h6">
+                    FractalEstudioMx "Expande tus ideas"
+                  </Typography>
+                </li>
                 <li>
                   <Typography variant="h6">
                     Soul Sacrifice - Carlos Santana tribute band, Edgar L.

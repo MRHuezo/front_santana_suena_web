@@ -98,9 +98,9 @@ const EstatusComp = ({data}) => {
   };
   let status = data.status;
   let returnObj = <div/>;
-  console.log(status)
+ 
   if(status === "SELECCIONADO"){
-    console.log(status)
+    
    returnObj =
       <Paper  sx={{backgroundColor:"transparent", display:"flex", alignItems:"center", justifyContent:"center"}}>
        <StyledBadge

@@ -108,13 +108,13 @@ const PatrocinadoresHome = () => {
                 url="https://hermes-music.com.mx/"
               />
             </Grid> */}
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
               <CustomButton
                 bgimage={colectivamente}
                 image={colectivamente}
                 url="#"
               />
-            </Grid>
+            </Grid> */}
           </Grid>
           {/* <Swiper
             slidesPerView={3}

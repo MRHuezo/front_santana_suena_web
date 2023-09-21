@@ -88,9 +88,9 @@ const InstitucionesHome = () => {
               <Typography variant="h3">Instituciones participantes</Typography>
             </Box>
           </Parallax>
-          <Grid container spacing={3}>
+          <Grid container spacing={3} sx={{justifyContent:"center"}} >
             {sponsors.map(({ imagen, nombre, bgcolor }, index) => (
-              <Grid key={`${nombre}-${index}`} item xs={12} sm={6} md={6} lg={3}>
+              <Grid key={`${nombre}-${index}`} item xs={12} sm={8} md={8} lg={5}>
                 <Box
                   className={classes.img}
                   sx={{
