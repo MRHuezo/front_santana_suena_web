@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.3f73ee07.css",
-    "main.js": "/static/js/main.fec7342e.js",
+    "main.js": "/static/js/main.b8d2470b.js",
     "static/js/787.cff480f1.chunk.js": "/static/js/787.cff480f1.chunk.js",
     "static/media/soulsacrifice.png": "/static/media/soulsacrifice.58f405b6fe3328f70112.png",
     "static/media/prs_page.png": "/static/media/prs_page.0e831de37b6c0e864c65.png",
@@ -17,13 +17,14 @@
     "static/media/prs_logo.png": "/static/media/prs_logo.3b66666b51196998bde0.png",
     "static/media/colectivamente.png": "/static/media/colectivamente.aba7952fa46219af9026.png",
     "static/media/autlan.png": "/static/media/autlan.10d9531a75d7f04da966.png",
+    "static/media/CENART.webp": "/static/media/CENART.f9b6c5bc562b56f0b5e7.webp",
     "index.html": "/index.html",
     "main.3f73ee07.css.map": "/static/css/main.3f73ee07.css.map",
-    "main.fec7342e.js.map": "/static/js/main.fec7342e.js.map",
+    "main.b8d2470b.js.map": "/static/js/main.b8d2470b.js.map",
     "787.cff480f1.chunk.js.map": "/static/js/787.cff480f1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3f73ee07.css",
-    "static/js/main.fec7342e.js"
+    "static/js/main.b8d2470b.js"
   ]
 }
