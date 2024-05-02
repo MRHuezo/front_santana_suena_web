@@ -11,7 +11,7 @@ import { Button, Divider } from "@mui/material";
 const ItemPublicacion = ({ data }) => {
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardHeader title={data} subheader="September 14, 2023" />
+      <CardHeader title={data} subheader="September 14, 2024" />
       <CardMedia
         component="img"
         height="194"

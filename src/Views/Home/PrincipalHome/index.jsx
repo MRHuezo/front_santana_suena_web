@@ -39,7 +39,7 @@ const images = [
     description:
       "",
     id: 3,
-  }, */
+  }, 
   {
     img: "https://mountainsantanasuena.s3.us-east-2.amazonaws.com/BannerTijuana.png",
     title: "Santana Suena Sede Tijuana",
@@ -60,7 +60,7 @@ const images = [
     description:
       "",
     id: 6,
-  },
+  },*/
   {
     img: imagen1,
     title: "Santana Suena",

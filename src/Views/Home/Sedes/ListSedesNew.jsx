@@ -155,7 +155,7 @@ const CustomButton = ({ sede }) => {
             <Typography gutterBottom variant="h6" component="div">
               <strong>{sede.name}</strong>
             </Typography>
-            <Place sx={{ fontSize: 40 }} />
+            {/* <Place sx={{ fontSize: 40 }} />
             <Typography gutterBottom variant="h4" component="div">
               <strong>{sede.place}</strong>
             </Typography>
@@ -172,7 +172,7 @@ const CustomButton = ({ sede }) => {
             <Typography gutterBottom  sx={{fontSize:19}}  component="div">
             <strong>{sede.fecha_final } {" " + sede.hora_final + " hrs"}</strong>
             </Typography>
-            </Box>
+            </Box> */}
           </Box>
          
         </Image>

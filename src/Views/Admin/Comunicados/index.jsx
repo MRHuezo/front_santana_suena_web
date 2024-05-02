@@ -15,4 +15,4 @@ function Comunicados() {
   )
 }
 
-export default Comunicados
+export default Comunicados;

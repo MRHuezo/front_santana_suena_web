@@ -290,11 +290,11 @@ export default function Terminos(props){
                 <li>Integrar registro de participantes.</li>
                 <li>
                   Atender dudas, comentarios y sugerencias vinculados con el
-                  Concurso Nacional de Guitarra “Santana Suena 2023”.
+                  Concurso Nacional de Guitarra “Santana Suena 2024”.
                 </li>
                 <li>
                   Identificar y tener contacto con los participantes del
-                  Concurso Nacional de Guitarra “Santana Suena 2023”
+                  Concurso Nacional de Guitarra “Santana Suena 2024”
                 </li>
                 <li>
                   Informarle sobre principales noticias del Concurso Nacional de
@@ -302,20 +302,20 @@ export default function Terminos(props){
                 </li>
                 <li>
                   Participar en el Concurso Nacional de Guitarra “Santana Suena
-                  2023”
+                  2024”
                 </li>
                 <li>
                   Cumplir con lo establecido en las bases del Concurso Nacional
-                  de Guitarra “Santana Suena 2023”
+                  de Guitarra “Santana Suena 2024”
                 </li>
                 <li>
                   Poder ser seleccionado y reconocerlo como seleccionado del
-                  Concurso Nacional de Guitarra “Santana Suena 2023”
+                  Concurso Nacional de Guitarra “Santana Suena 2024”
                 </li>
                 <li>
                   Utilizar su videograbación, imagen y/o fotografía para
                   elaboración de material informativo y promocional del Concurso
-                  Nacional de Guitarra “Santana Suena 2023”
+                  Nacional de Guitarra “Santana Suena 2024”
                 </li>
                 <li>
                   El nombre, imagen y lugar del participante que resulte
@@ -323,11 +323,11 @@ export default function Terminos(props){
                   utilizado en anuncios y/o publicaciones realizadas en redes
                   sociales o televisión para reconocerlos como seleccionados y
                   /o ganador del Concurso Nacional de Guitarra “Santana Suena
-                  2023”
+                  2024”
                 </li>
                 <li>
                   Otorgar los reconocimientos previstos en las bases del Concurso
-                  Nacional de Guitarra “Santana Suena 2023”
+                  Nacional de Guitarra “Santana Suena 2024”
                 </li>
               </ul>
               <br />
@@ -606,7 +606,7 @@ export default function Terminos(props){
                 obstante lo anterior el participante deberá considerar que para
                 ciertos fines, la limitación del uso o divulgación de sus datos
                 personales implicará la conclusión de su participación en el
-                Concurso de Guitarra “Santana Suena 2023”.
+                Concurso de Guitarra “Santana Suena 2024”.
               </Typography>
             </Box>
             <br />
@@ -827,7 +827,7 @@ export default function Terminos(props){
               </Typography>
               <br />
               <Typography align="justify">
-                Última actualización: 25 de Enero del 2023.
+                Última actualización: 1ro de Mayo del 2024.
               </Typography>
             </Box>
           </Box>

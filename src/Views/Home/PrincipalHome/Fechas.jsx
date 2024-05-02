@@ -21,7 +21,7 @@ const Fechas = () => {
           <ul>
             <li>
               <Typography variant="h6">
-                <b>Del 04 de Febrero al 30 de Juni del 2023</b>
+                <b>Del 1ro de Mayo al 1ro de Agosto del 2024</b>
               </Typography>
               <Typography variant="h6">
                 Convocatoria de inscripción y recepción de material audiovisual
@@ -31,7 +31,7 @@ const Fechas = () => {
             <br />
             <li>
               <Typography variant="h6">
-                <b>Del 01 al 31 de Agosto 2023</b>
+                <b>Del 2 al 31 de Agosto 2024</b>
               </Typography>
               <Typography variant="h6">
                 Selección de 10 semifinalistas
@@ -40,7 +40,7 @@ const Fechas = () => {
             <br />
             <li>
               <Typography variant="h6">
-                <b>Septiembre y Octubre</b>
+                <b>Septiembre</b>
               </Typography>
               <Typography variant="h6">
                 Realizar evento de semifinal en cada sede y selección del
@@ -50,7 +50,7 @@ const Fechas = () => {
             <br />
             <li>
               <Typography variant="h6">
-                <b>17 de Noviembre 2023</b>
+                <b>15 de Noviembre 2024</b>
               </Typography>
               <Typography variant="h6">
                 Final del concurso en Autlán de Navarro, Jalisco
@@ -59,11 +59,11 @@ const Fechas = () => {
             <br />
             <li>
               <Typography variant="h6">
-                <b>19 Noviembre 2023</b>
+                <b>17 Noviembre 2024</b>
               </Typography>
               <Typography variant="h6">
                 Presentación de Ganador de la final junto con el grupo Soul
-                Sacrifice en el marco del 6to. Festival Músico Cultural Carlos
+                Sacrifice en el marco del VII Festival Músico Cultural Carlos
                 Santana en Autlán.
               </Typography>
             </li>
@@ -75,7 +75,7 @@ const Fechas = () => {
               proyecto en tiempo y forma
             </Typography>
             <Typography variant="h5" align="center">
-              <b>Fecha límite de inscripción 30 de Junio 2023</b>
+              <b>Fecha límite de inscripción 1ro de Agosto 2024</b>
             </Typography>
           </Box>
         </Box>

@@ -37,18 +37,16 @@ const SedesHome = () => {
             </Typography>
             <br />
             <Typography align="justify" variant="h6">
-              Cada sede nombrará un grupo de 3 jueces con la autoridad y el
-              conocimiento del tema en cuestión para la evaluación de los
-              participantes. El guitarrista líder del grupo Soul Sacrifice
-              Everardo Vázquez y un representante del museo del Rock Mexicano,
-              serán quien representen al comite organizador y completarán al
-              grupo de 5 jueces para todas las sedes.
+            Cada sede nombrará un grupo de 2 jueces con la autoridad y el conocimiento 
+            del tema en cuestión para la evaluación de los participantes.
+            El guitarrista líder del grupo Soul Sacriﬁce Everardo Vázquez  será quien 
+            represente al comite organizador y completarán al grupo de 3 jueces para todas las sedes.
             </Typography>
           </Box>
             <Typography variant="h6">
               Jurado Calificador GranFinal (Autlán,Jalisco) Se invitará a un
-              juez de cada sede conformado por 4 miembros y el guitarrista de
-              Soul Sacrifice, siendo 5 en total.
+              juez de cada sede conformado por 3 miembros,el guitarrista de
+              Soul Sacrifice y un invitado especial, siendo 5 en total.
             </Typography>
             <Box sx={{ my: 4, display: "flex", justifyContent: "center" }}>
               <AssignmentTurnedIn

@@ -29,15 +29,19 @@ const pages = [
     route: "/#como_participar",
     component: HashLink,
   },
- 
+  {
+    title: "Inscripción",
+    route: "/#inscripcion",
+    component: HashLink,
+  },
   {
     title: "Sedes",
     route: "/#sedes",
     component: HashLink,
   },
   {
-    title: "Participantes",
-    route: "/sede/zapopan",
+    title: "Participantes 2024",
+    route: "/sede/cdmx2",
     component: HashLink,
   },
  
@@ -46,11 +50,13 @@ const pages = [
     route: "/#reconocimientos",
     component: HashLink,
   },
- /*  {
-    title: "Inscripción",
-    route: "/#inscripcion",
+  
+  /*
+  {
+    title: "Santana Suena 2023",
+    route: "/sede/zapopan",
     component: HashLink,
-  }, */
+  },, */
   {
     title: "Patrocinadores",
     route: "/#patrocinadores",

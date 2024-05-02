@@ -104,7 +104,7 @@ export default function SedeDetail() {
             
             <Competitors competitors={competitors} sede={sede} />
             
-              <Box py={2}>
+              {/* <Box py={2}>
                 <Typography
                   sx={{ fontSize: 22 }}
                   variant="h2" align="center"
@@ -137,7 +137,7 @@ export default function SedeDetail() {
                   sx={{ fontSize: 20 }}
                   variant="h3" align="center"
                 >{`Teléfono: ${sede.telefono}`}</Typography>
-              </Box>
+              </Box> */}
             
           </Container>
         </Box>

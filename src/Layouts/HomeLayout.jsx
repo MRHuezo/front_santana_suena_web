@@ -3,6 +3,7 @@ import NavbarHome from "../Components/Navbar/NavbarHome";
 import PatrocinadoresHome from "../Views/Home/Patrocinadores";
 import InstitucionesHome from "../Views/Home/Instituciones";
 import PrincipalHome from "../Views/Home/PrincipalHome";
+import PrimeraEdicionHome from "../Views/Home/PrincipalHome/PrimeraEdicionHome";
 import SedesHome from "../Views/Home/Sedes";
 import FinalistasHome from "../Views/Home/Finalistas";
 import Footer from "../Views/Home/Footer";
@@ -34,8 +35,9 @@ function HomeLayout() {
       <SedesHome />
       <Etapas />
       <Premios />
-     {/*  <InscripcionesHome /> */}
+      <InscripcionesHome />
       <PatrocinadoresHome />
+      {/* <PrimeraEdicionHome /> */}
       <InstitucionesHome />
       {/* <FinalistasHome /> */}
       <Footer />

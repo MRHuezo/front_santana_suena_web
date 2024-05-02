@@ -2,6 +2,7 @@ import React from "react";
 //import { Swiper, SwiperSlide } from "swiper/react";
 import { Parallax } from "rc-scroll-anim";
 import autlan from "./img/autlan.png";
+import CENART from "./img/CENART.webp";
 import baja from "./img/baja.png";
 import coyoacan from "./img/coyoacan.png";
 import zapopan from "./img/zapopan.png";
@@ -28,12 +29,17 @@ const sponsors = [
     imagen: autlan,
     bgcolor: "#5A3D76",
   },
+  {
+    nombre: "CENART",
+    imagen: CENART,
+    bgcolor: "#5A3D76",
+  },
  /*  {
     nombre: "Gobierno de Coyoacán",
     imagen: coyoacan,
     
     bgcolor: "#F2C4FC",
-  }, */
+  }, 
   {
     nombre: "Zapopan",
     imagen: zapopan,
@@ -44,7 +50,7 @@ const sponsors = [
     imagen: baja,
     bgcolor: "#FFE7E7",
   },
-  /* {
+   {
     nombre: "default2",
     imagen: "",
   }, */

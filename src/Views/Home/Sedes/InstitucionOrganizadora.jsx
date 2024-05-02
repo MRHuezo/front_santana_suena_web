@@ -82,14 +82,6 @@ const InstitucionOrganizadora = () => {
             >
               <Grid item md={6} xs={12}>
                 <img
-                  alt="Museo del rock mexicano"
-                  src={museorock}
-                  height="80%"
-                  width="80%"
-                />
-              </Grid>
-              <Grid item md={6} xs={12}>
-                <img
                   alt="Soul Sacrifice a Carlos Santana Tribute Band"
                   src={soulsacrifice}
                   height="80%"
@@ -135,18 +127,6 @@ const InstitucionOrganizadora = () => {
                     Centro Comunitario y de Salud Tiopa Tlanextli, Lic. Alberto Tovar
                   </Typography>
                 </li>
-                <li>
-                  <Typography variant="h6">
-                    Museo del Rock Mexicano A.C., Francisco Sánchez Loaeza.
-                  </Typography>
-                </li>
-
-                <li>
-                  <Typography variant="h6">
-                    Museo del Rock Mexicano A.C., Miguel Ángel Pichardo.
-                  </Typography>
-                </li>
-
                 <li>
                   <Typography variant="h6">
                     Centro Cultural Cuicacalli, Martín

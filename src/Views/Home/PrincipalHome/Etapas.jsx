@@ -34,7 +34,7 @@ const Etapas = () => {
               <UploadFile sx={{ fontSize: 30 }} color="primary" />
               <Box mx={1} />
               <Typography variant="h6">
-                <b>1er Etapa: </b>Del 04 de Febrero al 30 de Junio del 2023
+                <b>1er Etapa: </b>Del 1ro de Mayo al 1ro de Agosto del 2024
               </Typography>
             
             </Box>
@@ -53,7 +53,7 @@ const Etapas = () => {
               <HowToReg sx={{ fontSize: 30 }} color="primary" />
               <Box mx={1} />
               <Typography variant="h6">
-                <b>2da Etapa: </b>Del 01 al 31 de Agosto 2023
+                <b>2da Etapa: </b>Del 01 al 31 de Agosto 2024
               </Typography>
             </Box>
               <Typography variant="h6">
@@ -72,13 +72,13 @@ const Etapas = () => {
               <Box mx={1} />
               <Typography variant="h6">
                 <b>3er Etapa: </b>
-                Septiembre y Octubre
+                Septiembre
          
               </Typography>
             </Box>
             <Typography variant="h6">
-              Concursos de semifinalistas(saldrá primer lugar en cada sede). (Las
-              fechas son a disposición de actividades en cada estado
+              Concursos de semifinalistas(el primer lugar de cada sede que representará en la final). (Las
+              fechas son a disposición de actividades en cada sede
               participante).
             </Typography>
           </Box>    
@@ -93,13 +93,13 @@ const Etapas = () => {
               <Box mx={1} />
               <Typography variant="h6">
                 <b>4ta Etapa: </b>
-                17 de Noviembre 2023
+                15 de Noviembre 2024
               </Typography>
             </Box>
             <Typography variant="h6">
                 
                 Gran Final en Autlán de Navarro Jalisco, dentro
-                del marco del 6to. Festival Músico Cultural Carlos Santana.
+                del marco del VII Festival Músico Cultural Carlos Santana.
               </Typography>    
           </Box>
           <Box>
@@ -113,12 +113,12 @@ const Etapas = () => {
               <Box mx={1} />
               <Typography variant="h6">
                 <b>5ta Etapa: </b>
-                19 de Noviembre 2023
+                17 de Noviembre 2024
               </Typography>
             </Box>
             <Typography variant="h6">
                 
-            Presentación del ganador  junto con el grupo Soul Sacrifice en el marco del 6to. Festival Músico Cultural Carlos Santana en Autlán.
+            Presentación del ganador  junto con el grupo Soul Sacrifice en el marco del VII Festival Músico Cultural Carlos Santana en Autlán.
               </Typography>    
           </Box>
           <Box mt={6}>
@@ -127,7 +127,7 @@ const Etapas = () => {
               proyecto en tiempo y forma
             </Typography>
             <Typography variant="h5" align="center">
-              <b>Fecha límite de inscripción 30 de junio 2023</b>
+              <b>Fecha límite de inscripción 1ro de agosto 2024</b>
             </Typography>
           </Box>
         </Box>
