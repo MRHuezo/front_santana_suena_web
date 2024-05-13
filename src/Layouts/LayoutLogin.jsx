@@ -51,9 +51,8 @@ const LayoutLogin = () => {
       })
       .catch((err) => {
         setLoading(false);
-        console.log(err)
         snackMessage({
-          message: handlerErrors(err, "POST"),
+          message: handlerErrors("Algo ocurrió al intentar conectar al servidor, revise su conexión y vuelva a intentar.", "POST"),
           variant: "error",
         });
       });

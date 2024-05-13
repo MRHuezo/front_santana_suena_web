@@ -58,7 +58,7 @@ export default function RechazarSolicitud({ competitor }) {
       .catch((err) => {
         setLoading(false);
         snackMessage({
-          message: handlerErrors(err, "POST"),
+          message: handlerErrors("Algo ocurrió al intentar conectar al servidor, revise su conexión y vuelva a intentar.", "POST"),
           variant: "error",
         });
       });

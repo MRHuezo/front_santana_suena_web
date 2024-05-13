@@ -32,13 +32,14 @@ function HomeLayout() {
       <PrincipalHome />
       <InstitucionOrganizadora />
       <Bases />
-      <SedesHome />
+      <SedesHome edicion="2024" />
       <Etapas />
       <Premios />
       <InscripcionesHome />
       <PatrocinadoresHome />
-      {/* <PrimeraEdicionHome /> */}
+      {/* <PrimeraEdicionHome />  */}
       <InstitucionesHome />
+      <SedesHome edicion="2023"/>
       {/* <FinalistasHome /> */}
       <Footer />
     </div>

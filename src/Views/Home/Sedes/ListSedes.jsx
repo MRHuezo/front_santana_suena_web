@@ -7,14 +7,15 @@ import LoadingPage from "./LoadingPage";
 import { handlerErrors } from "../../../Config/errors";
 import CardItemSede from "./CardItemSede";
 
-const ListSedes = () => {
+const ListSedes = ({edicion}) => {
   const { snackMessage, setSedes, sedes } = React.useContext(MainContext);
   const { data, loading, error } = sedes;
 
   React.useEffect(() => {
     const getSedes = async () => {
       await axiosClient
-        .get("/sede/consultarSedes")
+      
+        .get(`/sede/consultarSedes/${edicion}`)
         .then((res) => {
           setSedes((sedes) => ({
             ...sedes,
@@ -24,9 +25,8 @@ const ListSedes = () => {
         })
         .catch((error) => {
           setSedes((sedes) => ({ ...sedes, error, loading: false }));
-          console.log(error);
           snackMessage({
-            message: handlerErrors(error, "GET"),
+            message: handlerErrors("Algo ocurrió al intentar conectar al servidor, revise su conexión y vuelva a intentar.", "GET"),
             variant: "error",
           });
         });
