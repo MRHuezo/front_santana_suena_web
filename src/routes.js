@@ -37,8 +37,13 @@ export const router = createBrowserRouter([
     errorElement: <NoMatch />,
   },
   {
-    path: "/sede/:sede",
-    element: <SedeDetail />,
+    path: "/sede/:sede/:edicion",
+    element: <SedeDetail/>,
+    errorElement: <NoMatch />,
+  },
+  {
+    path: "/sede/:sede/:edicion",
+    element: <SedeDetail/>,
     errorElement: <NoMatch />,
   },
   {

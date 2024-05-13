@@ -15,7 +15,7 @@ import UserPhoto from "./UserPhoto";
 
 const DatosPersonales = () => {
   const { data, setData } = useContext(InscripcionContext);
-  const { sedes } = useContext(MainContext);
+  const { sedes2024 } = useContext(MainContext);
   const {
     id_sede,
     sede,
@@ -71,8 +71,8 @@ const DatosPersonales = () => {
                   <option value="">
                     <em>Selecciona una sede</em>
                   </option>
-                  {sedes.data ? (
-                    sedes.data?.map(({ name, place, _id, main }, index) => {
+                  {sedes2024.data ? (
+                    sedes2024.data?.map(({ name, place, _id, main }, index) => {
                       if (main) {
                         return null;
                       } else {

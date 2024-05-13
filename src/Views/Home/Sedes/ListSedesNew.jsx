@@ -10,26 +10,31 @@ import { handlerErrors } from "../../../Config/errors";
 import { Place } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
-const ListSedesNew = () => {
-  const { snackMessage, setSedes, sedes } = React.useContext(MainContext);
-  const { data, loading, error } = sedes;
+const ListSedesNew = ({edicion}) => {
+  const { snackMessage, setSedes, sedes, setSedes2024, sedes2024 } = React.useContext(MainContext);
+  const { data, loading, error } = (edicion === "2024") ? sedes2024 : sedes;
 
   React.useEffect(() => {
     const getSedes = async () => {
       await axiosClient
-        .get("/sede/consultarSedes")
+        .get(`/sede/consultarSedes/${edicion}`)
         .then((res) => {
-          setSedes((sedes) => ({
-            ...sedes,
-            data: res.data.sedes,
-            loading: false,
-          }));
+          if(edicion === "2024"){
+            setSedes2024((sedes) => ({ ...sedes, data: res.data.sedes, loading: false,}));
+          }else{
+            setSedes((sedes) => ({ ...sedes, data: res.data.sedes, loading: false }));
+          }
         })
         .catch((error) => {
-          setSedes((sedes) => ({ ...sedes, error, loading: false }));
-          console.log(error);
+          if(edicion === "2024"){
+            setSedes2024((sedes) => ({ ...sedes, error, loading: false }));
+          }else{
+            setSedes((sedes) => ({ ...sedes, error, loading: false }));
+          }
+          
+          
           snackMessage({
-            message: handlerErrors(error, "GET"),
+            message: handlerErrors("Algo ocurrió al intentar conectar al servidor, revise su conexión y vuelva a intentar.", "GET"),
             variant: "error",
           });
         });
@@ -57,7 +62,7 @@ const ListSedesNew = () => {
             <div />
           ) : (
             <Grid key={sede._id} item xs={12} md={4}>
-              <CustomButton sede={sede} />
+              <CustomButton sede={sede} edicion={edicion} />
             </Grid>
           )
         )}
@@ -68,7 +73,7 @@ const ListSedesNew = () => {
 
 export default ListSedesNew;
 
-const CustomButton = ({ sede }) => {
+const CustomButton = ({ sede, edicion }) => {
   const ImageButton = styled(ButtonBase)(({ theme }) => ({
     position: "relative",
     height: "80vh",
@@ -128,7 +133,7 @@ const CustomButton = ({ sede }) => {
   }));
 
   return (
-    <Link to={`/sede/${sede.id_name}`}>
+    <Link to={`/sede/${sede.id_name}/${edicion}`}>
       <ImageButton
         focusRipple
         style={{
@@ -151,7 +156,7 @@ const CustomButton = ({ sede }) => {
               flexDirection: "column",
             }}
           >
-           
+            
             <Typography gutterBottom variant="h6" component="div">
               <strong>{sede.name}</strong>
             </Typography>

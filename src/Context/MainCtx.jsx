@@ -12,7 +12,7 @@ const initial_query_state = {
 const MainCtxProvider = ({ children, enqueueSnackbar }) => {
   const [user, setUser] = useState(null);
   const [sedes, setSedes] = useState(initial_query_state);
- 
+  const [sedes2024, setSedes2024] = useState(initial_query_state);
     
     
   const snackMessage = React.useCallback(
@@ -40,7 +40,9 @@ const MainCtxProvider = ({ children, enqueueSnackbar }) => {
         setUser,
         initial_query_state,
         sedes, 
-        setSedes
+        setSedes,
+        sedes2024,
+        setSedes2024
        
       }}
     >

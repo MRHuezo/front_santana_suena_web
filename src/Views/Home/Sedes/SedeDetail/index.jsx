@@ -12,7 +12,7 @@ import { MusicNote } from "@mui/icons-material";
 import "./style.css";
 import Competitors from "./Competitors";
 import MoreSedes from "./MoreSedes";
-
+import MoreSedes2023 from "./MoreSedes2023";
 const initial_query_state = {
   data: undefined,
   error: undefined,
@@ -24,8 +24,12 @@ export default function SedeDetail() {
   const [query, setQuery] = React.useState(initial_query_state);
   const matches = useMatches();
   let id_name = "";
-  if (matches.length) id_name = matches[0].params.sede;
-
+  let edicion = "";
+  if (matches.length) {
+    id_name = matches[0].params.sede;
+    edicion = matches[0].params.edicion;
+  }
+console.log(edicion)
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -33,15 +37,15 @@ export default function SedeDetail() {
   React.useEffect(() => {
     const getSedesQuery = async () => {
       await axiosClient
-        .get(`/sede/oneSedeCompetitors/${id_name}`)
+        .get(`/sede/oneSedeCompetitors/${id_name}/${edicion}`)
         .then((res) => {
           setQuery((state) => ({ ...state, loading: false, data: res.data }));
         })
         .catch((error) => {
           setQuery((state) => ({ ...state, loading: false, error }));
-          console.log(error);
+        
           snackMessage({
-            message: handlerErrors(error, "GET"),
+            message: handlerErrors("Algo ocurrió al intentar conectar al servidor, revise su conexión y vuelva a intentar.", "GET"),
             variant: "error",
           });
         });
@@ -99,7 +103,13 @@ export default function SedeDetail() {
       >
         <Box sx={{ color: "white" }}>
           <Box sx={{ pt: 5 }} />
-          <MoreSedes id_name={id_name} />
+          {
+            (edicion === '2023') ?
+            <MoreSedes2023 id_name={id_name} edicion={edicion} />
+            :
+            <MoreSedes id_name={id_name} edicion={edicion} />
+          }
+         
           <Container maxWidth="lg">
             
             <Competitors competitors={competitors} sede={sede} />

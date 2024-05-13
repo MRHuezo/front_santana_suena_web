@@ -41,7 +41,7 @@ const pages = [
   },
   {
     title: "Participantes 2024",
-    route: "/sede/cdmx2",
+    route: "/sede/cdmx2/2024",
     component: HashLink,
   },
  
@@ -51,12 +51,12 @@ const pages = [
     component: HashLink,
   },
   
-  /*
+  
   {
     title: "Santana Suena 2023",
-    route: "/sede/zapopan",
+    route: "/sede/zapopan/2023",
     component: HashLink,
-  },, */
+  },
   {
     title: "Patrocinadores",
     route: "/#patrocinadores",

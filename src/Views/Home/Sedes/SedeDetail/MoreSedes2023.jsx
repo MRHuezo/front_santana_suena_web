@@ -51,16 +51,15 @@ const initial_query_state = {
 export default function MoreSedes({ id_name, edicion }) {
   const [value, setValue] = React.useState(0);
   const [sedes, setSedes] = React.useState(initial_query_state);
- 
   const { snackMessage } = React.useContext(MainContext);
   const navigate = useNavigate();
   const { data, loading, error } = sedes;
  
   React.useEffect(() => {
     const getSedes = async () => {
-    
+
       await axiosClient
-        .get(`/sede/consultarSedes/2024`)
+        .get(`/sede/consultarSedes/2023`)
         .then((res) => {
           const SEDES = res.data.sedes.filter((res) => !res.main);
           SEDES.forEach((sede, index) => {
@@ -74,7 +73,7 @@ export default function MoreSedes({ id_name, edicion }) {
         })
         .catch((error) => {
           setSedes((sedes) => ({ ...sedes, error, loading: false }));
-
+       
           snackMessage({
             message: handlerErrors("Algo ocurrió al intentar conectar al servidor, revise su conexión y vuelva a intentar.", "GET"),
             variant: "error",

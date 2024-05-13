@@ -43,7 +43,7 @@ function Solicitudes() {
           setCompetitors((comp) => ({ ...comp, error, loading: false }));
           console.log(error);
           snackMessage({
-            message: handlerErrors(error, "GET"),
+            message: handlerErrors("Algo ocurrió al intentar conectar al servidor, revise su conexión y vuelva a intentar.", "GET"),
             variant: "error",
           });
         });

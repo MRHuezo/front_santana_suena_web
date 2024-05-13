@@ -18,7 +18,12 @@ export function handlerErrors(err, type) {
           return "Ops, hubo un error desconocido";
       }
     } else {
-      const { status, data } = err.response;
+      console.log(err)
+      let status, data;
+      if(err.response)  {status = err.response.status;
+         data= err.response.data   ;}
+      
+     
       switch (status) {
         case 404:
           return data.message
@@ -27,7 +32,7 @@ export function handlerErrors(err, type) {
         case 500:
           return data.message ? data.message : "Error Interno del Servidor";
         default:
-          return "Ops, hubo un error desconocido";
+          return err;
       }
     }
   } catch (error) {
