@@ -122,11 +122,11 @@ const InstitucionOrganizadora = () => {
                     Centro Comunitario y de Salud Tiopa Tlanextli, Lic. Blanca Silva
                   </Typography>
                 </li>
-                <li>
+               {/*  <li>
                   <Typography variant="h6">
                     Centro Comunitario y de Salud Tiopa Tlanextli, Lic. Alberto Tovar
                   </Typography>
-                </li>
+                </li> */}
                 <li>
                   <Typography variant="h6">
                     Centro Cultural Cuicacalli, Martín
@@ -141,7 +141,7 @@ const InstitucionOrganizadora = () => {
                 <li>
                   <Typography variant="h6">
                     Soul Sacrifice - Carlos Santana tribute band, Edgar L.
-                    Santana.
+                    Santana, Alberto Tovar, Marco Mael Sangoval Gómez.
                   </Typography>
                 </li>
               </ul>

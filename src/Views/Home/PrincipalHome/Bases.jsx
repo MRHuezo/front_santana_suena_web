@@ -120,7 +120,7 @@ const Bases = () => {
               </Typography>
               <Typography variant="h6">
                 <b>
-                  Donativo de 300.00 pesos a favor de Santuario de Luz
+                  Donativo de 500.00 pesos a favor de Santuario de Luz
                   A.C. a la cuenta bancaria BBVA: 0176 2439 08 Clabe: 0123 3300
                   1762 4390 84
                 </b>

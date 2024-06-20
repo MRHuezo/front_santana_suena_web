@@ -61,7 +61,7 @@ const ListSedesNew = ({edicion}) => {
           sede.main ? (
             <div />
           ) : (
-            <Grid key={sede._id} item xs={12} md={4}>
+            <Grid key={sede._id} item xs={12} sm={6} >
               <CustomButton sede={sede} edicion={edicion} />
             </Grid>
           )
@@ -76,7 +76,7 @@ export default ListSedesNew;
 const CustomButton = ({ sede, edicion }) => {
   const ImageButton = styled(ButtonBase)(({ theme }) => ({
     position: "relative",
-    height: "80vh",
+    height: "40vh",
     width: "100%",
     [theme.breakpoints.down("md")]: {
       width: "100% !important", // Overrides inline-style
@@ -156,28 +156,38 @@ const CustomButton = ({ sede, edicion }) => {
               flexDirection: "column",
             }}
           >
-            
-            <Typography gutterBottom variant="h6" component="div">
-              <strong>{sede.name}</strong>
-            </Typography>
-            {/* <Place sx={{ fontSize: 40 }} />
-            <Typography gutterBottom variant="h4" component="div">
-              <strong>{sede.place}</strong>
-            </Typography>
-           
-            
-            <Box  sx={{display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              color: "white",
-              flexDirection: "column",}}>
-            <Typography gutterBottom  sx={{fontSize:22}} component="div">
-            <strong>{sede.lugar_final.split(",")[0]} </strong>
-            </Typography>
-            <Typography gutterBottom  sx={{fontSize:19}}  component="div">
-            <strong>{sede.fecha_final } {" " + sede.hora_final + " hrs"}</strong>
-            </Typography>
-            </Box> */}
+            {(edicion === "2023") ? 
+              <Typography gutterBottom variant="h4" component="div">
+                <strong>{sede.name}</strong>
+              </Typography>
+              :
+              <div/>
+            }
+           {/*  {(edicion === "2024") ?
+              <div>
+                <Place sx={{ fontSize: 40 }} />
+                  <Typography gutterBottom variant="h4" component="div">
+                    <strong>{sede.place}</strong>
+                  </Typography>
+              
+                
+                <Box  sx={{display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  color: "white",
+                  flexDirection: "column",}}>
+                  <Typography gutterBottom  sx={{fontSize:22}} component="div">
+                  <strong>{sede.lugar_final.split(",")[0]} </strong>
+                  </Typography>
+                  <Typography gutterBottom  sx={{fontSize:19}}  component="div">
+                  <strong>{sede.fecha_final } {" " + sede.hora_final + " hrs"}</strong>
+                  </Typography>
+                </Box>
+              </div>
+             
+            :
+            <div/>  
+          } */}
           </Box>
          
         </Image>
