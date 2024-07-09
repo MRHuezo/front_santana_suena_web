@@ -2,7 +2,7 @@ import React from "react";
 //import { Swiper, SwiperSlide } from "swiper/react";
 import { Parallax } from "rc-scroll-anim";
 import autlan from "./img/autlan.png";
-import CENART from "./img/CENART.webp";
+import CENART from "./img/cenart.png";
 import baja from "./img/baja.png";
 import coyoacan from "./img/coyoacan.png";
 import zapopan from "./img/zapopan.png";
