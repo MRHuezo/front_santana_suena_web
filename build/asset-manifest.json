@@ -1,13 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.3f73ee07.css",
-    "main.js": "/static/js/main.8730f344.js",
+    "main.js": "/static/js/main.ba8cb046.js",
     "static/js/787.cff480f1.chunk.js": "/static/js/787.cff480f1.chunk.js",
     "static/media/soulsacrifice.png": "/static/media/soulsacrifice.58f405b6fe3328f70112.png",
     "static/media/prs_page.png": "/static/media/prs_page.0e831de37b6c0e864c65.png",
     "static/media/hermes_page.png": "/static/media/hermes_page.5ed1d3d47e1e85df52b6.png",
     "static/media/santana_suena_portada.png": "/static/media/santana_suena_portada.12f125593d07258203d7.png",
     "static/media/baja.png": "/static/media/baja.1869900c4f4d6b50ff95.png",
+    "static/media/cenart.png": "/static/media/cenart.0ac33cbfc4eb1af0879b.png",
     "static/media/museorock.png": "/static/media/museorock.af53c384f4637a7ae91d.png",
     "static/media/tiopa.png": "/static/media/tiopa.79d884fbd1d6a2d58c38.png",
     "static/media/coyoacan.png": "/static/media/coyoacan.9e7881d94bd2ccc21b2b.png",
@@ -17,14 +18,13 @@
     "static/media/prs_logo.png": "/static/media/prs_logo.3b66666b51196998bde0.png",
     "static/media/colectivamente.png": "/static/media/colectivamente.aba7952fa46219af9026.png",
     "static/media/autlan.png": "/static/media/autlan.10d9531a75d7f04da966.png",
-    "static/media/CENART.webp": "/static/media/CENART.f9b6c5bc562b56f0b5e7.webp",
     "index.html": "/index.html",
     "main.3f73ee07.css.map": "/static/css/main.3f73ee07.css.map",
-    "main.8730f344.js.map": "/static/js/main.8730f344.js.map",
+    "main.ba8cb046.js.map": "/static/js/main.ba8cb046.js.map",
     "787.cff480f1.chunk.js.map": "/static/js/787.cff480f1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3f73ee07.css",
-    "static/js/main.8730f344.js"
+    "static/js/main.ba8cb046.js"
   ]
 }
