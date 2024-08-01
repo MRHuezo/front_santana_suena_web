@@ -8,7 +8,7 @@ const premios = [
   {
     lugar: "1er Lugar",
     premios: [
-      'Guitarra PRS "Santana patrocinada por PAUL REED SMITH"',
+      // 'Guitarra PRS "Santana patrocinada por PAUL REED SMITH"',
       "Viaje a Autlán Jalisco",
       "Paquete de souvenirs",
       "Reconocimiento de participación",
@@ -35,7 +35,8 @@ const premiosFinal = [
   {
     lugar: "1er Lugar",
     premios: [
-      "Guitarra autografiada por Carlos Santana",
+      // "Guitarra autografiada por Carlos Santana",
+      'Guitarra PRS "Santana patrocinada por PAUL REED SMITH',
       "Reconocimiento de participación",
       "Paquete otorgado por los patrocinadores del evento",
     ],

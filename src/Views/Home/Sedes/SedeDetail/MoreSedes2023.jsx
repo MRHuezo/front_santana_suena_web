@@ -87,7 +87,7 @@ export default function MoreSedes({ id_name, edicion }) {
     return null;
   }
   if (error || !data) {
-    console.log(error);
+   
     return null;
   }
 

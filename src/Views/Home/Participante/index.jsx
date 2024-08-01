@@ -23,12 +23,16 @@ function Participante() {
   const { data, loading, error } = participante;
   const matches = useMatches();
   let id_name = "";
-  if (matches.length) id_name = matches[0].params.id_name;
-
+  let id_sede = "";
+  if (matches.length) {
+    id_name = matches[0].params.id_name;
+    id_sede = matches[0].params.id_sede;
+  }
+ 
   React.useEffect(() => {
     const getCompetitors = async () => {
       await axiosClient
-        .get(`/competitor/get/main/idname/${id_name}`)
+        .get(`/competitor/get/main/idname/${id_name}/${id_sede}`)
         .then((res) => {
           setParticipante((st) => ({
             ...st,
@@ -38,7 +42,7 @@ function Participante() {
         })
         .catch((error) => {
           setParticipante((st) => ({ ...st, error, loading: false }));
-          console.log(error);
+         
           snackMessage({
             message: handlerErrors("Algo ocurrió al intentar conectar al servidor, revise su conexión y vuelva a intentar.", "GET"),
             variant: "error",
@@ -69,7 +73,7 @@ function Participante() {
     );
   }
   if (error || !data) {
-    console.log(error);
+   
     return null;
   }
   return (

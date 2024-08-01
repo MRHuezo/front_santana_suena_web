@@ -91,9 +91,10 @@ export default function StepComponent() {
         });
       })
       .catch((err) => {
+       
         setLoading(false);
         snackMessage({
-          message: handlerErrors("Algo ocurrió al intentar conectar al servidor, revise su conexión y vuelva a intentar.", "POST"),
+          message: "Algo ocurrió al intentar conectar al servidor, revise su conexión y vuelva a intentar.",
           variant: "error",
         });
       });

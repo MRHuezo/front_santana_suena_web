@@ -18,7 +18,7 @@ export function handlerErrors(err, type) {
           return "Ops, hubo un error desconocido";
       }
     } else {
-      console.log(err)
+      
       let status, data;
       if(err.response)  {status = err.response.status;
          data= err.response.data   ;}

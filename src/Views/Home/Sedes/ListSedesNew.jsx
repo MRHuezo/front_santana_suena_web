@@ -46,7 +46,7 @@ const ListSedesNew = ({edicion}) => {
     return <LoadingPage />;
   }
   if (error || !data) {
-    console.log(error);
+  
     return null;
   }
 
