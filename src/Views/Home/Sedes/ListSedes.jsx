@@ -38,7 +38,7 @@ const ListSedes = ({edicion}) => {
     return <LoadingPage />;
   }
   if (error || !data) {
-    console.log(error);
+    
     return null;
   }
 

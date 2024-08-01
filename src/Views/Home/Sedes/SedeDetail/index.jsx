@@ -29,7 +29,7 @@ export default function SedeDetail() {
     id_name = matches[0].params.sede;
     edicion = matches[0].params.edicion;
   }
-console.log(edicion)
+
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -42,6 +42,7 @@ console.log(edicion)
           setQuery((state) => ({ ...state, loading: false, data: res.data }));
         })
         .catch((error) => {
+         
           setQuery((state) => ({ ...state, loading: false, error }));
         
           snackMessage({
@@ -112,7 +113,7 @@ console.log(edicion)
          
           <Container maxWidth="lg">
             
-            <Competitors competitors={competitors} sede={sede} />
+            <Competitors competitors={competitors} sede={sede} edicion={edicion} />
             
               {/* <Box py={2}>
                 <Typography

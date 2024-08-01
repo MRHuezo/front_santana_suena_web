@@ -5,7 +5,7 @@ import SearchCompetitor from "./SearchCompetitor";
 import ItemCompetitor from "./ItemCompetitor";
 import { Grid } from "@mui/material";
 
-export default function Competitors({ competitors, sede }) {
+export default function Competitors({ competitors, sede, edicion }) {
   const [competitorsDinamic, setCompetitorsDinamic] = React.useState(
     competitors
   );
@@ -39,7 +39,7 @@ export default function Competitors({ competitors, sede }) {
               
                 (res.status !== "INSCRITO") ?
                 <Grid key={res._id} item>
-                  <ItemCompetitor data={res} />
+                  <ItemCompetitor data={res}   />
                 </Grid>
                 :
                 <div/>

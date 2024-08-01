@@ -47,7 +47,7 @@ export const router = createBrowserRouter([
     errorElement: <NoMatch />,
   },
   {
-    path: "/participante/:id_name",
+    path: "/participante/:id_name/:id_sede",
     element: <Participante />,
     errorElement: <NoMatch />,
   },

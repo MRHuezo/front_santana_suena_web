@@ -44,7 +44,7 @@ export default function TablaParticipantes({ search }) {
         })
         .catch((error) => {
           setCompetitors((comp) => ({ ...comp, error, loading: false }));
-          console.log(error);
+          
           snackMessage({
             message: handlerErrors("Algo ocurrió al intentar conectar al servidor, revise su conexión y vuelva a intentar.", "GET"),
             variant: "error",
@@ -58,7 +58,7 @@ export default function TablaParticipantes({ search }) {
     return <LoadingSpiner />;
   }
   if (error || (!loading && !data)) {
-    console.log(error);
+   
     return <EmptyQuery />;
   }
 

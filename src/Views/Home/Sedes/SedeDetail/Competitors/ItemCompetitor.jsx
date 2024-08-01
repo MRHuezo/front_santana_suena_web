@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
 export default function ItemCompetitor({ data }) {
   const navigate = useNavigate();
   const status = data.status;
+  
   const name_array = data.name.split(" ");
   let name = `${name_array[0]}`;
   let id_name = `${name_array[0]}`.toLocaleLowerCase();
@@ -47,7 +48,7 @@ export default function ItemCompetitor({ data }) {
 
 
   return (
-    <Box my={3} sx={{ cursor: "pointer" }} onClick={() => navigate(`/participante/${id_name}`)}>
+    <Box my={3} sx={{ cursor: "pointer" }} onClick={() => navigate(`/participante/${id_name}/${data.id_sede}`)}>
         <Box direction="row" alignItems="center" spacing={4}>
           
           <Avatar sx={{ width: 160, height: 160 }} src={data.photo} >
